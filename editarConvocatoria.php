@@ -52,7 +52,7 @@
 
         <body class="cuerpo">
             <header class="bg-info w-100 p-4">
-                <h3 class="font-italic"><i class="fas fa-users"></i>  
+                <h3 class="font-italic"><i class="fas fa-users"></i>
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -63,7 +63,7 @@
                                     echo "Administrador ";
                                 }else{
                                     if($cargo=="Secretaria"){
-                                        echo "Secretario ";                                       
+                                        echo "Secretario ";
                                     }else{
                                         echo "Usuario ";
                                     }
@@ -85,9 +85,9 @@
                             }
                         }
                     }
-                    echo $_SESSION['sesion']; 
+                    echo $_SESSION['sesion'];
                     ?>
-                
+
                 </h3>
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>

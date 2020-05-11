@@ -28,7 +28,7 @@
             $getSexo=pg_query($conn,"SELECT sexo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
             $sexo=pg_fetch_row($getSexo);
             $_SESSION['sexoUsuario']=$sexo[0];
-            
+
 
             header("Location:CRUD_publicaciones.php");
         }else{

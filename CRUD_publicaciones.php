@@ -21,20 +21,20 @@
         text-decoration:none;
         }
     </style>
-    <!-- 
+    <!--
     <script src="js/all.min.js"></script>
     -->
     <!--
         Iconos Onlinea con la respectiva cuenta
     -->
         <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
-    
+
 </head>
 
 <body>
     <header class="bg-info w-100 p-4">
-        <h3 class="font-italic"><i class="fas fa-users"></i>  
-            <?php 
+        <h3 class="font-italic"><i class="fas fa-users"></i>
+            <?php
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
                     if($sexo=="Hombre"){
@@ -65,14 +65,14 @@
                 }else{
                     echo "Bienvenid@";
                 }
-            
-            echo $_SESSION['sesion']; 
-            
+
+            echo $_SESSION['sesion'];
+
             ?>
         </h3>
-        
-        
-        
+
+
+
         <a href="cambiarEmailPassword.php" class="float-right text-dark">Cambiar Contraseña y/o Password</a>
         <br>
         <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
@@ -86,7 +86,7 @@
         echo "An error occurred.\n";
         exit;
     }
-    
+
     echo "<main class='container mt-5'>
           <div class='table-responsive'>
             <table class='table table-hover'>
@@ -132,14 +132,14 @@
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
         </div>
         <div class="text-center">
-            <h6>Sitios Relacionados : 
+            <h6>Sitios Relacionados :
                 <a href="http://www.umss.edu.bo/">UMSS</a>
                 <a href="http://websis.umss.edu.bo/"> | WEBSISS</a>
                 <a href="https://www.facebook.com/UmssBolOficial"> | facebook</a>
                 <a href="https://twitter.com/UmssBolOficial"> | Twitter</a>
                 <a href="https://www.instagram.com/umssboloficial/"> | Instagram</a>
                 <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/"> | Linkedin</a>
-                <a href="https://www.youtube.com/universidadmayordesansimon"> | Youtube</a>                
+                <a href="https://www.youtube.com/universidadmayordesansimon"> | Youtube</a>
             </h6>
         </div>
         <div class="text-center">
