@@ -24,7 +24,7 @@
 
                 $enlace= htmlspecialchars($upload->get('ObjectURL'));
 		echo $enlace;
-		
+
                 //$nombreArchivo=eliminar_acentos($_FILES['archivo']['name']);
                 //$rutaTemporal=$_FILES['archivo']['tmp_name'];
                 //Datos para la base de datos sin decodificar caracteres
@@ -44,81 +44,78 @@
                     $FechaHoraExpiracion=date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 year"));
                 }
                 $codigoFecha=date("Ymdhis");
-                
+
                 //$direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
-	
+
                 $direccionBaseDeDatos=$enlace;
 
                 //$myVariable=utf8_encode($nombreArchivo);
                 require_once('conexion.php');
                 $conn=conectarBaseDeDatos();
-                
+
 		echo "$nombreDeConvocatoria.<br>";
                 echo "$fechaActual.<br>";
                 echo "$direccionBaseDeDatos.<br>";
                 echo "$descripcionConvocatoria.<br>";
                 echo "$FechaHoraExpiracion.<br>";
 
-                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion) 
+                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion)
                 VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion','$tipoConvocatoria','$departamento','$gestion')")){
                     echo "Exito";
                 }else{
 			     echo "No se ha podido conectar: ".pg_last_error();
 		}
                 header("Location:CRUD_publicaciones.php");
-		
+
                 // fin de mi codigo
             }catch(Exception $e) {
                 echo $e;
             }
-        }          
+        }
 
-        
+
 
 function eliminar_acentos($cadena){
-		
+
 		//Reemplazamos la A y a
 		$cadena = str_replace(
 		array('Á', 'À', 'Â', 'Ä', 'á', 'à', 'ä', 'â', 'ª'),
 		array('A', 'A', 'A', 'A', 'a', 'a', 'a', 'a', 'a'),
 		$cadena
 		);
- 
+
 		//Reemplazamos la E y e
 		$cadena = str_replace(
 		array('É', 'È', 'Ê', 'Ë', 'é', 'è', 'ë', 'ê'),
 		array('E', 'E', 'E', 'E', 'e', 'e', 'e', 'e'),
 		$cadena );
- 
+
 		//Reemplazamos la I y i
 		$cadena = str_replace(
 		array('Í', 'Ì', 'Ï', 'Î', 'í', 'ì', 'ï', 'î'),
 		array('I', 'I', 'I', 'I', 'i', 'i', 'i', 'i'),
 		$cadena );
- 
+
 		//Reemplazamos la O y o
 		$cadena = str_replace(
 		array('Ó', 'Ò', 'Ö', 'Ô', 'ó', 'ò', 'ö', 'ô'),
 		array('O', 'O', 'O', 'O', 'o', 'o', 'o', 'o'),
 		$cadena );
- 
+
 		//Reemplazamos la U y u
 		$cadena = str_replace(
 		array('Ú', 'Ù', 'Û', 'Ü', 'ú', 'ù', 'ü', 'û'),
 		array('U', 'U', 'U', 'U', 'u', 'u', 'u', 'u'),
 		$cadena );
- 
+
 		//Reemplazamos la N, n, C y c
 		$cadena = str_replace(
 		array('Ñ', 'ñ', 'Ç', 'ç'),
 		array('N', 'n', 'C', 'c'),
 		$cadena
 		);
-		
+
 		return $cadena;
 	}
 
 ?>
-
-
-

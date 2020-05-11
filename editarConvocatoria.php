@@ -10,7 +10,7 @@
      require_once('conexion.php');
      $conn=conectarBaseDeDatos();
     if(isset($_GET['id'])){
-        $id=$_GET['id'];  
+        $id=$_GET['id'];
         $consulta=pg_query($conn,"SELECT titulo,descripcion_convocatoria,fecha,direcccion_pdf,id_convocatoria FROM convocatoria WHERE id_convocatoria='$id'");
         if (!$consulta) {
             echo "An error occurred.\n";
@@ -67,25 +67,25 @@
                 <textarea id="descripcion" rows="10" cols="190" name="descripcion" style="resize:none; width:100%;"><?php echo $row[1] ?></textarea>
                 <br>
                 <br>
-                <input type="file" name="archivo" id="archivo" accept='.pdf'> 
+                <input type="file" name="archivo" id="archivo" accept='.pdf'>
                 <br>
                 <br>
                 <select id="lista1" name="lista1" class="mr-2">
 				<option value="ConvocatoriaDocencia">Convocatoria de Docencia</option>
 				<option value="ConvocatoriaAuxiliar">Convocatoria de Auxiliar</option>
-				
+
 		</select>
 
         <select id="lista2" name="lista2" class="mr-2">
 				<option value="Convocatoria Sistemas">Departamento de Sistemas/Informatica</option>
 				<option value="Convocatoria de biologia">Departamento De Biologia</option>
                 <option value="Convocatoria de fisica">Departamento De Fisica</option>
-				
+
 		</select>
 
         <select id="lista3" name="lista3" class="mr-2">
 				<option value="gestion I">Gestion I </option>
-				<option value="Gestion II">Gestion II</option>	
+				<option value="Gestion II">Gestion II</option>
 		</select>
                 <br>
                 <br>
@@ -103,14 +103,14 @@
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
         </div>
         <div class="text-center">
-            <h6>Sitios Relacionados : 
+            <h6>Sitios Relacionados :
                 <a href="http://www.umss.edu.bo/" target="_blank">UMSS</a>
                 <a href="http://websis.umss.edu.bo/" target="_blank"> | WEBSISS</a>
                 <a href="https://www.facebook.com/UmssBolOficial" target="_blank"> | facebook</a>
                 <a href="https://twitter.com/UmssBolOficial" target="_blank"> | Twitter</a>
                 <a href="https://www.instagram.com/umssboloficial/" target="_blank"> | Instagram</a>
                 <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/" target="_blank"> | Linkedin</a>
-                <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>                
+                <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>
             </h6>
         </div>
         <div class="text-center">

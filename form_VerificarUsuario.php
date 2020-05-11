@@ -2,7 +2,7 @@
     if((strlen($_POST['IdUsuaario'])>0) && (strlen($_POST['IdPassword'])>0)){
         $usuario=$_POST['IdUsuaario'];
         $pass=$_POST['IdPassword'];
-        /*ingresar sin conexion a la base de datos    
+        /*ingresar sin conexion a la base de datos
         if($usuario=='secretaria@gmail.com' && $pass== '123'){
             header("Location:secretaria.php");
         }else{
@@ -23,7 +23,7 @@
             echo "Error al autentificar";
             header("Location:index.php?error=x");
         }
-    }else{     
+    }else{
     echo "Eror al autentificar";
     header("Location:index.php?error=y");
     }

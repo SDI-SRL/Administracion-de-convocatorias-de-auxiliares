@@ -16,7 +16,7 @@
         }
     ?>
 
-    <header>    
+    <header>
         <nav class="navegador d-block h-50">
             <ul class="menu">
                 <li><a href="">Inicio</a></li>
@@ -33,7 +33,7 @@
                 <li><a href="login.php">Inicio session</a></li>
                 <div id="contenedorDeBusqueda" class="bg-danger float-right m-1 p-1">
                     <form action=""  class="d-flex" method="get">
-                        <input  type="search" name="buscadorConvocatorias" id="buscadorConvocatorias" placeholder="&#8981;"> 
+                        <input  type="search" name="buscadorConvocatorias" id="buscadorConvocatorias" placeholder="&#8981;">
                         <input  type="submit" value="Buscador">
                     </form>
                 </div>
@@ -45,7 +45,7 @@
     <section>
         <div class="d-block w-75 mx-auto">
             <h2 class="text-center" >Publicaciones de Convocatorias</h2>
-        
+
             <?php
                 require_once('conexion.php');
                 $conn=conectarBaseDeDatos();
@@ -59,11 +59,11 @@
                 }
                 $variable=pg_num_rows($consulta);
                 if($variable>0){
-                    while($row = pg_fetch_row($consulta)){                
+                    while($row = pg_fetch_row($consulta)){
                         $titulo=$row[0];
                         $descripcion=$row[1];
                         $fecha=$row[2];
-                        $direcccion_pdf=$row[3];                 
+                        $direcccion_pdf=$row[3];
                         echo "<h2>$titulo</h2>";
                         echo "<h5>Descripcion del documento</h5>";
                         echo "<h6>$descripcion</h6>";
@@ -83,14 +83,14 @@
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
         </div>
         <div class="text-center">
-            <h6>Sitios Relacionados : 
+            <h6>Sitios Relacionados :
                 <a href="http://www.umss.edu.bo/" target="_blank">UMSS</a>
                 <a href="http://websis.umss.edu.bo/" target="_blank"> | WEBSISS</a>
                 <a href="https://www.facebook.com/UmssBolOficial" target="_blank"> | facebook</a>
                 <a href="https://twitter.com/UmssBolOficial" target="_blank"> | Twitter</a>
                 <a href="https://www.instagram.com/umssboloficial/" target="_blank"> | Instagram</a>
                 <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/" target="_blank"> | Linkedin</a>
-                <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>                
+                <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>
             </h6>
         </div>
         <div class="text-center">
