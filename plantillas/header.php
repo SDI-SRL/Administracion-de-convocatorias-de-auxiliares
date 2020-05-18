@@ -15,7 +15,7 @@
             <li><a href="login.php">Inicio session</a></li>
             <div id="contenedorDeBusqueda" class="bg-danger float-right m-1 p-1">
                 <form action=""  class="d-flex" method="get">
-                    <input  type="search" name="buscadorConvocatorias" id="buscadorConvocatorias" placeholder="&#8981;"> 
+                    <input  type="search" name="buscadorConvocatorias" id="buscadorConvocatorias" placeholder="&#8981;">
                     <input  type="submit" value="Buscador">
                 </form>
             </div>

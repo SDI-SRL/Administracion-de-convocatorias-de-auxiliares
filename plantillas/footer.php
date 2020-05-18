@@ -4,14 +4,14 @@
         <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
     </div>
     <div class="text-center">
-        <h6>Sitios Relacionados : 
+        <h6>Sitios Relacionados :
             <a href="http://www.umss.edu.bo/" target="_blank">UMSS</a>
             <a href="http://websis.umss.edu.bo/" target="_blank"> | WEBSISS</a>
             <a href="https://www.facebook.com/UmssBolOficial" target="_blank"> | facebook</a>
             <a href="https://twitter.com/UmssBolOficial" target="_blank"> | Twitter</a>
             <a href="https://www.instagram.com/umssboloficial/" target="_blank"> | Instagram</a>
             <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/" target="_blank"> | Linkedin</a>
-            <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>                
+            <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>
         </h6>
     </div>
     <div class="text-center">
