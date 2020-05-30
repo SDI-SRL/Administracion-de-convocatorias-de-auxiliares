@@ -5,37 +5,59 @@
         echo "Error al autentificar";
         header("Location:index.php?error=x");
     }
-    $nombreArchivo=eliminar_acentos($_FILES['archivo']['name']);
-        $rutaTemporal=$_FILES['archivo']['tmp_name'];
-        //Datos para la base de datos sin decodificar caracteres
-        $nombreArchivoBDD=$_FILES['archivo']['name'];
-        $nombreDeConvocatoria=$_POST['titulo'];
-        $descripcionConvocatoria=$_POST['descripcion'];
-        $fechaExpiracion=$_POST['fechaDeExpiracion'];
-        $horaExpiracion=$_POST['horaDeExpiracion'];
-        $FechaHoraExpiracion= $fechaExpiracion." ".$horaExpiracion;
+    // Agregar a Amazon Aws3
+    require('vendor/autoload.php');
+    // this will simply read AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY from env vars
+    $s3 = new Aws\S3\S3Client([
+        'version'  => '2006-03-01',
+        'region'   => 'us-east-1',
+    ]);
+    $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+    
+    $enlace=htmlspecialchars($upload->get('ObjectURL'));
+        if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
+            // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
+            try {
+                // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
+                $upload = $s3->upload($bucket, $_FILES['archivo']['name'], fopen($_FILES['archivo']['tmp_name'], 'rb'), 'public-read');
+                //Mi Codigo
 
-        date_default_timezone_set('America/La_Paz');
-        $fechaActual=date("Y-m-d H:i:s");
-        if(empty($fechaExpiracion) || empty($horaExpiracion)){
-            $FechaHoraExpiracion=date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 year"));
-        }
-        $codigoFecha=date("Ymdhis");
-        $direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
-        if(file_exists('Publicaciones')){             
-            $myVariable=utf8_encode($nombreArchivo);
-            if(move_uploaded_file($rutaTemporal,'Publicaciones/'.$codigoFecha.$nombreArchivo)){                    
+                $enlace= htmlspecialchars($upload->get('ObjectURL'));
+
+                //$nombreArchivo=eliminar_acentos($_FILES['archivo']['name']);
+                //$rutaTemporal=$_FILES['archivo']['tmp_name'];
+                //Datos para la base de datos sin decodificar caracteres
+                //$nombreArchivoBDD=$_FILES['archivo']['name'];
+                $nombreDeConvocatoria=$_POST['titulo'];
+                $descripcionConvocatoria=$_POST['descripcion'];
+                $fechaExpiracion=$_POST['fechaDeExpiracion'];
+                $horaExpiracion=$_POST['horaDeExpiracion'];
+                $FechaHoraExpiracion= $fechaExpiracion." ".$horaExpiracion;
+
+                date_default_timezone_set('America/La_Paz');
+                $fechaActual=date("Y-m-d H:i:s");
+                if(empty($fechaExpiracion) || empty($horaExpiracion)){
+                    $FechaHoraExpiracion=date("Y-m-d H:i:s",strtotime($fechaActual."+ 1 year"));
+                }
+                $codigoFecha=date("Ymdhis");
+                
+                //$direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
+                $direccionBaseDeDatos=$enlace;
+
+                //$myVariable=utf8_encode($nombreArchivo);
                 require_once('conexion.php');
                 $conn=conectarBaseDeDatos();
                 pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion) VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion')");
-                //echo "Se ha añadido el registro exitosamente";
+                        //echo "Se ha añadido el registro exitosamente";
                 header("Location:CRUD_publicaciones.php");
-            }else{
-                echo "No se pudo gradar el archivo";
+
+                // fin de mi codigo
+            }catch(Exception $e) {
+                echo $e;
             }
-        }else{
-            echo "Carpeta Publicaciones no existe";
-        }
+        }          
+
+        
 
 function eliminar_acentos($cadena){
 		
