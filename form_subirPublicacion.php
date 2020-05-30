@@ -23,7 +23,8 @@
                 //Mi Codigo
 
                 $enlace= htmlspecialchars($upload->get('ObjectURL'));
-
+		echo $enlace;
+		
                 //$nombreArchivo=eliminar_acentos($_FILES['archivo']['name']);
                 //$rutaTemporal=$_FILES['archivo']['tmp_name'];
                 //Datos para la base de datos sin decodificar caracteres
@@ -42,6 +43,7 @@
                 $codigoFecha=date("Ymdhis");
                 
                 //$direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
+		/**
                 $direccionBaseDeDatos=$enlace;
 
                 //$myVariable=utf8_encode($nombreArchivo);
@@ -50,7 +52,7 @@
                 pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion) VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion')");
                         //echo "Se ha añadido el registro exitosamente";
                 header("Location:CRUD_publicaciones.php");
-
+		*/
                 // fin de mi codigo
             }catch(Exception $e) {
                 echo $e;
