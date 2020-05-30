@@ -72,8 +72,9 @@
 
                 if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion) VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion')")){
                     echo "Exito";
-
-                }
+                }else{
+			echo "No se ha podido conectar: ".pg_last_error();
+		}
                 //header("Location:CRUD_publicaciones.php");
 		
                 // fin de mi codigo
