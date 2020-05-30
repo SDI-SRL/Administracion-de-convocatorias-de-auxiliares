@@ -75,7 +75,7 @@
                 }else{
 			echo "No se ha podido conectar: ".pg_last_error();
 		}
-                //header("Location:CRUD_publicaciones.php");
+                header("Location:CRUD_publicaciones.php");
 		
                 // fin de mi codigo
             }catch(Exception $e) {
