@@ -56,7 +56,7 @@
                 $codigoFecha=date("Ymdhis");
                 
                 //$direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
-		/**
+	
                 $direccionBaseDeDatos=$enlace;
 
                 //$myVariable=utf8_encode($nombreArchivo);
@@ -65,7 +65,7 @@
                 pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion) VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion')");
                         //echo "Se ha añadido el registro exitosamente";
                 header("Location:CRUD_publicaciones.php");
-		*/
+		
                 // fin de mi codigo
             }catch(Exception $e) {
                 echo $e;
@@ -116,7 +116,7 @@ function eliminar_acentos($cadena){
 		
 		return $cadena;
 	}
-
+	*/
 ?>
 
 
