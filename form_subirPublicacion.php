@@ -14,7 +14,7 @@
     ]);
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
     
-    $enlace=htmlspecialchars($upload->get('ObjectURL'));
+    //$enlace=htmlspecialchars($upload->get('ObjectURL'));
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
             // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
             try {
