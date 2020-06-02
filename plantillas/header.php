@@ -1,7 +1,7 @@
 <header>    
     <nav class="navegador d-block h-50">
         <ul class="menu">
-            <li><a href="">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="">Personal</a></li>
             <li> Descripcion
                 <ul class="submenu">
