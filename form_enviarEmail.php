@@ -27,7 +27,7 @@
             echo $response->body();
 
 
-            header("Location:login.php?dato=x");
+            //header("Location:login.php?dato=x");
         }else{
             header("Location:login.php?dato=y");
         }
