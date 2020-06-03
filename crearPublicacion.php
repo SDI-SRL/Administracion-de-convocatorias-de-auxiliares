@@ -39,21 +39,46 @@
         <br>
         <br>
         <select id="lista1" name="lista1" class="mr-2">
-				<option value="ConvocatoriaDocencia">Convocatoria de Docencia</option>
-				<option value="ConvocatoriaAuxiliar">Convocatoria de Auxiliar</option>
+                <option value="Departamentos en general">General</option>
+				<option value="Convocatoria de Docencia">Convocatoria de Docencia</option>
+				<option value="Convocatoria de Auxiliar">Convocatoria de Auxiliar</option>
 				
 		</select>
 
         <select id="lista2" name="lista2" class="mr-2">
-				<option value="Convocatoria Sistemas">Departamento de Sistemas/Informatica</option>
-				<option value="Convocatoria de biologia">Departamento De Biologia</option>
+                <option value="Departamentos en general">General</option>
+                <option value="Departamento De Biologia">Departamento De Biologia</option>
+                <option value="Departamento de Ingeniería Eléctrica y Electrónica">Departamento de Ingeniería Eléctrica y Electrónica</option>
+                <option value="Departamento de Química">Departamento de Química</option>
                 <option value="Convocatoria de fisica">Departamento De Fisica</option>
-				
+				<option value="Departamento de Sistemas/Informatica">Departamento de Sistemas/Informatica</option>
+                <option value="Departamento de Industrias">Departamento de Industrias</option>
+                <option value="Departamento de Ingeniería mecánica – electromecánica (DIME)">Departamento de Ingeniería mecánica – electromecánica (DIME)</option>
+                <option value="Departamento de Matemáticas">Departamento de Matemáticas</option>
+                <option value="Departamento de Ingeniería Civil">Departamento de Ingeniería Civil</option>              
 		</select>
 
         <select id="lista3" name="lista3" class="mr-2">
-				<option value="gestion I">Gestion I </option>
-				<option value="Gestion II">Gestion II</option>	
+            <?php
+                date_default_timezone_set('America/La_Paz');
+                $mes=date('m');
+                $year=date('Y');
+                if($mes<6){
+                    $aux1="Gestion I-".$year;
+                    $aux2="Gestion II-".$year;
+                    echo "<option value='gestion general'>General</option>
+				          <option value='$aux1'>$aux1</option>
+				          <option value='$aux1'>$aux12</option>";
+                }else{
+                    $year_actual = date("Y");
+                    $yearProx=date("Y",strtotime($fecha_actual."+ 1 year"));
+                    $aux1="Gestion II-".$year;
+                    $aux2="Gestion I-".$yearProx;
+                    echo "<option value='gestion general'>General</option>
+				          <option value='$aux1'>$aux1</option>
+				          <option value='$aux2'>$aux2</option>";
+                }
+            ?>
 		</select>
         <br>
         <br>
