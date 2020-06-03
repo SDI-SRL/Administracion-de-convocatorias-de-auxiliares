@@ -13,22 +13,8 @@
         'region'   => 'us-east-2',
     ]);
     $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-	/*
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    	echo "Correcto 1";
-    }
-    if(isset($_FILES['archivo'])){
-    	echo "Correcto 2";
-    }
-    if($_FILES['archivo']['error'] == UPLOAD_ERR_OK){
-    	echo "Correcto 3";
-    }
-    if(is_uploaded_file($_FILES['archivo']['tmp_name'])){
-    	echo "Correcto 4";
-    }
-    
-    */
-    //$enlace=htmlspecialchars($upload->get('ObjectURL'));
+
+
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
             // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
             try {
@@ -48,6 +34,9 @@
                 $fechaExpiracion=$_POST['fechaDeExpiracion'];
                 $horaExpiracion=$_POST['horaDeExpiracion'];
                 $FechaHoraExpiracion= $fechaExpiracion." ".$horaExpiracion;
+		$tipoConvocatoria=$_POST['lista1'];
+                $departamento=$_POST['lista2'];
+                $gestion=$_POST['lista3'];
 
                 date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
@@ -70,10 +59,11 @@
                 echo "$descripcionConvocatoria.<br>";
                 echo "$FechaHoraExpiracion.<br>";
 
-                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion) VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion')")){
+                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion) 
+                VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion','$tipoConvocatoria','$departamento','$gestion')")){
                     echo "Exito";
                 }else{
-			echo "No se ha podido conectar: ".pg_last_error();
+			     echo "No se ha podido conectar: ".pg_last_error();
 		}
                 header("Location:CRUD_publicaciones.php");
 		
