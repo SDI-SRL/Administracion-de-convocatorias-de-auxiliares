@@ -4,17 +4,17 @@
         $correDestino=$_POST['reenvio_Pass'];
         require_once('conexion.php');
         $conn=conectarBaseDeDatos();
-        $consulta=pg_query($conn,"SELECT * FROM ADMINISTRATIVO WHERE correo_Administrativo='$correDestino'");
+        $consulta=pg_query($conn,"SELECT * FROM ADMINISTRATIVO WHERE UPPER(correo_Administrativo)=UPPER('$correDestino')");
         if(pg_fetch_row($consulta)>0){
             require 'vendor/autoload.php'; //
 
-            $getPassword=pg_query($conn,"SELECT password_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$correDestino'");
+            $getPassword=pg_query($conn,"SELECT password_administrativo FROM ADMINISTRATIVO WHERE UPPER(correo_Administrativo)=UPPER('$correDestino')");
             $resultado=pg_fetch_row($getPassword);
-            $destino=$resultado[0];
+            $mensaje=$resultado[0];
 
-            $from = new SendGrid\Email(null, "ConvocatoriaUMSS@email.com");
+            $from = new SendGrid\Email(null,"ConvocatoriaUMSS@email.com");
             $subject = "Recuperacion de password ";
-            $to = new SendGrid\Email(null, $destino);
+            $to = new SendGrid\Email(null,$correDestino);
             $content = new SendGrid\Content("text/html", "<p>Hemos visto que ha tenido problemas para recordar su password <h3>$mensaje</h3></p>");
             $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
