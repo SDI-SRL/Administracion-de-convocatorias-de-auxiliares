@@ -29,7 +29,7 @@
 
             header("Location:login.php?dato=x");
         }else{
-            header("Location:login.php?dato=y");
+            header("Location:login.php?dato=y ");
         }
     }else{
         header("Location:login.php?dato=z");
