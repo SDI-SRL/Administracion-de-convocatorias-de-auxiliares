@@ -11,10 +11,13 @@
         */
         require_once('conexion.php');
         $conn=conectarBaseDeDatos();
-        $consulta=pg_query($conn,"SELECT * FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario' AND password_administrativo='$pass'");
-        if(pg_fetch_row($consulta)>0){
+        //$consulta=pg_query($conn,"SELECT * FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario' AND password_administrativo='$pass'");
+        $pasword=pg_query($conn,"SELECT password_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
+        $str = pg_query("SELECT password_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
+        $arr = pg_fetch_array($str);
+        if(password_verify($pass, $arr['password_administrativo'])){
             //para iniciar sesion
-            $getnombre=pg_query($conn,"SELECT nombre_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario' AND password_administrativo='$pass'");
+            $getnombre=pg_query($conn,"SELECT nombre_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
             $row=pg_fetch_row($getnombre);
             session_start();
             $_SESSION['sesion']=$row[0];
