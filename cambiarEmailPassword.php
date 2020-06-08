@@ -49,11 +49,11 @@
 
         <div class="from-group mx-5">
             <label for="nuevoPassword">Escriba su nueva contraseña: </label>
-            <input class="form-control" type="password" name="nuevoPassword" id="nuevoPassword" value="<?php echo $_SESSION['passoword'];?>">
+            <input class="form-control" type="password" name="nuevoPassword" pattern="^[a-z0-9_-]{3,30}" id="nuevoPassword" value="<?php echo $_SESSION['passoword'];?>">
         </div>
         <div class="form-group mx-5">
             <label for="copiaNuevoPassword">Reescriba su nueva contraseña: </label>
-            <input class="form-control" type="password" name="copiaNuevoPassword" id="copiaNuevoPassword" value="<?php echo $_SESSION['passoword']?>">
+            <input class="form-control" type="password" name="copiaNuevoPassword" id="copiaNuevoPassword" pattern="^[a-z0-9_-]{3,30}" value="<?php echo $_SESSION['passoword']?>">
         </div>
         <div class="row justify-content-center">    
             <input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >
