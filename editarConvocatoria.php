@@ -52,7 +52,43 @@
 
         <body class="cuerpo">
             <header class="bg-info w-100 p-4">
-                <h4 class="font-italic"><i class="fas fa-users"></i>  Bienvenda <?php echo $_SESSION['sesion']; ?></h4>
+                <h3 class="font-italic"><i class="fas fa-users"></i>  
+                <?php
+                    if(isset($_SESSION['sexoUsuario'])){
+                        $sexo=$_SESSION['sexoUsuario'];
+                        if($sexo=="Hombre"){
+                            if(isset($_SESSION['cargoUsuario'])){
+                                $cargo=$_SESSION['cargoUsuario'];
+                                if($cargo=="Administrador"){
+                                    echo "Administrador ";
+                                }else{
+                                    if($cargo=="Secretaria"){
+                                        echo "Secretario ";                                       
+                                    }else{
+                                        echo "Usuario ";
+                                    }
+                                }
+                            }
+                        }else{
+                            if(isset($_SESSION['cargoUsuario'])){
+                                $cargo=$_SESSION['cargoUsuario'];
+                                if($cargo=="Administrador"){
+                                    echo "Administradora ";
+                                }else{
+                                    if($cargo=="Secretaria"){
+                                        echo "Secretaria ";
+                                    }
+                                    else{
+                                        echo "Usuaria ";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    echo $_SESSION['sesion']; 
+                    ?>
+                
+                </h3>
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
                 <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>

@@ -33,16 +33,54 @@
 
 <body>
     <header class="bg-info w-100 p-4">
-        <h4 class="font-italic"><i class="fas fa-users"></i>  Bienvenda <?php echo $_SESSION['sesion']; ?></h4>
-        <!-- CambiarContraseña-->
+        <h3 class="font-italic"><i class="fas fa-users"></i>  
+            <?php 
+                if(isset($_SESSION['sexoUsuario'])){
+                    $sexo=$_SESSION['sexoUsuario'];
+                    if($sexo=="Hombre"){
+                        echo "Bienvenido ";
+                        if(isset($_SESSION['cargoUsuario'])){
+                            $cargo=$_SESSION['cargoUsuario'];
+                            if($cargo=="Administrador"){
+                                echo "Administrador ";
+                            }else{
+                                if($cargo=="Secretaria"){
+                                    echo "Secretario ";
+                                }
+                            }
+                        }
+                    }else{
+                        echo "Bienvenida ";
+                        if(isset($_SESSION['cargoUsuario'])){
+                            $cargo=$_SESSION['cargoUsuario'];
+                            if($cargo=="Administrador"){
+                                echo "Administradora ";
+                            }else{
+                                if($cargo=="Secretaria"){
+                                    echo "Secretaria ";
+                                }
+                            }
+                        }
+                    }
+                }else{
+                    echo "Bienvenid@";
+                }
+            
+            echo $_SESSION['sesion']; 
+            
+            ?>
+        </h3>
+        
+        
+        
         <a href="cambiarEmailPassword.php" class="float-right text-dark">Cambiar Contraseña y/o Password</a>
         <br>
         <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
     </header>
     <?php
+    //Consulta para ordenar por fecha
     require_once('conexion.php');
     $conn=conectarBaseDeDatos();
-    //Consulta para ordenar por fecha
     $consulta=pg_query($conn,"SELECT titulo,descripcion_convocatoria,fecha,direcccion_pdf,id_convocatoria,fecha_expiracion FROM convocatoria WHERE activo='true' ORDER BY fecha desc");
     if (!$consulta) {
         echo "An error occurred.\n";
