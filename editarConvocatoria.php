@@ -97,7 +97,7 @@
             <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
             <h1>Editar Convocatoria</h1>
             <form action="editarConvocatoria.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-                <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" required value='<?php echo $row[0] ?>'>
+                <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" pattern="[a-zA-Z0-9 ]{2,200}" title="Solo puede ingresar numeros y letras" required value='<?php echo $row[0] ?>'>
                 <br>
                 <br>
                 <textarea id="descripcion" rows="10" cols="190" name="descripcion" style="resize:none; width:100%;"><?php echo $row[1] ?></textarea>
