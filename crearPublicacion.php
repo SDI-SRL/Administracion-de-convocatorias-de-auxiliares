@@ -63,7 +63,7 @@
     <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
     <h1 class="text-center">Publicar Convocatoria</h1>
     <form action="form_subirPublicacion.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z ]{2,200}">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,200}" title="Solo puede ingresar numeros y letras">
         <br>
         <br>
         <textarea id="descripcion" rows="9" name="descripcion"  style="resize:none; width:100%;"> </textarea>
