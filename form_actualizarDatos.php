@@ -18,7 +18,7 @@
     $bandera=true;
     if($nuevoPass!=$CpyNuevoPass){
         $bandera=false;
-        header("Location:cambiarEmailPassword.php?problem=x");        
+        header("Location:cambiarEmailPassword.php?problem=x");
     }else{
         if($nuevoPass!=$_SESSION['passoword']){
             //Crear Consulta para actualizar el password
@@ -30,7 +30,7 @@
             //return pg_execute($conn, $sql);
         }
     }
-    
+
     if($nuevoCorreo!=$_SESSION['correo']){
         //crear Consulta para actualizar correo
         $sql2= "UPDATE administrativo SET correo_administrativo = '".$nuevoCorreo."' WHERE correo_administrativo = '".$_SESSION['correo']."'";
@@ -46,6 +46,6 @@
     if($bandera){
         header("Location:CRUD_publicaciones.php");
     }
-        
-    
+
+
 ?>

@@ -52,7 +52,43 @@
 
         <body class="cuerpo">
             <header class="bg-info w-100 p-4">
-                <h4 class="font-italic"><i class="fas fa-users"></i>  Bienvenda <?php echo $_SESSION['sesion']; ?></h4>
+                <h3 class="font-italic"><i class="fas fa-users"></i>  
+                <?php
+                    if(isset($_SESSION['sexoUsuario'])){
+                        $sexo=$_SESSION['sexoUsuario'];
+                        if($sexo=="Hombre"){
+                            if(isset($_SESSION['cargoUsuario'])){
+                                $cargo=$_SESSION['cargoUsuario'];
+                                if($cargo=="Administrador"){
+                                    echo "Administrador ";
+                                }else{
+                                    if($cargo=="Secretaria"){
+                                        echo "Secretario ";                                       
+                                    }else{
+                                        echo "Usuario ";
+                                    }
+                                }
+                            }
+                        }else{
+                            if(isset($_SESSION['cargoUsuario'])){
+                                $cargo=$_SESSION['cargoUsuario'];
+                                if($cargo=="Administrador"){
+                                    echo "Administradora ";
+                                }else{
+                                    if($cargo=="Secretaria"){
+                                        echo "Secretaria ";
+                                    }
+                                    else{
+                                        echo "Usuaria ";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    echo $_SESSION['sesion']; 
+                    ?>
+                
+                </h3>
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
                 <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
@@ -61,7 +97,7 @@
             <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
             <h1>Editar Convocatoria</h1>
             <form action="editarConvocatoria.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
-                <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" required value='<?php echo $row[0] ?>'>
+                <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" pattern="[a-zA-Z0-9 ]{2,200}" title="Solo puede ingresar numeros y letras" required value='<?php echo $row[0] ?>'>
                 <br>
                 <br>
                 <textarea id="descripcion" rows="10" cols="190" name="descripcion" style="resize:none; width:100%;"><?php echo $row[1] ?></textarea>

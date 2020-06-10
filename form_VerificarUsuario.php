@@ -21,6 +21,15 @@
             $_SESSION['passoword']=$pass;
             $_SESSION['telefono']=$row2[0];
 
+            $getCargo=pg_query($conn,"SELECT cargo_administrativo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
+            $cargo=pg_fetch_row($getCargo);
+            $_SESSION['cargoUsuario']=$cargo[0];
+
+            $getSexo=pg_query($conn,"SELECT sexo FROM ADMINISTRATIVO WHERE correo_Administrativo='$usuario'");
+            $sexo=pg_fetch_row($getSexo);
+            $_SESSION['sexoUsuario']=$sexo[0];
+
+
             header("Location:CRUD_publicaciones.php");
         }else{
             echo "Error al autentificar";
