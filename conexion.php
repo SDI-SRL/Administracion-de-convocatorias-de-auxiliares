@@ -6,6 +6,10 @@
         return $connexion;
     }
 
+
+
+
+    
     //Connecion mediante localHost OmarCasasasolas
     /*
     function conectarBaseDeDatos(){
