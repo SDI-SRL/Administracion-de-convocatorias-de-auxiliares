@@ -23,16 +23,20 @@
                 //Mi Codigo
 
                 $enlace= htmlspecialchars($upload->get('ObjectURL'));
+		echo $enlace;
+
+                //$nombreArchivo=eliminar_acentos($_FILES['archivo']['name']);
+                //$rutaTemporal=$_FILES['archivo']['tmp_name'];
+                //Datos para la base de datos sin decodificar caracteres
+                //$nombreArchivoBDD=$_FILES['archivo']['name'];
                 $nombreDeConvocatoria=$_POST['titulo'];
                 $descripcionConvocatoria=$_POST['descripcion'];
                 $fechaExpiracion=$_POST['fechaDeExpiracion'];
                 $horaExpiracion=$_POST['horaDeExpiracion'];
                 $FechaHoraExpiracion= $fechaExpiracion." ".$horaExpiracion;
-		        $tipoConvocatoria=$_POST['lista1'];
+		$tipoConvocatoria=$_POST['lista1'];
                 $departamento=$_POST['lista2'];
                 $gestion=$_POST['lista3'];
-
-                $autor=$_SESSION['sesion'];
 
                 date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
@@ -41,24 +45,26 @@
                 }
                 $codigoFecha=date("Ymdhis");
 
+                //$direccionBaseDeDatos=('Publicaciones/'.$codigoFecha.$nombreArchivo);
+
                 $direccionBaseDeDatos=$enlace;
 
+                //$myVariable=utf8_encode($nombreArchivo);
                 require_once('conexion.php');
                 $conn=conectarBaseDeDatos();
 
-		        echo "$nombreDeConvocatoria.<br>";
+		echo "$nombreDeConvocatoria.<br>";
                 echo "$fechaActual.<br>";
                 echo "$direccionBaseDeDatos.<br>";
                 echo "$descripcionConvocatoria.<br>";
                 echo "$FechaHoraExpiracion.<br>";
 
-                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion,creador)
-                VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion','$tipoConvocatoria','$departamento','$gestion','$autor')")){
+                if(pg_query($conn,"INSERT INTO convocatoria(titulo,fecha,direcccion_pdf,descripcion_convocatoria,activo,fecha_expiracion,tipo_convocatoria,departamento,gestion)
+                VALUES ('$nombreDeConvocatoria','$fechaActual','$direccionBaseDeDatos','$descripcionConvocatoria',TRUE,'$FechaHoraExpiracion','$tipoConvocatoria','$departamento','$gestion')")){
                     echo "Exito";
                 }else{
 			     echo "No se ha podido conectar: ".pg_last_error();
-                } 
-                
+		}
                 header("Location:CRUD_publicaciones.php");
 
                 // fin de mi codigo

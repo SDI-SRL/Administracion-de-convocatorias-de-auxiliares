@@ -48,12 +48,13 @@
                 <label class="font-italic d-block p-1" for="loginPass"> Contraseña</label>
                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="password" name="IdPassword" id="loginPass" pattern="^[a-z0-9_-]{3,30}" placeholder="****************" autocomplete='off'>
                 <input type="submit" value="Entrar" class="btn btn-primary d-block mx-auto my-3">
-                <!--<a class="text-dark m-2" href="" id="btnSend">Reenviar contraseña a tu correo</a>   pattern="^[a-z0-9_-]{3,30}-->
+                <!--<a class="text-dark m-2" href="" id="btnSend">Reenviar contraseña a tu correo</a>-->
             </form>
             <a class="text-dark m-2" href="#" id="btnSend">Reenviar contraseña a tu correo</a>
             <!--<button class="bg-success"id="btnSend">Reenviar contraseña a tu correo</button>-->
         </div>
     </section>
+
     <?php include("plantillas/footer.php");?>
     <script src="MyScript.js"></script>
 </body>

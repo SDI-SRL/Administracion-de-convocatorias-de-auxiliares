@@ -21,7 +21,14 @@
         text-decoration:none;
         }
     </style>
-        <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script> 
+    <!-- 
+    <script src="js/all.min.js"></script>
+    -->
+    <!--
+        Iconos Onlinea con la respectiva cuenta
+    -->
+        <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -57,80 +64,59 @@
                     }
                 }else{
                     echo "Bienvenid@";
-                }            
-            echo $_SESSION['sesion'];     
+                }
             
-            $extension=" ";
-            if($_SESSION['bandera']){
-                $extension="asc";
-                $_SESSION['bandera']=false;
-            }else{
-                $extension="  ";
-                $_SESSION['bandera']=true;
-            }       
-
+            echo $_SESSION['sesion']; 
+            
             ?>
-        </h3>        
+        </h3>
+        
+        
+        
         <a href="cambiarEmailPassword.php" class="float-right text-dark">Cambiar Contraseña y/o Password</a>
         <br>
         <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
     </header>
-    <main class='container w-75 mt-2   sm w-100 '>
+    <?php
+    //Consulta para ordenar por fecha
+    require_once('conexion.php');
+    $conn=conectarBaseDeDatos();
+    $consulta=pg_query($conn,"SELECT titulo,descripcion_convocatoria,fecha,direcccion_pdf,id_convocatoria,fecha_expiracion FROM convocatoria WHERE activo='true' ORDER BY fecha desc");
+    if (!$consulta) {
+        echo "An error occurred.\n";
+        exit;
+    }
+    
+    echo "<main class='container mt-5'>
           <div class='table-responsive'>
             <table class='table table-hover'>
-                <h4>Lista de convocatoria</h4>
+                <h3>Entradas de convocatoria</h3>
                 <a href='crearPublicacion.php' class='btn btn-success p-2 rounded-lg m-2' id='nuevaConvocatoria'>Crear nueva convocatoria</a>
                     <thead class='bg-primary'>
                         <tr>
-                            <th><a href="CRUD_publicaciones.php?convocatoria=<?php echo $extension ?>" class="btn btn-dark">Convocatoria &#8597;</a></th>
-                            <th><a href="CRUD_publicaciones.php?autor=<?php echo $extension ?>" class="btn btn-dark">Autor &#8597;</a></th>
-                            <th>Vista Previa</th>
-                            <th><a href="CRUD_publicaciones.php?fecha=<?php echo $extension ?>" class="btn btn-dark">Fecha de creacion &#8597;</a></th>
+                            <th>Entrada</th>
                             <th>PDF</th>
                             <th>Opciones</th>
+
                         </tr>
                     </thead>
-                    <tbody>
-                    <?php
-                    require_once("Modelo/convocatoria.php");
-                    $convocatoria = new Convocatoria();
-                    $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente(); 
-                    if(isset($_GET['fecha'])){
-                        $fecha=$_GET['fecha'];
-                        if($fecha=='asc'){
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaDescendente(); 
-                        }else{
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente(); 
-                        }
-                    }
-                    if(isset($_GET['convocatoria'])){
-                        $myConvocatoria=$_GET['convocatoria'];
-                        if($myConvocatoria=='asc'){
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreDescendente(); 
-                        }else{
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreAscendente(); 
-                        }
-                    }
-                    if(isset($_GET['autor'])){
-                        $autor=$_GET['autor'];
-                        if($autor=='asc'){
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaAutorDescendente();
-                        }else{
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaAutorAscendente();
-                        }
-                    }
-                    foreach($resultado as $elemento){                
-                            echo "<tr>";
-                            echo    "<td><h6>".$elemento['titulo']."</h6>Expiracion:".$elemento['fecha_expiracion']."</td>";
-                            echo    "<td><h6>".$elemento['creador']."</h6></td>";
-                            echo    "<td><img class='ml-3' src='img/image.svg' alt='insertar SVG con la etiqueta image'  width='50' height='50'></td>";       
-                            echo    "<td><h6>".$elemento['fecha']."</h6></td>";
-                            echo    "<td>";
-                            echo        "<a  href='".$elemento['direcccion_pdf']."' target='_blank'>Abrir ".$elemento['titulo']."</a>";
-                            echo    "</td>";
-                            echo    "<td>";
-                            echo        "<a href='form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'  class='btn btn-danger' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
-                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' title='Editar'><i class='fas fa-edit'></i></a>
+                    <tbody>";
+                        while($row=pg_fetch_row($consulta)){
+                            $titulo=$row[0];
+                            $fecha=$row[2];
+                            $direcccion_pdf=$row[3];
+                            $idConvocatoria=$row[4];
+                            $fechaDeExpiracion=$row[5];
+                            /*$valido=strlen($direcccion)-14;
+                            $direcccion_pdf=substr($direcccion,0,$valido);*/
+                            echo "<tr>
+                                <td> $titulo <h6>Publicado: $fecha </h6><h6>Expiracion: $fechaDeExpiracion</h6></td>
+                                <td>
+                                    <a  href='$direcccion_pdf' target='_blank'>Abrir  $titulo</a>
+                                </td>
+                                <td>
+                                    <a href='form_eliminarConvocatoria.php?id=$idConvocatoria' class='btn btn-danger' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
+                                    <a href='editarConvocatoria.php?id=$idConvocatoria' class='btn btn-primary' title='Editar'><i class='fas fa-edit'></i></a>
                                 </td>
                             </tr>";
                         }
