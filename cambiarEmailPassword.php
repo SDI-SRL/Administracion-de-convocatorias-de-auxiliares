@@ -80,16 +80,16 @@
         </div>
         <div class="form-group mx-5">
             <label for="numeroTelefonico">Escriba su nuevo numero telefonico: </label>
-            <input class="form-control" type="text" name="numeroTelefonico" id="numeroTelefonico" value="<?php echo $_SESSION['telefono'];?>">
+            <input class="form-control" pattern="[0-9]{7,8}" title="Ingrese un numero de celular o telefono valido" type="text" name="numeroTelefonico" id="numeroTelefonico" value="<?php echo $_SESSION['telefono'];?>">
         </div>
 
         <div class="from-group mx-5">
             <label for="nuevoPassword">Escriba su nueva contraseña: </label>
-            <input class="form-control" type="password" name="nuevoPassword" id="nuevoPassword" value="<?php echo $_SESSION['passoword'];?>">
+            <input class="form-control" type="password" pattern="[a-zA-Z0-9]{4,15}" name="nuevoPassword" id="nuevoPassword" value="<?php echo $_SESSION['passoword'];?>">
         </div>
         <div class="form-group mx-5">
             <label for="copiaNuevoPassword">Reescriba su nueva contraseña: </label>
-            <input class="form-control" type="password" name="copiaNuevoPassword" id="copiaNuevoPassword" value="<?php echo $_SESSION['passoword']?>">
+            <input class="form-control" type="password" pattern="[a-zA-Z0-9]{4,15}" name="copiaNuevoPassword" id="copiaNuevoPassword" value="<?php echo $_SESSION['passoword']?>">
         </div>
         <div class="row justify-content-center">    
             <input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >
