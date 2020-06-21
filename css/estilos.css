@@ -1,5 +1,9 @@
 body{
-    background: #f4f4f4;
+    background: #F0F8FF;
+}
+
+.container{
+  min-height: calc(100vh - 100px - 300px);
 }
 
 .navbar{

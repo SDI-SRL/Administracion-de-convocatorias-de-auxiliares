@@ -33,7 +33,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.php">Inicio<span class="sr-only">(Actual)</span></a>
+                                <a class="nav-link" href="../index.php">Inicio<span class="sr-only">(Actual)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Personal</a>

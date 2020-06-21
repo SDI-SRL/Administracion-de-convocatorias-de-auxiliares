@@ -13,8 +13,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="css/estilos.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/bootstrap.css">
-    <link rel="stylesheet" href="../style/myStyle.css">
+    <!-- <link rel="stylesheet" href="../style/myStyle.css"> -->
     <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -72,7 +73,7 @@
                 <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
     </header>
 
-    <form action="../formularios/form_actualizarDatos.php" method="post" class="container w-50 p-3 my-5 bg-dark text-white md w-75 sm w-100 ">
+    <form action="../formularios/form_actualizarDatos.php" method="post" class="container w-50 p-3 my-5 bg-primary text-white md w-75 sm w-100 ">
         <h1 class="text-center">Editar datos de Usuario</h1>
         <div class="form-group mx-5">
             <label for="nuevoCorreo">Escriba su nuevo correo electronico: </label>
@@ -92,7 +93,7 @@
             <input class="form-control" type="password" pattern="[a-zA-Z0-9]{4,15}" name="copiaNuevoPassword" id="copiaNuevoPassword" value="<?php echo $_SESSION['passoword']?>">
         </div>
         <div class="row justify-content-center">    
-            <input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >
+            <input class="btn btn-success mr-2" type="submit" value="ActualizarDatos" >
             <a class="btn btn-danger ml-2" href="CRUD_publicaciones"> Cancelar</a>
         </div>
     </form>

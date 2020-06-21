@@ -8,6 +8,7 @@
     <title>Universidad Mayor de San simon</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="css/estilos.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/myStyle.css">
@@ -40,19 +41,19 @@
                     <h2>Formulario de Reenvio</h2>
                     <label class="d-block mx-auto" for="reenvio_Pass">Correo Electronico: <input class="p-2 font" type="email" name="reenvio_Pass" id="reenvio_Pass" required placeholder="ejemplo@gmail.com"></label>
                     <label class="d-block mx-auto" for="catcha"><input type="text" name="" id="catcha"></label>
-                    <input class="d-block my-2 mx-auto btn btn-primary" type="submit" value="Reenviar">
+                    <input class="d-block my-2 mx-auto btn btn-success" type="submit" value="Reenviar">
                 </form>
             </div>
         </div>
 
     <section class="principal">
-        <div class="border border-dark bg-success w-50 mx-auto my-5 p3">
+        <div class="border border-dark bg-primary w-50 mx-auto my-5 p3">
             <form action="../formularios/form_VerificarUsuario.php" method="post" class="rounded-sm">
                 <label class="font-italic d-block p-1" for="loginCorreo">Correo Electronico</label>
                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="mail" name="IdUsuaario" id=""  autocomplete='off' id="loginCorreo" placeholder="Ejemplo@gmail.com">
                 <label class="font-italic d-block p-1" for="loginPass"> Contraseña</label>
                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="password" name="IdPassword" id="loginPass" placeholder="****************" autocomplete='off'>
-                <input type="submit" value="Entrar" class="btn btn-primary d-block mx-auto my-3">
+                <input type="submit" value="Entrar" class="btn btn-success d-block mx-auto my-3">
                 <!--<a class="text-dark m-2" href="" id="btnSend">Reenviar contraseña a tu correo</a>   pattern="^[a-z0-9_-]{3,30}-->
             </form>
             <a class="text-dark m-2" href="#" id="btnSend">Reenviar contraseña a tu correo</a>

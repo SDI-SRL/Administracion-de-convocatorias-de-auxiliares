@@ -7,7 +7,9 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- <link href="css1/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="css1/style.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="../style/bootstrap.css">
+    <link rel="stylesheet" href="../style/myStyle.css"> -->
+    <link href="css/estilos.css" rel="stylesheet">
 </head>
 
 <body>
@@ -28,22 +30,22 @@
                         <p><small>Departamento de Informatica-Sistemas</small></p>
                     </h3>
                 </div>
-                <nav class="navbar navbar-expand-lg navbar-primary bg-primary navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-lg navbar-primary bg-primary navbar-primary bg-primary">
                     <a class="navbar-brand text-white">
                         <img src="img/logoUMSS.png" height="60px">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
-                    </button> <a class="navbar-brand" href="#">Menu</a>
+                    </button> <a class="navbar-brand" href="#">Menu</a> <!-- aqui entraba "Menu" -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
-                            <li class="nav-item active">
+                            <li class="nav-item ">
                                 <a class="nav-link" href="index.php">Inicio<span class="sr-only">(Actual)</span></a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Personal</a>
                             </li>
-                            <li class="nav-item dropdown">
+                            <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" data-target="desplegable">Descripcion</a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="#">Descripcion</a> 
@@ -51,7 +53,7 @@
                                     <a class="dropdown-item" href="#">Descripcion</a>
                                     
                                 </div>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contactenos</a>
                             </li>
