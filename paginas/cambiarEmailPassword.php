@@ -85,15 +85,19 @@
 
         <div class="from-group mx-5">
             <label for="nuevoPassword">Escriba su nueva contraseña: </label>
-            <input class="form-control" type="password" pattern="[a-zA-Z0-9]{4,15}" name="nuevoPassword" id="nuevoPassword" value="<?php echo $_SESSION['passoword'];?>">
+            <input class="form-control" type="password" name="nuevoPassword" id="nuevoPassword" 
+            title="La contraseña debe contar con 4 caracteres como minimo, al menos un numero, una minuscula y una mayuscula"
+            placeholder="" autocomplete='off' pattern="[A-Za-z0-9!?-]{4,30}" required/>
         </div>
         <div class="form-group mx-5">
             <label for="copiaNuevoPassword">Reescriba su nueva contraseña: </label>
-            <input class="form-control" type="password" pattern="[a-zA-Z0-9]{4,15}" name="copiaNuevoPassword" id="copiaNuevoPassword" value="<?php echo $_SESSION['passoword']?>">
+            <input class="form-control" type="password" name="copiaNuevoPassword" id="copiaNuevoPassword" 
+            title="La contraseña debe contar con 4 caracteres como minimo, al menos un numero, una minuscula y una mayuscula"
+            placeholder="" autocomplete='off' pattern="[A-Za-z0-9!?-]{4,30}" required/>
         </div>
         <div class="row justify-content-center">    
             <input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >
-            <a class="btn btn-danger ml-2" href="CRUD_publicaciones"> Cancelar</a>
+            <a class="btn btn-danger ml-2" href="CRUD_publicaciones.php"> Cancelar</a>
         </div>
     </form>
 </body>
