@@ -31,14 +31,13 @@
                 date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
                 $res=$convocatoria->actualizarConvocatoria($id,$_POST['titulo'],$_POST['descripcion'],$enlace,$fechaActual,$_POST['lista1'],$_POST['lista2'],$_POST['lista3'],$fechaHoraExpiracion);
-                if($res){
+                if($var1 || $var2 || $var3 ||$var4){
                     echo "se subio correctamente el archivo";
-                    $tituloConvocatoria="Convocatoria creada satisfactoriamente!!";
-                    $color="success";
+                            $tituloConvocatoria="Los datos del usuario se actualizaron correctamente!!";
+                         $color="success";
                 }else{
-                    echo "Error al subir los archivos";
-                    $tituloConvocatoria="Problemmas al crear convocatoria!!";
-                    $color="danger";
+                        $tituloConvocatoria="No se modifico ninguna dato";
+                        $color="danger";
                 }
 
                 $convocatoria->cerrarConexion();
