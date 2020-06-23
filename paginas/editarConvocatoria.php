@@ -262,12 +262,14 @@
                 $fechaHoy=date('Y-m-d');
                 $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"));
                 $auxiliar=explode(" ",$resultado[0]['fecha']);
+		$tmpHora=explode(':',$auxiliar[1]);
+                $hora=$tmpHora[0].':'.$tmpHora[1];
             ?>
 
             <input type="date" name="fechaDeExpiracion" id="fechaDeExpiracion" min="<?php echo $fechaMinima;?>" value="<?php echo $auxiliar[0];?>">
         
         <label for="horaDeExpiracion"> Hora de Expiracion</label>
-        <input type="time" name="horaDeExpiracion" id="horaDeExpiracion" value=<?php echo $auxiliar[1]; ?>>
+        <input type="time" name="horaDeExpiracion" id="horaDeExpiracion" value=<?php echo $hora; ?>>
         <br>
         <br>
                <div class="mx-auto">
