@@ -66,7 +66,7 @@
                 </h3>
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
-                <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
+                <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
             </header>
 
             <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
@@ -278,7 +278,6 @@
                </div>
             </form>
             </div>
-        </body>
     <?php
         $convocatoria->cerrarConexion();
     ?>
@@ -302,4 +301,5 @@
             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
         </div>
     </footer>
+    </body>
 </html>

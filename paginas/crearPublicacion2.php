@@ -63,12 +63,25 @@
     <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
     <h1 class="text-center">Publicar Convocatoria</h1>
     <form action="../formularios/form_subirPublicacion.php" method="post" enctype="multipart/form-data">
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,}" title="Solo puede ingresar numeros y letras">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,60}" title="Solo puede ingresar numeros y letras">
         <br>
         <br>
-        <textarea id="descripcion" rows="9" name="descripcion"  style="resize:none; width:100%;"> </textarea>
-        <br>
-        <br>
+        <div class="form-group mx-5">
+            <label for="numeroTelefonico">Descripcion: </label>
+            <textarea id="descripcion" rows="9" name="descripcion"  style="resize:none; width:100%;"> </textarea>
+        </div>
+        <div class="form-group mx-5">
+            <label for="numeroTelefonico">Requerimientos: </label>
+            <textarea id="requerimientos" rows="9" name="requerimientos"  style="resize:none; width:100%;"> </textarea>
+        </div>
+        <div class="form-group mx-5">
+            <label for="numeroTelefonico">Requisitos: </label>
+            <textarea id="requisitos" rows="9" name="requisitos"  style="resize:none; width:100%;"> </textarea>
+        </div>
+        <div class="form-group mx-5">
+            <label for="numeroTelefonico">Documentos: </label>
+            <textarea id="documentos" rows="9" name="requisidocumentostos"  style="resize:none; width:100%;"> </textarea>
+        </div>
         <input type="file" name="archivo" id="archivo" required accept='.pdf'>
 
         <br>

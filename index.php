@@ -23,7 +23,9 @@
                         <h3>
                             Facultad de Ciencias y Tecnologia 
                             <p><small>Departamento de Informatica-Sistemas</small></p>
+                            <h2 class="text-center" >Publicaciones de Convocatorias</h2>
                         </h3>
+                        <br>
                     </div>
                     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-dark bg-dark">
                         <a class="navbar-brand text-white">
@@ -43,6 +45,13 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Contactenos</a>
                                 </li>
+                                <!--
+                                <li class="nav-item">
+                                    <a class="nav-link" href="paginas/login.php">Inicio Sesion</a>
+                                </li>
+                                -->
+                            </ul>
+                            <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     <a class="nav-link" href="paginas/login.php">Inicio Sesion</a>
                                 </li>
@@ -63,7 +72,9 @@
     </header>
     <section>
         <div class="d-block w-75 mx-auto">
-            <h2 class="text-center" >Publicaciones de Convocatorias</h2>
+            <br>
+            <h2 class="text-center" >Convocatorias</h2>
+            <br>
             <?php
                 date_default_timezone_set('America/La_Paz');
                 $fechaActual=date("Y-m-d H:i:s");
