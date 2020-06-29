@@ -52,7 +52,7 @@
                         </ul>
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="paginas/login.php">Inicio Sesion</a>
+                                <a class="nav-link" href="../paginas/login.php">Inicio Sesion</a>
                             </li>
                         </ul>
                             <!--
