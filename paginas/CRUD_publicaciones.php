@@ -92,6 +92,7 @@
                     </div>
                 <?php
             }?>
+            
     <main class='container w-75 mt-2'>
           <div class='table-responsive'>
             <table class='table table-hover'>
@@ -144,8 +145,8 @@
                             echo        "<a  href='".$elemento['direcccion_pdf']."' target='_blank'>Abrir ".$elemento['titulo']."</a>";
                             echo    "</td>";
                             echo    "<td>";
-                            echo        "<a href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'  class='btn btn-danger' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
-                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' title='Editar'><i class='fas fa-edit'></i></a>
+                            echo        "<a class='btn btn-danger' onclick='alerta(".$elemento['id_convocatoria'].")' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
+                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' onclick='alerta(".$elemento['id_convocatoria'].")' title='Editar'><i class='fas fa-edit'></i></a>
                                 </td>
                             </tr>";
                         }
@@ -153,8 +154,26 @@
                 </table>
         </div>
     </main>";
-    ?>
+    ?>  
 
+    <script type="text/javascript">
+        function alerta($x)
+            {
+            var mensaje;
+            var opcion = confirm("¿Esta seguro de que desea eliminar esta Publicacion?");
+            if (opcion == true) {
+                mensaje = "Has clickado Aceptar";
+                //location.href = "crearPublicacion.php";
+                location.href = "../formularios/form_eliminarConvocatoria.php?id=" + $x;
+                //href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'
+            } else {
+                mensaje = "cambiarEmailPassword.php";
+                location.href = "#";
+                //href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."'
+            }
+            //document.getElementById("ejemplo").innerHTML = mensaje;
+        }
+    </script>
     <footer class="pieIndice">
         <div class="text-center">
             <h6 class="d-inline-block">Contacto: <a href="">correo_del_Administardor@mail.com ,</a> <a href="">  correo_de_la_Empresa@mail.com</a></h6>

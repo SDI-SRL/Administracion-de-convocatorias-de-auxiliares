@@ -44,6 +44,9 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contactenos</a>
                             </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="buscarConvocatorias.php">Buscar Convocatoria</a>
+                                </li>
                             <!--
                             <li class="nav-item">
                                 <a class="nav-link" href="login.php">Inicio Sesion</a>
