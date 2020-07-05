@@ -1,90 +1,217 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Mayor de San simon</title>
+!DOCTYPE html>
+  <html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="img/imagenes/icon.gif" type="image/gif">
+      <script src="librerias/js/popper-1.14.7.min.js"></script>    
+      <link rel="stylesheet" href="librerias/css/bootstrap.min.css">    
+      <link rel="stylesheet" href="librerias/css/styles.css">
+      <link rel="stylesheet" href="librerias/css/slick.css">
+      <link rel="stylesheet" href="librerias/css/slick-theme.css">
+      <link rel="stylesheet" href="librerias/css/cabeceraCss.css">
+      <link rel="alternate" type="application/rss+xml" title="Avisos de Inform&aacute;tica - Sistemas (UMSS)" href="rss/index.rss">
+      <script src="librerias/js/jquery-3.3.1.min.js"></script>
+      <script src="librerias/js/bootstrap.min.js"></script>
+      <script src="librerias/archivos/script.js"></script>
+      <script src="librerias/js/slider.js"></script>
+      <script src="librerias/js/slick.js"></script>
+      <script src="librerias/archivos/jquery.snow.js"></script>
+      <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
+    </head>
+    <body>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <!-- <link href="css1/bootstrap.min.css" rel="stylesheet"> -->
-    <!--<link rel="stylesheet" href="../style/bootstrap.css">
-    <link rel="stylesheet" href="../style/myStyle.css"> -->
-    <link href="css/estilos.css" rel="stylesheet">
-</head>
-
-<body>
-    <?php
+      <?php
         if(isset($_GET['error'])){
             echo "<script>";
             echo    "alert('Error al autentificar');";
             echo "</script>";
         }
-    ?>
+      ?>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="page-header">
-                    <h3>
-                        Facultad de Ciencias y Tecnologia 
-                        <p><small>Departamento de Informatica-Sistemas</small></p>
-                    </h3>
-                </div>
-                <nav class="navbar navbar-expand-lg navbar-primary bg-primary navbar-primary bg-primary">
-                    <a class="navbar-brand text-white">
-                        <img src="img/logoUMSS.png" height="60px">
+      <header>        
+        <div>    
+          <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+            <div class="container">
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>     
+              </button>
+              <div class="collapse navbar-collapse" id="navegacion">
+                <ul id="sub-header2" class="navbar-nav mr-auto">
+                  <li id="menu2" class="nav-item">
+                    <a class="nav-link" href="index.php">
+                    INICIO
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="navbar-toggler-icon"></span>
-                    </button> <a class="navbar-brand" href="#">Menu</a> <!-- aqui entraba "Menu" -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="navbar-nav">
-                            <li class="nav-item ">
-                                <a class="nav-link" href="index.php">Inicio<span class="sr-only">(Actual)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Personal</a>
-                            </li>
-                            <!-- <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" data-target="desplegable">Descripcion</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Descripcion</a> 
-                                    <a class="dropdown-item" href="#">Descripcion</a> 
-                                    <a class="dropdown-item" href="#">Descripcion</a>
-                                    
-                                </div>
-                            </li> -->
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contactenos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="paginas/login.php">Inicio Sesion</a>
+                  </li>
+                  
+                  
+                </ul>           
+                <span class="navbar-text">
+                    <script> fecha(); </script>
+                </span>
+                
+              </div>
+            </div>
+          </nav> 
+        <div>
+
+
+        <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
+                          <div class="cabeceraCssAzul"></div>
+                          <div class="cabeceraCssAzulClaro"></div>
+                          <div class="cabeceraCssBlanca"></div>
+                          <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
+                          <img class="logoUmssCss" src="img/imagenes/LogoUMSS.png" alt="UMSS"> 
+                          
+        </div> 
+        </div>                 
+        
+        <div>
+    
+          <div id="navbar-color" class="container-fluid">
+              <div class="row">
+                  <div class="col-md-12 p-0">
+                    <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
+                      <div class="collapse navbar-collapse" id="navegacion2"> 
+                        <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
+                          
+                          <li id="menus" class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="personal">
+                                Personal
+                              </a>
+                              
+                          </li>
+
+                          <li id="menus" class="nav-item dropdown">
+                              <a class="nav-link" role="button" aria-expanded="false" href="#" id="contactenos">
+                                Contactenos
+                              </a>
+                          </li> 
+                          
+                          <li id="menus" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="publicaciones">
+                              Convocatorias
+                            </a>
+                              <div id="enlace" class="dropdown-menu" aria-labelledby="tesis">
+                            <a class="dropdown-item" href="#">
+                              Auxiliares de Docencia
+                            </a>
+                            <a class="dropdown-item" href="#">
+                              Auxiliares de Laboratorio
+                            </a>
+                              </div>
+                          </li>
+                          
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/login.php">
+                                Iniciar Sesi&oacute;n 
+                              </a>
                             </li>
                         </ul>
-                        <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="text"> 
-                            <button class="btn btn-primary my-2 my-sm-0" type="submit">
-                                Buscar
-                            </button>
-                        </form>
-                        
+                      </div>
+                    </nav>
+                      
+  
+                    <div class="modal" id="busqueda-rapida">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">
+                              B&uacute;squeda R&aacute;pida de Perfil
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>                     
+                          </div>
+                          <div class="modal-body">
+                            <form action="/buscador" method="post" name="search" onsubmit="return validarBusqueda();">
+                              <input type="hidden" name="tipo" value="15">
+                              <input type="hidden" name="operacion" value="busqueda">
+                              <input type="hidden" name="tipo_tesis" value="2">
+                              <input type="hidden" name="bus_por" value="todos">
+                              <input type="hidden" name="anio" value="todos">
+                              <input type="hidden" name="periodo" value="todos">
+                              <div class="form-group">
+                                <label for="texto_busqueda">
+                                    B&uacute;squeda r&aacute;pida de <strong>Perfil</strong>
+                                </label>
+                                <input type="text" id="texto_busqueda" name="texto_busqueda" class="form-control">
+                              </div>
+                              <div class="text-center">
+                                <input type="submit" value="Buscar" name="Buscar" class="btn btn-primary">
+                              </div>                  
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </nav>
+                    <script>
+                        $('ul.nav li.dropdown').hover(function() {
+                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeIn(500);
+                        }, function() {
+                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeOut(500);
+                        });
+                    </script>
+                    <script>
+                        $(function(){
+                          var url = window.location.href; 
+                  
+                          $("#sub-header a").each(function() {
+                                  // checks if its the same on the address bar
+                              if(url == (this.href)) { 
+                                  $(this).closest("li").addClass("active");
+                              }
+                          });
+                        });
+                    </script>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <script>
+            $(function(){
+              var url = window.location.href; 
+      
+              $("#sub-header2 a").each(function() {
+                      // checks if its the same on the address bar
+                  if(url == (this.href)) { 
+                      $(this).closest("li").addClass("active");
+                  }
+              })
+            });
+        </script>
+        </div>
+      </header>
+      
+      <?php
+        if(isset($_GET['error'])){
+          echo "<script>";
+          echo    "alert('Error al autentificar');";
+          echo "</script>";
+          }
+      ?>
 
-                <h3 class="text-center">
-                    Publicacion de convocatorias
-                </h3>
-                <?php
-                    if(isset($_GET['error'])){
-                        echo "<script>";
-                        echo    "alert('Error al autentificar');";
-                        echo "</script>";
-                    }
-                ?>
 
+      <div class="container-fluid text-center">
+        <div class="row content">          
+          <div id="body" class="col-sm-12 text-left">
+            <hr>
+            <div class="container-fluid">
+              <div>
+                <h4 class="p-2 text-center">
+                  <a href='rep_lista_avisos.html'>Convocatorias Publicadas</a>
+                </h4>
+                <!-- <div>
+                  
+                    <div>
+                      <h3>No existen convocatorias publicadas</h3>
+                    </div>
+                  
+                </div> -->
+              </div> 
+                <hr>
+                <!-- <div class="inline-flex justify-content-center row mt-1"> -->
                 <section>
                     <div class="d-block w-75 mx-auto">
-                        <h2 class="text-center" >Publicaciones de Convocatorias</h2>
+                        <h2 class="text-center" >publicadas recientemente</h2>
                         <?php
                             date_default_timezone_set('America/La_Paz');
                             $fechaActual=date("Y-m-d H:i:s");
@@ -104,12 +231,17 @@
                         ?>
                     </div>
                 </section>
-                <br>
-                <br>
-                <br>
-
-                <footer class="pieIndice">
-                    <div class="container col-xs- col-sm- col-md-12 col-log-">
+                <!-- </div> -->
+            </div>        
+        </div>
+      </div>            
+      
+      
+      
+      <footer class="container-fluid text-center footer-guest">
+        <!DOCTYPE html>
+        <hr>
+        <div class="container col-xs- col-sm- col-md-12 col-log-">
                         <div class="text-center">
                             <h6 class="d-inline-block">Contacto: <a href="">correo_del_Administardor@mail.com ,</a> <a href="">  correo_de_la_Empresa@mail.com</a></h6>
                             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
@@ -129,20 +261,23 @@
                             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
                         </div>
                     </div>
-        
-                </footer>
-            </div>
-        </div>
+        <div><br></div>
+      </footer>
+      <!--La libreria jquery.snow.js es obsoleta(21-01-2012)se sugiere poner un nav especifico para estas fechas-->      
+      <script>
+        $(document).ready( function(){
+          var date = new Date();          
+          if(date.getMonth()==11){
+            $.fn.snow({
+                minSize: 10, //Tamaño mínimo del copo de nieve, 10 por defecto
+                maxSize: 20, //Tamaño máximo del copo de nieve, 10 por defecto
+                newOn: 1000, //Frecuencia (en milisegundos) con la que aparecen los copos de nieve, 500 por defecto
+                flakeColor: '#FFFFFF' //Color del copo de nieve, #FFFFFF por defecto
+            });
+          }
+        });
+        ajustarFooter();
+      </script>
     </div>
-
-    <script src="MyScript.js"></script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <!-- <script src="js1/jquery.min.js"></script>
-    <script src="js1/bootstrap.min.js"></script>
-    <script src="js1/scripts.js"></script> -->
-    </body>
-</html>
+  </body>
+  </html>
