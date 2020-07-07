@@ -282,7 +282,7 @@
     <?php
         $convocatoria->cerrarConexion();
     ?>
-    <footer class="pieIndice">
+    <!--<footer class="pieIndice">
         <div class="text-center">
             <h6 class="d-inline-block">Contacto: <a href="">correo_del_Administardor@mail.com ,</a> <a href="">  correo_de_la_Empresa@mail.com</a></h6>
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
@@ -301,5 +301,5 @@
         <div class="text-center">
             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
         </div>
-    </footer>
+    </footer>-->
 </html>
