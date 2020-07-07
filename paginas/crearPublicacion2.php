@@ -62,22 +62,145 @@
 
     <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
     <h1 class="text-center">Publicar Convocatoria</h1>
-    <form action="../formularios/form_subirPublicacion.php" method="post" enctype="multipart/form-data">
         <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,60}" title="Solo puede ingresar numeros y letras">
-        <br>
-        <br>
-        <div class="form-group mx-5">
-            <label for="numeroTelefonico">Descripcion: </label>
-            <textarea id="descripcion" rows="9" name="descripcion"  style="resize:none; width:100%;"> </textarea>
-        </div>
-        <div class="form-group mx-5">
-            <label for="numeroTelefonico">Requerimientos: </label>
-            <textarea id="requerimientos" rows="9" name="requerimientos"  style="resize:none; width:100%;"> </textarea>
-        </div>
-        <div class="form-group mx-5">
-            <label for="numeroTelefonico">Requisitos: </label>
-            <textarea id="requisitos" rows="9" name="requisitos"  style="resize:none; width:100%;"> </textarea>
-        </div>
+            <br>
+            <br>
+            <div class="form-group mx-5">
+                <label for="numeroTelefonico">Descripcion: </label>
+                <textarea id="descripcion" rows="9" name="descripcion"  style="resize:none; width:100%;"> </textarea>
+            </div>
+            <div class="form-group mx-5">
+                <label for="requisitos">Requisitos: </label>
+                <?php
+                    # La lista de requisitos; por defecto vacía
+                    $requisitos0 = [];
+                    # Si hay requisitos enviados por el formulario; entonces
+                    # la lista es el formulario.
+                    # Cada que lo envíen, se agrega un elemento a la lista
+                    if (isset($_POST["requisitos0"])) {
+                        $requisitos0 = $_POST["requisitos0"];
+                    }
+                    # Detectar cuál botón fue presionado
+                    # Más info: https://parzibyte.me/blog/2019/07/23/php-formulario-dos-botones/
+                    # En caso de que haya sido el de guardar, no agregamos más campos
+                    if (isset($_POST["guardar"])) {
+                        # Quieren guardar; no quieren agregar campos
+                        echo "OK se guarda lo siguiente:<br>";
+                        print_r($requisitos0);
+                        exit;
+                    }
+                ?>
+                    <form method="post" action="crearPublicacion2.php">
+                        <?php
+                        $indices = array('a)', 'b)', 'c)', 'd)', 'e)', 'f)', 'g)', 'h)', 'i)', 'j)', 'k)', 'l)', 'm)', 'n)', 'o)', 'p)', 'q)', 'r)', 's)', 't)');
+                        $cant = -1;
+                        $id = 0;
+                        ?>
+                        <!--Comienza el ciclo que dibuja los campos dinámicos-->
+                        <?php foreach ($requisitos0 as $requisito0) { $cant++; $id++;?>
+                            <label for="requisitoInd"><?php echo $indices[$cant]?> </label>
+                            <input value="<?php echo $requisito0 ?>" type="text" name="requisitos0[]">
+                            <!--<a name="< "?" php echo $id?>" class='btn btn-danger' onclick="borrar($id)" title='Eliminar'><i class='fas fa-trash-alt'></i></a>-->
+                            <br><br>
+                            <?php } ?>
+                        <!--Termina el ciclo que dibuja los campos dinámicos-->
+
+                        <!--Fuera de la lista tenemos siempre este campo, es el primero-->
+                        <input autocomplete="off" autofocus value="" type="text" name="requisitos0[]">
+                        <!--<label for="numeroTelefonico">indices </label>
+                        <input autocomplete="off" autofocus value="" type="text" name="requisitos0[]">
+                        <a class='btn btn-danger' onclick="" title='Eliminar'><i class='fas fa-trash-alt'></i></a>
+                        <br><br>-->
+                        <button name="agregar" type="submit">Agregar campo</button>
+                        <button name="guardar" type="submit">Guardar lista</button>
+                    </form>
+            </div>
+
+            <script type="text/javascript">
+                function borrar($x)
+                    {
+                        unset($requisitos[$x]);
+                        var_export ($requisitos);
+                    }
+            </script>
+            
+            <div class="form-group mx-5">
+                
+                <?php
+                    $requisitos = [];
+                    $requerimientos = [];
+                    # Cada que lo envíen, se agrega un elemento a la lista
+                    if (isset($_POST["requerimientos"])) {
+                        $requerimientos = $_POST["requerimientos"];
+                    }
+                    if (isset($_POST["requisitos"])) {
+                        $requisitos = $_POST["requisitos"];
+                    }
+                    if (isset($_POST["guardar"])) {
+                        # Quieren guardar; no quieren agregar campos
+                        echo "OK se guarda lo siguiente:<br>";
+                        print_r($requerimientos);
+                        exit;
+                    }
+                ?>
+                    <form method="post" action="crearPublicacion2.php">
+                        <?php
+                        $indicesRequisitos = array('a)', 'b)', 'c)', 'd)', 'e)', 'f)', 'g)', 'h)', 'i)', 'j)', 'k)', 'l)', 'm)', 'n)', 'o)', 'p)', 'q)', 'r)', 's)', 't)');
+                        $cantRequisitos = -1;
+                        $limiteDeRequisitos = 3;
+                        $idRequisitos = 0;
+                        ?>
+                        <!--Comienza el ciclo que dibuja los campos dinámicos-->
+                        <label for="requerimientos">Requisitos: </label>
+                        <br>
+                        <?php 
+                            foreach ($requisitos as $requisito) { $cantRequisitos++; $idRequisitos++;
+                                if($cantRequisitos < $limiteDeRequisitos){
+                                echo "<label for='requisitoInd'>".$indicesRequisitos[$cantRequisitos]." </label>";
+                                echo "<input value='".$requisito."' type='text' name='requisitos[]'>";
+                                echo "<br><br>";
+                                }
+                                if($cantRequisitos >= $limiteDeRequisitos){
+                                echo '<script language="javascript">';
+                                echo 'alert("La convocatoria no puede tener mas de 20 requisitos")';
+                                echo '</script>';
+                                }
+                            }                         
+                        ?>
+                        <input autocomplete="off" autofocus value="" type="text" name="requerimientos[]">
+                        <button name="agregar" type="submit">Agregar campo</button>
+                        <button name="guardar" type="submit">Guardar lista</button>
+                        <br><br>
+
+                        <?php
+                        $indicesRequerimientos = array('a)', 'b)', 'c)', 'd)', 'e)', 'f)', 'g)', 'h)', 'i)', 'j)', 'k)', 'l)', 'm)', 'n)', 'o)', 'p)', 'q)', 'r)', 's)', 't)');
+                        $cantRequerimientos = -1;
+                        $limiteDeRequerimientos = 3;
+                        $idRequerimientos = 0;
+                        ?>
+                        <label for="requerimientos">Requerimientos: </label>
+                        <br>
+                        <?php                       
+                            foreach ($requerimientos as $requerimiento) { $cantRequerimientos++; $idRequerimientos++;
+                                if($cant < $limiteDeRequerimientos){
+                                echo "<label for='requerimientoInd'>".$indicesRequerimientos[$cantRequerimientos]." </label>";
+                                echo "<input value='".$requerimiento."' type='text' name='requerimientos[]'>";
+                                echo "<br><br>";
+                                }
+                                if($cantRequerimientos >= $limiteDeRequerimientos){
+                                echo '<script language="javascript">';
+                                echo 'alert("La convocatoria no puede tener mas de 20 requerimientos")';
+                                echo '</script>';
+                                }
+                            }
+                        ?>
+                        <input autocomplete="off" autofocus value="" type="text" name="requerimientos[]">
+                        <button name="agregar" type="submit">Agregar campo</button>
+                        <button name="guardar" type="submit">Guardar lista</button>
+                    </form>
+            </div>
+    <form action="../formularios/form_subirPublicacion.php" method="post" enctype="multipart/form-data">
+            
         <div class="form-group mx-5">
             <label for="numeroTelefonico">Documentos: </label>
             <textarea id="documentos" rows="9" name="requisidocumentostos"  style="resize:none; width:100%;"> </textarea>

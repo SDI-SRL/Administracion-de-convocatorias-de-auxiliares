@@ -61,12 +61,12 @@
 				<option value="Convocatoria de Auxiliar">Convocatoria de Auxiliar</option>
 		    </select>
         </div>
-        <div class="form-group mx-5">
+        <!--<div class="form-group mx-5">
             <label for="copiaNuevoPassword">Reescriba su nueva contraseña: </label>
             <input class="form-control" type="password" name="copiaNuevoPassword" id="copiaNuevoPassword" 
             title="La contraseña debe contar con 4 caracteres como minimo, al menos un numero, una minuscula y una mayuscula"
             placeholder="" autocomplete='off' pattern="[A-Za-z0-9!?-]{4,30}" required/>
-        </div>
+        </div>-->
         <div class="row justify-content-center">    
             <!--<input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >-->
             <a class="btn btn-primary ml-2" href=""> Buscar</a>

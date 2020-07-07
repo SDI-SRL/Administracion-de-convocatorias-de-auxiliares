@@ -26,16 +26,16 @@
         'region'   => 'us-east-2',
     ]);
     
-    //$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');//////////////
+    //$bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
 
         if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['archivo']) && $_FILES['archivo']['error'] == UPLOAD_ERR_OK && is_uploaded_file($_FILES['archivo']['tmp_name'])) {
             // FIXME: you should add more of your own validation here, e.g. using ext/fileinfo
             try {
                 // FIXME: you should not use 'name' for the upload, since that's the original filename from the user's computer - generate a random filename that you then store in your database, or similar
-                //$upload = $s3->upload($bucket, $_FILES['archivo']['name'], fopen($_FILES['archivo']['tmp_name'], 'rb'), 'public-read');///////////////
+                //$upload = $s3->upload($bucket, $_FILES['archivo']['name'], fopen($_FILES['archivo']['tmp_name'], 'rb'), 'public-read');
                 //Mi Codigo
 
-                //$enlace= htmlspecialchars($upload->get('ObjectURL'));/////////////////////
+                //$enlace= htmlspecialchars($upload->get('ObjectURL'));
                 $nombreDeConvocatoria=$_POST['titulo'];
                 $descripcionConvocatoria=$_POST['descripcion'];
                 $fechaExpiracion=$_POST['fechaDeExpiracion'];
