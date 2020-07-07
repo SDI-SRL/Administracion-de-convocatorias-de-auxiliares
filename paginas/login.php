@@ -56,7 +56,7 @@
             <!--<button class="bg-success"id="btnSend">Reenviar contraseña a tu correo</button>-->
         </div>
     </section>
-    <?php include("../plantillas/footer.php");?>
+    <?php //include("../plantillas/footer.php");?>
     <script src="../style/MyScript.js"></script>
 </body>
 </html>

@@ -83,6 +83,6 @@
             ?>
         </div>
     </section>
-    <?php include("plantillas/footer.php");?>
+    <?php //include("plantillas/footer.php");?>
 </body>
 </html>
