@@ -94,30 +94,42 @@
     <section>
         <script>
             $(function(){
-                if('#select0' == "tipoConvocatoria"){
+                if('#selectTipo' == "tipoConvocatoria"){
                     //$('.fila-fijaL').hide();
                     //$('.fila-fijaD').hide();
                 }
-                $('#select0').on('change',function(){
+                $('#selectTipo').on('change',function(){
                     var selectValor = $(this).val();
                     //alert (selectValor);
                     if (selectValor == 'ConvocatoriaDocencia') {
-                        $('.tableL').show();
-                        $('.btnL').show();
-                        $('.tableD').hide();
-                        $('.btnD').hide();
-                    }
-                    if (selectValor == 'ConvocatoriaAuxiliar') {
                         $('.tableD').show();
                         $('.btnD').show();
                         $('.tableL').hide();
                         $('.btnL').hide();
+                        $('.nombramiento').show();
+                        $('.nombramientolabel').show();
+                        $('.seleccion').hide();
+                        $('.seleccionlabel').hide();
+                    }
+                    if (selectValor == 'ConvocatoriaLaboratorio') {
+                        $('.tableL').show();
+                        $('.btnL').show();
+                        $('.tableD').hide();
+                        $('.btnD').hide();
+                        $('.nombramiento').hide();
+                        $('.nombramientolabel').hide();
+                        $('.seleccion').show();
+                        $('.seleccionlabel').show();
                     }
                     if (selectValor == 'tipoConvocatoria') {
                         $('.tableD').hide();
                         $('.tableL').hide();
                         $('.btnD').hide();
                         $('.btnL').hide();
+                        $('.nombramiento').hide();
+                        $('.nombramientolabel').hide();
+                        $('.seleccion').hide();
+                        $('.seleccionlabel').hide();
                     }
                     //else {
                     //$('.fila-fija0').hide();
@@ -129,6 +141,10 @@
                 $('.tableL').hide();
                 $('.btnD').hide();
                 $('.btnL').hide();
+                $('.nombramiento').hide();
+                $('.nombramientolabel').hide();
+                $('.seleccion').hide();
+                $('.seleccionlabel').hide();
             });
         </script>
         <script>
@@ -191,7 +207,7 @@
             });
 		</script>
         <form method="post"> <!-- -->
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,60}" title="Solo puede ingresar numeros y letras">
+        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,}" title="Solo puede ingresar numeros y letras">
             <br>
             <br>
             <div class="form-group mx-5">
@@ -201,10 +217,10 @@
             </br>
             <label for="requerimientos">Requerimientos: </label>
             </br>
-            <select id="select0" name="select0" class="mr-2">
+            <select id="selectTipo" name="selectTipo" class="mr-2">
                 <option value="tipoConvocatoria">Seleccionar tipo de convocatoria</option>
-				<option value="ConvocatoriaDocencia">Convocatoria de Docencia</option>
-				<option value="ConvocatoriaAuxiliar">Convocatoria de Auxiliar</option>
+				<option value="ConvocatoriaDocencia">Convocatoria de Auxiliar de Docencia</option>
+				<option value="ConvocatoriaLaboratorio">Convocatoria de Auxiliar de Laboratorio</option>
 		    </select>  
             </br>
             </br>
@@ -212,26 +228,28 @@
             <form method="post">-->
                 <table class="tableD bg-info"  id="tablaD">
                     <tr class="fila-fijaD">
-                        <td><input required name="cantidadD[]" placeholder="Cantidad"/></td>
-                        <td><input required name="hrsAcademicas[]" placeholder="Horas academicas"/></td>
-                        <td><input required name="destino[]" placeholder="Destino"/></td>
+                        <td><input name="cantidadD[]" placeholder="Cantidad"/></td>
+                        <td><input name="hrsAcademicasD[]" placeholder="Horas academicas"/></td>
+                        <td><input name="destino[]" placeholder="Destino"/></td>
                         <td class="eliminarD"><input type="button"   value="Menos -"/></td>
                     </tr>
                 </table>
                 <button id="adicionarD" name="adicionarD" type="button" class="btnD btn-warning"> Más + </button>
                 <table class="tableL bg-info"  id="tablaL">
                     <tr class="fila-fijaL">
-                        <td><input required name="cantidadL[]" placeholder="Cantidad"/></td>
-                        <td><input required name="hrsAcademicas[]" placeholder="Horas academicas"/></td>
-                        <td><input required name="nombreAuxiliatura[]" placeholder="Nombre de la auxiliatura"/></td>
-                        <td><input required name="codAux[]" placeholder="Codigo de la auxiliatura"/></td>
+                        <td><input name="cantidadL[]" placeholder="Cantidad"/></td>
+                        <td><input name="hrsAcademicasL[]" placeholder="Horas academicas"/></td>
+                        <td><input name="nombreAuxiliatura[]" placeholder="Nombre de la auxiliatura"/></td>
+                        <td><input name="codAux[]" placeholder="Codigo de la auxiliatura"/></td>
                         <td class="eliminarL"><input type="button"   value="Menos -"/></td>
                     </tr>
                 </table>
                 <button id="adicionarL" name="adicionarL" type="button" class="btnL btn-warning"> Más + </button>
-                <div class="btn-der">
             <!--</form>-->
-
+            <br>
+            <label for="requerimientosNota">Nota: </label>
+            <input class = "form-control input-lg" name="notaRequerimientos" id ="notaRequerimientos" placeholder="Nota de requerimientos" value=""/>
+            <br>
         <label for="requisitos">Requisitos: </label>
             <table class="table bg-info"  id="tablaRequ">
                 <tr class="fila-fija1">
@@ -241,11 +259,14 @@
             </table>
 
             <div class="btn-der">
-                <input type="submit" name="insertarrr" value="Insertar Alumno" class="btn btn-info"/>
+                <!--<input type="submit" name="insertarrr" value="Insertar Alumno" class="btn btn-info"/>-->
                 <button id="adicionall" name="adicional1" type="button" class="btn btn-warning"> Más + </button>
                 <br>
             </div>
-
+            <br>
+            <label for="requisitosNota">Nota: </label>
+            <input class = "form-control input-lg" name="notaRequisito" id="notaRequisito" placeholder="Nota de requisitos" value=""/>
+            <br>          
             <label for="documentos">Documentos a presentar: </label>
             <table class="table bg-info"  id="tablaDoc">
                 <tr class="fila-fija2">
@@ -253,11 +274,55 @@
                     <td class="eliminar2"><input type="button"   value="Menos -"/></td>
                 </tr>
             </table>
-
             <div class="btn-der">
-                <input type="submit" name="insertarr" value="Insertar Alumno" class="btn btn-info"/>
                 <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Más + </button>
                 <br>
+            </div>
+            <br>
+            <label for="documentosNota">Nota: </label>
+            <input class="form-control input-lg" name="notaDocumentos" id="notaDocumentos" placeholder="Nota de documentos" value=""/>
+            <br>
+            <label for="formadeEntrega">De la forma: </label>
+            <input required class="form-control input-lg" name="formaDeEntrega" id="formaDeEntrega" placeholder="Escriba la forma en la que se presentaran los documentos" value=""/>
+            <br>
+            <label for="fechayLugarPresentacion">Fecha y lugar de la presentacion: </label>
+            <input required class="form-control input-lg" name="fechaLugarPresentacion" id="fechaLugarPresentacion" placeholder="Escriba acerca de la fecha y el lugar de presentacion" value=""/>
+            <br>
+            <label for="delostribunales">De los tribunales: </label>
+            <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
+            <br>
+            <label class ="seleccionlabel" for="delaseleccion">Seleccion: </label>
+            <input class="seleccion input-lg" name="deLaSeleccion" id="deLaSeleccion" placeholder="Escriba acerca de la seleccion de auxiliares" value=""/>
+            <br>
+            <label class ="nombramientolabel" for="delnombramiento">Del nombramiento: </label>
+            <input class="nombramiento input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca del nombramiento" value=""/>
+            <br>
+            
+            <label for="documentosNota">Semestre: </label>
+            <select id="selectSemestre" name="selectSemestre" class="mr-2">
+                <option value='I-Regular'>I-Regular</option>
+                <option value='II-Regular'>II-Regular</option>
+                <option value='III-Invierno'>III-Invierno</option>
+                <option value='IV-Verano'>IV-Verano</option>     
+
+		    </select>
+            <label for="documentosNota">Gestion: </label>
+            <select id="selectGestion" name="selectGestion" class="mr-2">
+                <?php
+                    date_default_timezone_set('America/La_Paz');
+                    $year=date('Y');
+                    //echo "<option value='gestion'>Gestion</option>";
+                    for($i=0; $i<10 ; $i++){
+                        $yearAux=$year + $i;
+                        echo "<option value='$yearAux'>$yearAux</option>";
+                    }
+ 
+                ?>
+		    </select>
+            <br>
+            <br>
+            <div class="btn-der">
+                <input type="submit" name="insertarr" value="Insertar" class="btn btn-info"/>
             </div>
         </form>
         <?php
@@ -266,7 +331,50 @@
             ///conv///
             $nombreDeConvocatoria=($_POST['titulo']);
             $descripcionConvocatoria=($_POST['descripcion']);
-            pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion) VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria')");
+            $notaRequerimientos=($_POST['notaRequerimientos']);
+            $notaRequisitos=($_POST['notaRequisito']);
+            $notaDocumentos=($_POST['notaDocumentos']);
+            $formaDeEntrega=($_POST['formaDeEntrega']);
+            $fechaPresentacion=($_POST['fechaLugarPresentacion']);
+            $tribunalesConv=($_POST['deLosTribunales']);
+            $tipoConvocatoria=($_POST['selectTipo']);
+
+            
+            $semestreConv=($_POST['selectSemestre']);
+            $gestionConv=($_POST['selectGestion']);
+
+            $tipoConv="ninguna";
+            $gestionYsemestre="$semestreConv $gestionConv";
+
+            //$itemsR1 = ($_POST['cantidadL']);
+            //$itemsR2 = ($_POST['cantidadL']);
+            //$itemsR3 = ($_POST['cantidadL']);
+            //$itemsR4 = ($_POST['cantidadL']);
+            //$itemsR5 = ($_POST['cantidadL']);
+
+            if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                $tipoConv = "Laboratorio";
+                $itemsR1 = ($_POST['cantidadL']);
+                $itemsR2 = ($_POST['hrsAcademicasL']);
+                $itemsR3 = ($_POST['nombreAuxiliatura']);
+                $itemsR4 = ($_POST['codAux']);
+            }else{
+                if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                    $tipoConv = "Docencia";
+                    $itemsR1 = ($_POST['cantidadD']);
+                    $itemsR2 = ($_POST['hrsAcademicasD']);
+                    $itemsR5 = ($_POST['destino']);
+                }else{}
+            }
+
+            $idConv = '1';
+            //$sqlidConv = "SELECT id_convocatoria FROM convocatorias WHERE titulo = '".$nombreDeConvocatoria."' AND descripcion = '".$descripcionConvocatoria."'";
+            //$resultIdConvocatoria = pg_query($conexion, $sqlidConv);
+            //$integerIDs = pg_fetch_result($resultIdConvocatoria, 0, 0);
+            //$integerIDs = 0;
+            pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion, tipo_convocatoria, nota_requerimientos, nota_requisitos, nota_documentos, forma_presentacion, fecha_lugar_presentacion, tribunales_convocatoria,gestion) 
+            VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria','$tipoConv','$notaRequerimientos','$notaRequisitos','$notaDocumentos','$formaDeEntrega','$fechaPresentacion','$tribunalesConv','$gestionYsemestre')");
+            //pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion) VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria')");
 
             $items0 = ($_POST['documentos']);
             $items1 = ($_POST['requisito']);
@@ -275,16 +383,60 @@
                 //// RECUPERAR LOS VALORES DE LOS ARREGLOS ////////
                     $item0 = current($items0);
                     $item1 = current($items1);
+                    /////requerimientos////
+                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                        $itemR1 = current($itemsR1);
+                        $itemR2 = current($itemsR2);
+                        $itemR3 = current($itemsR3);
+                        $itemR4 = current($itemsR4);
+                    }else{
+                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                            $itemR1 = current($itemsR1);
+                            $itemR2 = current($itemsR2);
+                            $itemR5 = current($itemsR5);
+                        }else{}
+                    }
                 ////// ASIGNARLOS A VARIABLES ///////////////////
                     $id0=(( $item0 !== false) ? $item0 : ", &nbsp;");
                     $id1=(( $item1 !== false) ? $item1 : ", &nbsp;");
+                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                        $idR1=(( $itemR1 !== false) ? $itemR1 : ", &nbsp;");
+                        $idR2=(( $itemR2 !== false) ? $itemR2 : ", &nbsp;");
+                        $idR3=(( $itemR3 !== false) ? $itemR3 : ", &nbsp;");
+                        $idR4=(( $itemR4 !== false) ? $itemR4 : ", &nbsp;");
+                    }else{
+                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                            $idR1=(( $itemR1 !== false) ? $itemR1 : ", &nbsp;");
+                            $idR2=(( $itemR2 !== false) ? $itemR2 : ", &nbsp;");
+                            $idR5=(( $itemR5 !== false) ? $itemR5 : ", &nbsp;");
+                        }else{}
+                    }
                 //// CONCATENAR LOS VALORES EN ORDEN PARA SU FUTURA INSERCIÓN ////////
                     $valores=''.$id0.',';
                     $valores1=''.$id1.',';
+                    //$idRR1 = ''.$idR1.'';
+                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                        $valoresRF1="('$idConv','$idR1','$idR2','$idR3','$idR4'),";
+                    }else{
+                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                            $valoresRF1="('$idConv','$idR1','$idR2','$idR5'),";
+                        }else{}
+                    }
                 //////// YA QUE TERMINA CON COMA CADA FILA, SE RESTA CON LA FUNCIÓN SUBSTR EN LA ULTIMA FILA /////////////////////
                     $valoresD= substr($valores, 0, -1);
                     $valoresQ= substr($valores1, 0, -1);
+                    $valoresRFF1= substr($valoresRF1, 0, -1);
+                    //$valoresR1 = "'1', " + $valoresRF1;
                 ///////// QUERY DE INSERCIÓN ////////////////////////////
+                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                        $sqlR1="INSERT INTO requerimientos (id_convocatoria, cantidad, hrs_academicas, nombre_auxiliatura, codigo_auxiliatura)
+                        VALUES $valoresRFF1";
+                    }else{
+                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                            $sqlR1="INSERT INTO requerimientos (id_convocatoria, cantidad, hrs_academicas, destino)
+                            VALUES $valoresRFF1";
+                        }else{}
+                    }
                     //$sql = "INSERT INTO requisitos (iddescripcion_requisito)
                     //VALUES $valoresQ";
                     if($valoresD !== ", &nbsp;"){
@@ -293,6 +445,9 @@
                     if($valoresQ !== ", &nbsp;"){
                         pg_query($conexion,"INSERT INTO requisitos (id_convocatoria, descripcion_requisito) VALUES ('1','$valoresQ')");
                     }
+                    if($tipoConvocatoria !== "tipoConvocatoria"){
+                        pg_query($conexion,$sqlR1);
+                    }
                     //pg_query($conexion,"INSERT INTO documentos (id_convocatoria, descripcion_documento) VALUES ('1','$valoresD')");
                     //pg_query($conexion,"INSERT INTO requisitos (id_convocatoria, descripcion_requisito) VALUES ('1','$valoresQ')");
             
@@ -300,8 +455,20 @@
                 // Up! Next Value
                     $item0 = next( $items0 );
                     $item1 = next( $items1 );
+                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                        $itemR1 = next($itemsR1);
+                        $itemR2 = next($itemsR2);
+                        $itemR3 = next($itemsR3);
+                        $itemR4 = next($itemsR4);
+                    }else{
+                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                            $itemR1 = next($itemsR1);
+                            $itemR2 = next($itemsR2);
+                            $itemR5 = next($itemsR5);
+                        }else{}
+                    }
                 // Check terminator
-                if($item0 === false && $item1 === false) break;
+                if($item0 === false && $item1 === false && $itemR1 === false) break;
             }            
         }
 
@@ -315,11 +482,6 @@
 
         <br>
         <br>
-        <select id="lista1" name="lista1" class="mr-2">
-                <option value="Departamentos en general">General</option>
-				<option value="Convocatoria de Docencia">Convocatoria de Docencia</option>
-				<option value="Convocatoria de Auxiliar">Convocatoria de Auxiliar</option>
-		</select>
         <select id="lista2" name="lista2" class="mr-2">
                 <option value="Departamentos en general">General</option>
                 <option value="Departamento De Biologia">Departamento De Biologia</option>
