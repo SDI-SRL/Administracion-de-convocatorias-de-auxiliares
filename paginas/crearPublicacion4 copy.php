@@ -255,7 +255,7 @@
             </table>
 
             <div class="btn-der">
-                <input type="submit" name="insertarr" value="Insertar Alumno" class="btn btn-info"/>
+                <input type="submit" name="insertarr" value="Insertaro" class="btn btn-info"/>
                 <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Más + </button>
                 <br>
             </div>
@@ -263,6 +263,8 @@
         <?php
         //////////////////////// PRESIONAR EL BOTÓN //////////////////////////
         if(isset($_POST['insertarr'])){
+            //id convocatoria//
+            
             ///conv///
             $nombreDeConvocatoria=($_POST['titulo']);
             $descripcionConvocatoria=($_POST['descripcion']);
@@ -288,7 +290,7 @@
                     //$sql = "INSERT INTO requisitos (iddescripcion_requisito)
                     //VALUES $valoresQ";
                     if($valoresD !== ", &nbsp;"){
-                        pg_query($conexion,"INSERT INTO documentos (id_convocatoria, descripcion_documento) VALUES ('1','$valoresD')");
+                        pg_query($conexion,"INSERT INTO documentos (id_convocatoria, descripcion_documento) VALUES ('$idConvMax2','$valoresD')");
                     }
                     if($valoresQ !== ", &nbsp;"){
                         pg_query($conexion,"INSERT INTO requisitos (id_convocatoria, descripcion_requisito) VALUES ('1','$valoresQ')");
