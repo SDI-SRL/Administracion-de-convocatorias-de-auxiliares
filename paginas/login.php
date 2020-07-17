@@ -41,7 +41,10 @@
         </div>
 
     <section class="principal">
-        <div class="border border-dark bg-primary w-50 mx-auto my-5 p3">
+        <br>
+        <br>
+        <h2 class="text-center" >Inicio de Sesion</h2>
+        <div class="border border-dark bg-primary w-50 mx-auto my-5 p3">       
             <form action="../formularios/form_VerificarUsuario.php" method="post" class="rounded-sm">
                 <label class="font-italic d-block p-1" for="loginCorreo">Correo Electronico</label>
                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="mail" name="IdUsuaario" id=""  autocomplete='off' id="loginCorreo" placeholder="Ejemplo@gmail.com">

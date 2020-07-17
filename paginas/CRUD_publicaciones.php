@@ -24,14 +24,14 @@
         text-decoration:none;
         }
     </style>
-        <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script> 
+        <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <header class="bg-info w-100 p-4">
-        <h3 class="font-italic"><i class="fas fa-users"></i>  
+        <h3 class="font-italic"><i class="fas fa-users"></i>
             <?php
-                
+
                 /////////////////////
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
@@ -62,9 +62,9 @@
                     }
                 }else{
                     echo "Bienvenid@";
-                }            
-            echo $_SESSION['sesion'];     
-            
+                }
+            echo $_SESSION['sesion'];
+
             $extension=" ";
             if($_SESSION['bandera']){
                 $extension="asc";
@@ -72,10 +72,10 @@
             }else{
                 $extension="  ";
                 $_SESSION['bandera']=true;
-            }       
+            }
 
             ?>
-        </h3>        
+        </h3>
         <a href="../paginas/cambiarEmailPassword.php" class="float-right text-dark">Cambiar Contraseña y/o Password</a>
         <br>
         <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
@@ -87,11 +87,12 @@
                         <div class='alert alert-<?php echo $_GET['color'];?>  alert-dissmisible fade show' role='alert'>
                             <?php echo $_GET['tit'];?>
                             <button type='button' class='close' data-dismiss='alert' aria-label='close'><span aria-hidden='true'>&times;</span></button>
-            
+
                         </div>
                     </div>
                 <?php
             }?>
+
     <main class='container w-75 mt-2'>
           <div class='table-responsive'>
             <table class='table table-hover'>
@@ -110,21 +111,21 @@
                     <?php
                     require_once("../modelo/convocatoria.php");
                     $convocatoria = new Convocatoria();
-                    $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente(); 
+                    $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente();
                     if(isset($_GET['fecha'])){
                         $fecha=$_GET['fecha'];
                         if($fecha=='asc'){
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaDescendente(); 
+                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaDescendente();
                         }else{
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente(); 
+                            $resultado=$convocatoria->mostrarTodasConvocatoriaFechaAscendente();
                         }
                     }
                     if(isset($_GET['convocatoria'])){
                         $myConvocatoria=$_GET['convocatoria'];
                         if($myConvocatoria=='asc'){
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreDescendente(); 
+                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreDescendente();
                         }else{
-                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreAscendente(); 
+                            $resultado=$convocatoria->mostrarTodasConvocatoriaNombreAscendente();
                         }
                     }
                     if(isset($_GET['autor'])){
@@ -135,17 +136,17 @@
                             $resultado=$convocatoria->mostrarTodasConvocatoriaAutorAscendente();
                         }
                     }
-                    foreach($resultado as $elemento){                
+                    foreach($resultado as $elemento){
                             echo "<tr>";
                             echo    "<td><h6>".$elemento['titulo']."</h6>Expiracion:".$elemento['fecha_expiracion']."</td>";
-                            echo    "<td><h6>".$elemento['creador']."</h6></td>";      
+                            echo    "<td><h6>".$elemento['creador']."</h6></td>";
                             echo    "<td><h6>".$elemento['fecha']."</h6></td>";
                             echo    "<td>";
                             echo        "<a  href='".$elemento['direcccion_pdf']."' target='_blank'>Abrir ".$elemento['titulo']."</a>";
                             echo    "</td>";
                             echo    "<td>";
-                            echo        "<a href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'  class='btn btn-danger' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
-                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' title='Editar'><i class='fas fa-edit'></i></a>
+                            echo        "<a class='btn btn-danger' onclick='alerta(".$elemento['id_convocatoria'].")' title='Eliminar'><i class='fas fa-trash-alt'></i></a>
+                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' onclick='alerta(".$elemento['id_convocatoria'].")' title='Editar'><i class='fas fa-edit'></i></a>
                                 </td>
                             </tr>";
                         }
@@ -155,20 +156,38 @@
     </main>";
     ?>
 
-    <!--<footer class="pieIndice">
+    <script type="text/javascript">
+        function alerta($x)
+            {
+            var mensaje;
+            var opcion = confirm("¿Esta seguro de que desea eliminar esta Publicacion?");
+            if (opcion == true) {
+                mensaje = "Has clickado Aceptar";
+                //location.href = "crearPublicacion.php";
+                location.href = "../formularios/form_eliminarConvocatoria.php?id=" + $x;
+                //href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'
+            } else {
+                mensaje = "cambiarEmailPassword.php";
+                location.href = "#";
+                //href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."'
+            }
+            //document.getElementById("ejemplo").innerHTML = mensaje;
+        }
+    </script>
+    <footer class="pieIndice">
         <div class="text-center">
             <h6 class="d-inline-block">Contacto: <a href="">correo_del_Administardor@mail.com ,</a> <a href="">  correo_de_la_Empresa@mail.com</a></h6>
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
         </div>
         <div class="text-center">
-            <h6>Sitios Relacionados : 
+            <h6>Sitios Relacionados :
                 <a href="http://www.umss.edu.bo/">UMSS</a>
                 <a href="http://websis.umss.edu.bo/"> | WEBSISS</a>
                 <a href="https://www.facebook.com/UmssBolOficial"> | facebook</a>
                 <a href="https://twitter.com/UmssBolOficial"> | Twitter</a>
                 <a href="https://www.instagram.com/umssboloficial/"> | Instagram</a>
                 <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/"> | Linkedin</a>
-                <a href="https://www.youtube.com/universidadmayordesansimon"> | Youtube</a>                
+                <a href="https://www.youtube.com/universidadmayordesansimon"> | Youtube</a>
             </h6>
         </div>
         <div class="text-center">

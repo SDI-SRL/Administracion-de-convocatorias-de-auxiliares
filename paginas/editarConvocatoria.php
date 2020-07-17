@@ -27,7 +27,7 @@
 
         <body class="cuerpo">
             <header class="bg-info w-100 p-4">
-                <h3 class="font-italic"><i class="fas fa-users"></i>  
+                <h3 class="font-italic"><i class="fas fa-users"></i>
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -38,7 +38,7 @@
                                     echo "Administrador ";
                                 }else{
                                     if($cargo=="Secretaria"){
-                                        echo "Secretario ";                                       
+                                        echo "Secretario ";
                                     }else{
                                         echo "Usuario ";
                                     }
@@ -60,13 +60,13 @@
                             }
                         }
                     }
-                    echo $_SESSION['sesion']; 
+                    echo $_SESSION['sesion'];
                     ?>
-                
+
                 </h3>
                 <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
-                <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
+                <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
             </header>
 
             <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
@@ -78,7 +78,7 @@
                 <textarea id="descripcion" rows="10" cols="190" name="descripcion" style="resize:none; width:100%;"><?php echo $resultado[0]['descripcion_convocatoria']; ?></textarea>
                 <br>
                 <br>
-                <a href="<?php echo $resultado[0]['direcccion_pdf'];?>">Archivo anterior</a><span><----</span><input type="file" required name="archivo" id="archivo"  accept='.pdf'  > 
+                <a href="<?php echo $resultado[0]['direcccion_pdf'];?>">Archivo anterior</a><span><----</span><input type="file" required name="archivo" id="archivo"  accept='.pdf'  >
                 <br>
                 <br>
                 <select id="lista1" name="lista1" class="mr-2">
@@ -103,7 +103,7 @@
                     }
                     ?>
                 </select>
-                
+
                 <select id="lista2" name="lista2" class="mr-2">
                     <?php
                     $departamento=$resultado[0]['departamento'];
@@ -228,7 +228,7 @@
                             echo "<option value='Departamento de Matemáticas'>Departamento de Matemáticas</option>";
                             echo "<option value='Departamento de Ingeniería Civil' selected>Departamento de Ingeniería Civil</option>";
                          break;
-                    }           
+                    }
                     ?>
                 </select>
 
@@ -267,7 +267,7 @@
             ?>
 
             <input type="date" name="fechaDeExpiracion" id="fechaDeExpiracion" min="<?php echo $fechaMinima;?>" value="<?php echo $auxiliar[0];?>">
-        
+
         <label for="horaDeExpiracion"> Hora de Expiracion</label>
         <input type="time" name="horaDeExpiracion" id="horaDeExpiracion" value=<?php echo $hora; ?>>
         <br>
@@ -278,7 +278,6 @@
                </div>
             </form>
             </div>
-        </body>
     <?php
         $convocatoria->cerrarConexion();
     ?>
@@ -301,5 +300,6 @@
         <div class="text-center">
             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
         </div>
-    </footer>-->
+    </footer>
+    </body>
 </html>
