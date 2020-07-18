@@ -94,7 +94,7 @@
     <section>
         <script>
             $(function(){
-                if('#selectTipo' == "tipoConvocatoria"){
+                if('#selectTipo' == ""){
                     //$('.fila-fijaL').hide();
                     //$('.fila-fijaD').hide();
                 }
@@ -121,7 +121,7 @@
                         $('.seleccion').show();
                         $('.seleccionlabel').show();
                     }
-                    if (selectValor == 'tipoConvocatoria') {
+                    if (selectValor == '') {
                         $('.tableD').hide();
                         $('.tableL').hide();
                         $('.btnD').hide();
@@ -206,8 +206,9 @@
                 });
             });
 		</script>
-        <form method="post"> <!-- -->
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,}" title="Solo puede ingresar numeros y letras">
+        <form method="post"> <!-- [a-zA-Z0-9 ]{2,} -->
+        <input type="text" name="titulo" id="titulo" style="resize:none; width:100%;" placeholder="Titulo" required autocomplete="off" 
+        pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-Z0-9À-ÿ\u00f1\u00d1]*)*[a-zA-Z0-9À-ÿ\u00f1\u00d1]+$" title="Solo puede ingresar numeros y letras">
             <br>
             <br>
             <div class="form-group mx-5">
@@ -217,8 +218,8 @@
             </br>
             <label for="requerimientos">Requerimientos: </label>
             </br>
-            <select id="selectTipo" name="selectTipo" class="mr-2">
-                <option value="tipoConvocatoria">Seleccionar tipo de convocatoria</option>
+            <select id="selectTipo" name="selectTipo" class="mr-2" required>
+                <option value="">Seleccionar tipo de convocatoria</option>
 				<option value="ConvocatoriaDocencia">Convocatoria de Auxiliar de Docencia</option>
 				<option value="ConvocatoriaLaboratorio">Convocatoria de Auxiliar de Laboratorio</option>
 		    </select>  
@@ -334,8 +335,8 @@
                         ?>
                     <input type="date" name="fechaPresentacionDocFin" id="fechaPresentacionDocFin" min="<?php echo $fechaMinima;?>">
                     <br>
-                    <label for="selectFechaDoc">En: </label>
-                        <select id="listaDepartamento" name="listaDepartamento" class="mr-2">
+                    <label for="selectFechaDocLb">En: </label>
+                        <select id="selectFechaDoc" name="selectFechaDoc" class="mr-2">
                             <option value="Departamentos en general">General</option>
                             <option value="Departamento De Biologia">Secretaria del Departamento De Biologia</option>
                             <option value="Departamento de Ingeniería Eléctrica y Electrónica">Secretaria del Departamento de Ingeniería Eléctrica y Electrónica</option>
@@ -362,7 +363,7 @@
                     </tr>
                     <tr>
                     <th scope="row">Reclamos: </th>
-                    <td><label for="fechaReclamosDesde">Desde: </label>
+                    <td><label for="fechaReclamosDesdeLb">Desde: </label>
                         <?php
                             date_default_timezone_set('America/La_Paz');
                             $fechaHoy=date('Y-m-d');
@@ -378,8 +379,8 @@
                         ?>
                     <input type="date" name="fechaReclamosHasta" id="fechaReclamosHasta" min="<?php echo $fechaMinima;?>">
                     <br>
-                    <label for="selectReclamos">En: </label>
-                    <select id="listaDepartamento" name="listaDepartamento" class="mr-2">
+                    <label for="selectReclamosLb">En: </label>
+                    <select id="selectReclamos" name="selectReclamos" class="mr-2">
                             <option value="Departamentos en general">General</option>
                             <option value="Departamento De Biologia">Secretaria del Departamento De Biologia</option>
                             <option value="Departamento de Ingeniería Eléctrica y Electrónica">Secretaria del Departamento de Ingeniería Eléctrica y Electrónica</option>
@@ -496,9 +497,19 @@
 
             ///fechas
             $fechaExpiracion=$_POST['fechaDeExpiracion'];
-            $horaExpiracion=$_POST['horaDeExpiracion'];///aun no usado
-            $fechaExpiracion=$_POST['fechaDeExpiracion'];///????
+            //$horaExpiracion=$_POST['horaDeExpiracion'];///aun no usado
+            $fechaPublicacion=$_POST['fechaPublicacion'];
+            $fechaPresentacionDocumentosInicio=$_POST['fechaPresentacionDocIN'];
+            $fechaPresentacionDocumentosFin=$_POST['fechaPresentacionDocFin'];
+            $fechaPresentacionDocumentosLugar=$_POST['selectFechaDoc'];
+            $fechaPublicacionHabilidatos=$_POST['fechaPublicacionHabilitados'];
+            $fechaReclamosInicio=$_POST['fechaReclamosDesde'];
+            $fechaReclamosFin=$_POST['fechaReclamosHasta'];
+            $fechaReclamosLugar=$_POST['selectReclamos'];
+            $fechaRolPruebas=$_POST['fechaRol'];
+            $fechaPublicacionResultados=$_POST['fechaPublicacionResultados'];
 
+            //////////
             $tipoConv="ninguna";
             $gestionYsemestre="$semestreConv $gestionConv";
 
@@ -531,9 +542,9 @@
             //$integerIDs = pg_fetch_result($resultIdConvocatoria, 0, 0);
             //$integerIDs = 0;
             pg_query($conexion,"INSERT INTO convocatoria (nombre_convocatoria, descripcion_conv, tipo_convocatoria, nota_requerimiento, nota_requisitos, nota_documentos, 
-            forma_presentacion, fecha_presentacion, tribunales_convocatoria,gestion_convocatoria, nota_de_fechas, nombramiento, departamento, fecha_expiracion) 
+            forma_presentacion, fecha_presentacion, tribunales_convocatoria,gestion_convocatoria, nota_de_fechas, nombramiento, departamento, fecha_expiracion, fecha_subida) 
             VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria','$tipoConv','$notaRequerimientos','$notaRequisitos','$notaDocumentos','$formaDeEntrega',
-            '$fechaPresentacion','$tribunalesConv','$gestionYsemestre','$notaFechas','$nombramiento','$departamento', '$fechaExpiracion')");
+            '$fechaPresentacion','$tribunalesConv','$gestionYsemestre','$notaFechas','$nombramiento','$departamento', '$fechaExpiracion', '$fechaPublicacion')");
             //pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion) VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria')");
 
             $items0 = ($_POST['documentos']);
@@ -614,6 +625,18 @@
                     if($tipoConvocatoria !== "tipoConvocatoria"){
                         pg_query($conexion,$sqlR1);
                     }
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+                    //VALUES ('$idConvMaxFinal','Publicacion convocatoria','$','$','$')");
+                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+                    VALUES ('$idConvMaxFinal','Presentacion de documentos','$fechaPresentacionDocumentosInicio','$fechaPresentacionDocumentosFin','$fechaPresentacionDocumentosLugar')");
+                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    VALUES ('$idConvMaxFinal','publicacion de habilitados','$fechaPublicacionHabilidatos')");
+                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+                    VALUES ('$idConvMaxFinal','Reclamos','$fechaReclamosInicio','$fechaReclamosFin','$fechaReclamosLugar')");
+                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    VALUES ('$idConvMaxFinal','Rol de pruebas','$fechaRolPruebas')");
+                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    VALUES ('$idConvMaxFinal','Publicacion de resultados','$fechaPublicacionResultados')");
                     //pg_query($conexion,"INSERT INTO documentos (id_convocatoria, descripcion_documento) VALUES ('1','$valoresD')");
                     //pg_query($conexion,"INSERT INTO requisitos (id_convocatoria, descripcion_requisito) VALUES ('1','$valoresQ')");
             
