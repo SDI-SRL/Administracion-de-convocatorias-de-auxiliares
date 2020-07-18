@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
   <html>
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -233,7 +233,7 @@
                     </div> -->
 
                     <section class="principal">
-                        <div class="border border-dark bg-primary w-50 mx-auto my-5 p3">
+                        <div class="border border-dark alert alert-primary w-50 mx-auto my-5 p3" role="alert">
                             <form action="../formularios/form_VerificarUsuario.php" method="post" class="rounded-sm">
                                 <label class="font-italic d-block p-1" for="loginCorreo">Correo Electronico</label>
                                 <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="mail" name="IdUsuaario" id=""  autocomplete='off' id="loginCorreo" placeholder="Ejemplo@gmail.com">
