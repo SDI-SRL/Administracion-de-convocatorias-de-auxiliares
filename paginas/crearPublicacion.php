@@ -94,7 +94,7 @@
     <section>
         <script>
             $(function(){
-                if('#selectTipo' == "tipoConvocatoria"){
+                if('#selectTipo' == ""){
                     //$('.fila-fijaL').hide();
                     //$('.fila-fijaD').hide();
                 }
@@ -121,7 +121,7 @@
                         $('.seleccion').show();
                         $('.seleccionlabel').show();
                     }
-                    if (selectValor == 'tipoConvocatoria') {
+                    if (selectValor == '') {
                         $('.tableD').hide();
                         $('.tableL').hide();
                         $('.btnD').hide();
@@ -206,8 +206,9 @@
                 });
             });
 		</script>
-        <form method="post"> <!-- -->
-        <input type="text" name="titulo" id="titulo" placeholder="Titulo" required autocomplete="off" pattern="[a-zA-Z0-9 ]{2,}" title="Solo puede ingresar numeros y letras">
+        <form method="post"> <!-- [a-zA-Z0-9 ]{2,} -->
+        <input type="text" name="titulo" id="titulo" style="resize:none; width:100%;" placeholder="Titulo" required autocomplete="off" 
+        pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-Z0-9À-ÿ\u00f1\u00d1]*)*[a-zA-Z0-9À-ÿ\u00f1\u00d1]+$" title="Solo puede ingresar numeros y letras">
             <br>
             <br>
             <div class="form-group mx-5">
@@ -217,8 +218,8 @@
             </br>
             <label for="requerimientos">Requerimientos: </label>
             </br>
-            <select id="selectTipo" name="selectTipo" class="mr-2">
-                <option value="tipoConvocatoria">Seleccionar tipo de convocatoria</option>
+            <select id="selectTipo" name="selectTipo" class="mr-2" required>
+                <option value="">Seleccionar tipo de convocatoria</option>
 				<option value="ConvocatoriaDocencia">Convocatoria de Auxiliar de Docencia</option>
 				<option value="ConvocatoriaLaboratorio">Convocatoria de Auxiliar de Laboratorio</option>
 		    </select>  
