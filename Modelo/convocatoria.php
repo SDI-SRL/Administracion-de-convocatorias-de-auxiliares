@@ -24,7 +24,7 @@
             return $resultado;
         }
         public function mostrarTodasConvocatoriaFechaAscendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY fecha_subida desc";
+            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY fecha_subida desc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -32,7 +32,7 @@
             return $resultado;
         }
         public function mostrarTodasConvocatoriaFechaDescendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY fecha_subida asc";
+            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY fecha_subida asc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -40,7 +40,7 @@
             return $resultado;
         }
         public function mostrarTodasConvocatoriaNombreDescendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY nombre_convocatoria desc";
+            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY nombre_convocatoria desc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@
             return $resultado;
         }
         public function mostrarTodasConvocatoriaNombreAscendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY nombre_convocatoria asc";
+            $sql="SELECT nombre_convocatoria,descripcion_conv,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY nombre_convocatoria asc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -57,7 +57,7 @@
         }
 
         public function mostrarTodasConvocatoriaAutorDescendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_convocatoria,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY creador desc";
+            $sql="SELECT nombre_convocatoria,descripcion_convocatoria,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY creador desc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
@@ -65,7 +65,7 @@
             return $resultado;
         }
         public function mostrarTodasConvocatoriaAutorAscendente(){
-            $sql="SELECT nombre_convocatoria,descripcion_convocatoria,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,creador FROM convocatoria WHERE visible='true' ORDER BY creador asc";
+            $sql="SELECT nombre_convocatoria,descripcion_convocatoria,fecha_subida,direccion_pdf,id_convocatoria,fecha_expiracion,autor_convocatoria FROM convocatoria WHERE visible='true' ORDER BY creador asc";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
             $sentenceSQL->execute();
             $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);

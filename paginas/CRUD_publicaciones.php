@@ -174,11 +174,11 @@
                     }
                     foreach($resultado as $elemento){
                             echo "<tr>";
-                            echo    "<td><h6>".$elemento['titulo']."</h6>Expiracion:".$elemento['fecha_expiracion']."</td>";
-                            echo    "<td><h6>".$elemento['creador']."</h6></td>";
-                            echo    "<td><h6>".$elemento['fecha']."</h6></td>";
+                            echo    "<td><h6>".$elemento['nombre_convocatoria']."</h6>Expiracion:".$elemento['fecha_expiracion']."</td>";
+                            echo    "<td><h6>".$elemento['autor_convocatoria']."</h6></td>";
+                            echo    "<td><h6>".$elemento['fecha_expiracion']."</h6></td>";//fehca subida???
                             echo    "<td>";
-                            echo        "<a  href='".$elemento['direcccion_pdf']."' target='_blank'>Abrir ".$elemento['titulo']."</a>";
+                            echo        "<a  href='".$elemento['direccion_pdf']."' target='_blank'>Abrir ".$elemento['nombre_convocatoria']."</a>";
                             echo    "</td>";
                             echo    "<td>";
                             echo        "<a class='btn btn-danger' onclick='alerta(".$elemento['id_convocatoria'].")' title='Eliminar'><i class='fas fa-trash-alt'></i></a>

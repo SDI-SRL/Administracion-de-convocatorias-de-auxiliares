@@ -207,11 +207,11 @@
                             $convocatoria= new  Convocatoria();
                             $consulta=$convocatoria->mostrarConvocatoriaFechaAscendente($fechaActual);
                             foreach($consulta as $elemento){
-                                echo "<h2>".$elemento['titulo']."</h2>";
+                                echo "<h2>".$elemento['nombre_convocatoria']."</h2>";
                                 echo "<h5>Descripcion del documento</h5>";
-                                echo "<h6>".$elemento['descripcion_convocatoria']."</h6>";
-                                echo "<a href='".$elemento['direcccion_pdf']."' target='_blank' >Abrir archivo ".$elemento['titulo']."</a>";
-                                echo "<p class='float-right'>".$elemento['fecha']."</p>";
+                                echo "<h6>".$elemento['descripcion_conv']."</h6>";
+                                echo "<a href='".$elemento['direccion_pdf']."' target='_blank' >Abrir archivo ".$elemento['nombre_convocatoria']."</a>";
+                                echo "<p class='float-right'>".$elemento['fecha_subida']."</p>"; //fecha subida?
                                 echo "<hr>";
                             }
                             $convocatoria->cerrarConexion();
