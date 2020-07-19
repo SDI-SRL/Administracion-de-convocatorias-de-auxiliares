@@ -72,6 +72,12 @@ a.opcion-rojo{
   border-top: solid 2px;
 }
 
+body{
+    background-color: #a4b6c5;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
 img.cabecera{
   width: 100%;
   height: auto;

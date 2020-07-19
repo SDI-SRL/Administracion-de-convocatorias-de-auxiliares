@@ -197,7 +197,7 @@
             <div class="container-fluid">
               <div>
                 <h4 class="p-2 text-center">
-                  <a href='rep_lista_avisos.html'>Convocatorias Publicadas</a>
+                  <a href="#">Convocatorias Publicadas</a>
                 </h4>
                 <!-- <div>
                   
