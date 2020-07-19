@@ -19,8 +19,7 @@
 
 
     //$conexion_pdo = new PDO("pgsql:host=localhost;port=5432;dbname=sdiprueba","postgres","1234");//error
-    //$conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
-    $conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
+    $conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
     //return $conexion;
 ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
 
@@ -98,12 +97,8 @@
                 for(ii = 0; ii < 3; ii++){
                     $("#tablaD tbody tr:eq(0)").clone().removeClass('fila-fijaD').appendTo("#tablaD");                  
                 }
-                for(iii = 0; iii < 7; iii++){
+                for(ii = 0; ii < 7; ii++){
                     $("#tablaL tbody tr:eq(0)").clone().removeClass('fila-fijaL').appendTo("#tablaL");
-                } 
-                for(iiii = 0; iiii < 7; iiii++){
-                    $("#tablaRequ tbody tr:eq(0)").clone().removeClass('fila-fija1').appendTo("#tablaRequ");
-                    $("#tablaDoc tbody tr:eq(0)").clone().removeClass('fila-fija2').appendTo("#tablaDoc");
                 } 
                 if('#selectTipo' == ""){
                     //$('.fila-fijaL').hide();
@@ -164,10 +159,8 @@
         var auxiliarL = 7;
         //var auxiliarD = "<?php $cantD; ?>";
         var auxiliarD = 3;
-        //var auxiliar2 = "<?php $docCant; ?>";
-        var auxiliar2 = 7;
-        //var auxiliar11 = "<?php $requCant; ?>";
-        var auxiliar11 = 7;
+        var auxiliar2 = "<?php $docCant; ?>";
+        var auxiliar11 = "<?php $requCant; ?>";
             $(function(){
                 $("#adicionarD").on('click', function(){
                     $("#tablaD tbody tr:eq(0)").clone().removeClass('fila-fijaD').appendTo("#tablaD");
@@ -290,13 +283,13 @@
             <table class="table bg-info"  id="tablaRequ">
                 <tr class="fila-fija1">
                     <td><input required class = "form-control input-lg" name="requisito[]" placeholder="Escriba su requerimiento" value=""/></td>
-                    <td class="eliminar1"><input type="button"   value="Eliminar fila"/></td>
+                    <td class="eliminar1"><input type="button"   value="Menos -"/></td>
                 </tr>
             </table>
 
             <div class="btn-der">
                 <!--<input type="submit" name="insertarrr" value="Insertar Alumno" class="btn btn-info"/>-->
-                <button id="adicionall" name="adicional1" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicionall" name="adicional1" type="button" class="btn btn-warning"> Más + </button>
                 <br>
             </div>
             <br>
@@ -307,11 +300,11 @@
             <table class="table bg-info"  id="tablaDoc">
                 <tr class="fila-fija2">
                     <td><input required class = "form-control input-lg" name="documentos[]" placeholder="Escriba los documentos a presentar"/></td>
-                    <td class="eliminar2"><input type="button"   value="Eliminar fila"/></td>
+                    <td class="eliminar2"><input type="button"   value="Menos -"/></td>
                 </tr>
             </table>
             <div class="btn-der">
-                <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Más + </button>
                 <br>
             </div>
             <br>
@@ -349,7 +342,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaPublicacion" id="fechaPublicacion" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaPublicacion" id="fechaPublicacion" min="<?php echo $fechaMinima;?>">
                     </td>
                     </tr>
                     <tr>
@@ -501,7 +494,7 @@
                      $fechaHoy=date('Y-m-d');
                      $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                 ?>
-            <input type="date" name="fechaDeExpiracion" id="fechaDeExpiracion" min="<?php echo $fechaMinima;?>" required>
+            <input type="date" name="fechaDeExpiracion" id="fechaDeExpiracion" min="<?php echo $fechaMinima;?>">
             <!--<label for="horaDeExpiracion"> Hora de Expiracion</label>
             <input type="time" name="horaDeExpiracion" id="horaDeExpiracion">-->
             <br>
