@@ -68,6 +68,16 @@
             return $resultado;
         }
 
+        public function obtenerCIAdministrativo($usuario){
+            $sql="SELECT ci_administrativo FROM ADMINISTRATIVO WHERE UPPER(correo_Administrativo)= UPPER(:usser)";
+            $sentenceSQL = $this->connexion_bd->prepare($sql);
+            $sentenceSQL->execute(array(":usser"=>$usuario));
+            $resultado=$sentenceSQL->fetchAll(PDO::FETCH_ASSOC);
+            $resultado=$resultado[0]['ci_administrativo'];
+            $sentenceSQL->closeCursor();
+            return $resultado;
+        }
+
         public function actualizarPasswordAdministrativo($nuevoPassword, $correo){
             $sql="UPDATE administrativo SET password_decodificado = :pass WHERE UPPER(correo_administrativo) = UPPER(:correo)";
             $sentenceSQL = $this->connexion_bd->prepare($sql);
