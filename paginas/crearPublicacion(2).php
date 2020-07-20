@@ -19,8 +19,8 @@
 
 
     //$conexion_pdo = new PDO("pgsql:host=localhost;port=5432;dbname=sdiprueba","postgres","1234");//error
-    $conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
-    //$conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
+    //$conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
+    $conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
     //return $conexion;
 ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
 
@@ -118,18 +118,30 @@
                         $('.btnD').show();
                         $('.tableL').hide();
                         $('.btnL').hide();
+                        $('.nombramiento').show();
+                        $('.nombramientolabel').show();
+                        $('.seleccion').hide();
+                        $('.seleccionlabel').hide();
                     }
                     if (selectValor == 'ConvocatoriaLaboratorio') {
                         $('.tableL').show();
                         $('.btnL').show();
                         $('.tableD').hide();
                         $('.btnD').hide();
+                        $('.nombramiento').hide();
+                        $('.nombramientolabel').hide();
+                        $('.seleccion').show();
+                        $('.seleccionlabel').show();
                     }
                     if (selectValor == '') {
                         $('.tableD').hide();
                         $('.tableL').hide();
                         $('.btnD').hide();
                         $('.btnL').hide();
+                        $('.nombramiento').hide();
+                        $('.nombramientolabel').hide();
+                        $('.seleccion').hide();
+                        $('.seleccionlabel').hide();
                     }
                     //else {
                     //$('.fila-fija0').hide();
@@ -141,6 +153,10 @@
                 $('.tableL').hide();
                 $('.btnD').hide();
                 $('.btnL').hide();
+                $('.nombramiento').hide();
+                $('.nombramientolabel').hide();
+                $('.seleccion').hide();
+                $('.seleccionlabel').hide();
             });
         </script>
         <script>
@@ -213,7 +229,7 @@
             <br>
             <div class="form-group mx-5">
                 <label for="numeroTelefonico">Descripcion: </label>
-                <textarea id="descripcion" rows="5" name="descripcion" style="resize:none; width:100%;" required> </textarea>
+                <textarea id="descripcion" rows="5" name="descripcion"  style="resize:none; width:100%;"> </textarea>
             </div>
             </br>
             <label for="requerimientos">Requerimientos: </label>
@@ -311,13 +327,11 @@
             <label for="delostribunales">De los tribunales: </label>
             <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
             <br>
-            <label for="nombramientoLb">Del nombramiento o Seleccion: </label>
-            <input required class="form-control input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca de los tribunales" value=""/>
+            <label class ="seleccionlabel" for="delaseleccion">Seleccion: </label>
+            <input class="seleccion input-lg" name="deLaSeleccion" id="deLaSeleccion" placeholder="Escriba acerca de la seleccion de auxiliares" value=""/>
             <br>
-            <label for="fechas_impLb">Acerca de las fechas a prueba: </label>
-            <input class="form-control input-lg" name="fechas_imp" id="fechas_imp" placeholder="Escriba acerca de las fechas de las pruebas" value=""/>
-            <br>
-            <label for="cronogramaLb">Cronograma: </label>
+            <label class ="nombramientolabel" for="delnombramiento">Del nombramiento: </label>
+            <input class="nombramiento input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca del nombramiento" value=""/>
             <br>
             <table class="table table-bordered">
                 <thead>
@@ -333,10 +347,9 @@
                         <?php
                             date_default_timezone_set('America/La_Paz');
                             $fechaHoy=date('Y-m-d');
-                            $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"));
-                            $fechaMinima2=date('Y-m-d',strtotime($fechaHoy));
+                            $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <label for="fechaPublicacionConvocatoria"><?php echo $fechaMinima2;?></label>
+                    <input type="date" name="fechaPublicacion" id="fechaPublicacion" min="<?php echo $fechaMinima;?>" required>
                     </td>
                     </tr>
                     <tr>
@@ -347,7 +360,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?> 
-                    <input type="date" name="fechaPresentacionDocIN" id="fechaPresentacionDocIN" min="<?php echo $fechaMinima;?>" required>  
+                    <input type="date" name="fechaPresentacionDocIN" id="fechaPresentacionDocIN" min="<?php echo $fechaMinima;?>">  
                     <br>
                     <label for="fechaPresentacionDocFin">Hasta: </label>
                         <?php
@@ -355,11 +368,11 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaPresentacionDocFin" id="fechaPresentacionDocFin" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaPresentacionDocFin" id="fechaPresentacionDocFin" min="<?php echo $fechaMinima;?>">
                     <br>
                     <label for="selectFechaDocLb">En: </label>
-                        <select id="selectFechaDoc" name="selectFechaDoc" class="mr-2" required>
-                            <option value="">General</option>
+                        <select id="selectFechaDoc" name="selectFechaDoc" class="mr-2">
+                            <option value="Departamentos en general">General</option>
                             <option value="Departamento De Biologia">Secretaria del Departamento De Biologia</option>
                             <option value="Departamento de Ingeniería Eléctrica y Electrónica">Secretaria del Departamento de Ingeniería Eléctrica y Electrónica</option>
                             <option value="Departamento de Química">Secretaria del Departamento de Química</option>
@@ -380,7 +393,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaPublicacionHabilitados" id="fechaPublicacionHabilitados" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaPublicacionHabilitados" id="fechaPublicacionHabilitados" min="<?php echo $fechaMinima;?>">
                     </td>
                     </tr>
                     <tr>
@@ -391,7 +404,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?> 
-                    <input type="date" name="fechaReclamosDesde" id="fechaReclamosDesde" min="<?php echo $fechaMinima;?>" required>  
+                    <input type="date" name="fechaReclamosDesde" id="fechaReclamosDesde" min="<?php echo $fechaMinima;?>">  
                     <br>
                     <label for="fechaReclamosHasta">Hasta: </label>
                         <?php
@@ -399,11 +412,11 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaReclamosHasta" id="fechaReclamosHasta" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaReclamosHasta" id="fechaReclamosHasta" min="<?php echo $fechaMinima;?>">
                     <br>
                     <label for="selectReclamosLb">En: </label>
-                    <select id="selectReclamos" name="selectReclamos" class="mr-2" required>
-                            <option value="">General</option>
+                    <select id="selectReclamos" name="selectReclamos" class="mr-2">
+                            <option value="Departamentos en general">General</option>
                             <option value="Departamento De Biologia">Secretaria del Departamento De Biologia</option>
                             <option value="Departamento de Ingeniería Eléctrica y Electrónica">Secretaria del Departamento de Ingeniería Eléctrica y Electrónica</option>
                             <option value="Departamento de Química">Secretaria del Departamento de Química</option>
@@ -424,7 +437,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaRol" id="fechaRol" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaRol" id="fechaRol" min="<?php echo $fechaMinima;?>">
                     </td>
                     </tr>
                     <tr>
@@ -435,7 +448,7 @@
                             $fechaHoy=date('Y-m-d');
                             $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                         ?>
-                    <input type="date" name="fechaPublicacionResultados" id="fechaPublicacionResultados" min="<?php echo $fechaMinima;?>" required>
+                    <input type="date" name="fechaPublicacionResultados" id="fechaPublicacionResultados" min="<?php echo $fechaMinima;?>">
                     </td>
                     </tr>
                 </tbody>
@@ -446,8 +459,8 @@
             <br>
             <label class ="departamento" for="departamento">Departamento: </label>
             <br>
-            <select id="listaDepartamento" name="listaDepartamento" class="mr-2" required>
-                    <option value="">General</option>
+            <select id="listaDepartamento" name="listaDepartamento" class="mr-2">
+                    <option value="Departamentos en general">General</option>
                     <option value="Departamento De Biologia">Departamento De Biologia</option>
                     <option value="Departamento de Ingeniería Eléctrica y Electrónica">Departamento de Ingeniería Eléctrica y Electrónica</option>
                     <option value="Departamento de Química">Departamento de Química</option>
@@ -486,7 +499,7 @@
                 <?php
                      date_default_timezone_set('America/La_Paz');
                      $fechaHoy=date('Y-m-d');
-                     $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))                  
+                     $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
                 ?>
             <input type="date" name="fechaDeExpiracion" id="fechaDeExpiracion" min="<?php echo $fechaMinima;?>" required>
             <!--<label for="horaDeExpiracion"> Hora de Expiracion</label>
@@ -501,12 +514,6 @@
         //////////////////////// PRESIONAR EL BOTÓN //////////////////////////
         if(isset($_POST['insertarr'])){
             ///conv///
-            
-            date_default_timezone_set('America/La_Paz');
-            $fechaHoy=date('Y-m-d');
-            $fechaPublicacion=date('Y-m-d',strtotime($fechaHoy));
-            $autorConv=$_SESSION['ciUsuario'];
-                
             $nombreDeConvocatoria=($_POST['titulo']);
             $descripcionConvocatoria=($_POST['descripcion']);
             $notaRequerimientos=($_POST['notaRequerimientos']);
@@ -516,19 +523,17 @@
             $fechaPresentacion=($_POST['fechaLugarPresentacion']);
             $tribunalesConv=($_POST['deLosTribunales']);
             $tipoConvocatoria=($_POST['selectTipo']);
-            $fechasImportantes=($_POST['fechas_imp']);
 
             //$nombramiento=($_POST['delNombramiento']);
             $notaFechas=($_POST['notaCronograma']);
             $departamento=($_POST['listaDepartamento']);
             $semestreConv=($_POST['selectSemestre']);
             $gestionConv=($_POST['selectGestion']);
-            $nombramiento=($_POST['delNombramiento']);
 
             ///fechas
             $fechaExpiracion=$_POST['fechaDeExpiracion'];
             //$horaExpiracion=$_POST['horaDeExpiracion'];///aun no usado
-            //$fechaPublicacion=$_POST['fechaPublicacionConvocatoria'];
+            $fechaPublicacion=$_POST['fechaPublicacion'];
             $fechaPresentacionDocumentosInicio=$_POST['fechaPresentacionDocIN'];
             $fechaPresentacionDocumentosFin=$_POST['fechaPresentacionDocFin'];
             $fechaPresentacionDocumentosLugar=$_POST['selectFechaDoc'];
@@ -550,6 +555,7 @@
             //$itemsR5 = ($_POST['cantidadL']);
 
             if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                $nombramiento=($_POST['deLaSeleccion']);
                 $tipoConv = "Auxiliatura de Laboratorio";
                 $itemsR1 = ($_POST['cantidadL']);
                 $itemsR2 = ($_POST['hrsAcademicasL']);
@@ -557,6 +563,7 @@
                 $itemsR4 = ($_POST['codAux']);
             }else{
                 if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                    $nombramiento=($_POST['delNombramiento']);
                     $tipoConv = "Auxiliatura de Docencia";
                     $itemsR1 = ($_POST['cantidadD']);
                     $itemsR2 = ($_POST['hrsAcademicasD']);
@@ -570,11 +577,9 @@
             //$integerIDs = pg_fetch_result($resultIdConvocatoria, 0, 0);
             //$integerIDs = 0;
             pg_query($conexion,"INSERT INTO convocatoria (nombre_convocatoria, descripcion_conv, tipo_convocatoria, nota_requerimiento, nota_requisitos, nota_documentos, 
-            forma_presentacion, fecha_presentacion, tribunales_convocatoria,gestion_convocatoria, nota_de_fechas, nombramiento, departamento, fecha_expiracion, fecha_subida,
-            fechas_importantes, visible, autor_convocatoria) 
+            forma_presentacion, fecha_presentacion, tribunales_convocatoria,gestion_convocatoria, nota_de_fechas, nombramiento, departamento, fecha_expiracion, fecha_subida) 
             VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria','$tipoConv','$notaRequerimientos','$notaRequisitos','$notaDocumentos','$formaDeEntrega',
-            '$fechaPresentacion','$tribunalesConv','$gestionYsemestre','$notaFechas','$nombramiento','$departamento', '$fechaExpiracion', '$fechaPublicacion', 
-            '$fechasImportantes', 'TRUE', '$autorConv')");
+            '$fechaPresentacion','$tribunalesConv','$gestionYsemestre','$notaFechas','$nombramiento','$departamento', '$fechaExpiracion', '$fechaPublicacion')");
             //pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion) VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria')");
 
             $items0 = ($_POST['documentos']);
@@ -720,7 +725,7 @@
 
     </div>
 
-    <!--<footer class="pieIndice">
+    <footer class="pieIndice">
         <div class="text-center">
             <h6 class="d-inline-block">Contacto: <a  href="mailto:elcorreoquequieres@correo.com">correo_del_Administardor@mail.com ,</a> <a  href="mailto:elcorreoquequieres@correo.com">  correo_de_la_Empresa@mail.com</a></h6>
             <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
@@ -739,6 +744,6 @@
         <div class="text-center">
             <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
         </div>
-    </footer>-->
+    </footer>
 </body>
 </html>
