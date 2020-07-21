@@ -19,8 +19,8 @@
 
 
     //$conexion_pdo = new PDO("pgsql:host=localhost;port=5432;dbname=sdiprueba","postgres","1234");//error
-    $conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
-    //$conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
+    //$conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
+    $conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
     //return $conexion;
 ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
 
