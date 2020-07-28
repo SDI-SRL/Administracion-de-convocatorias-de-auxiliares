@@ -93,6 +93,11 @@
                                 </div>
                             </li>
                             <li id="menus" class="nav-item">
+                                <a class="nav-link" href="paginas/buscarConvocatorias.php">
+                                    Buscar Convocatorias 
+                                </a>
+                                </li>
+                            <li id="menus" class="nav-item">
                                 <a class="nav-link" href="paginas/login.php">
                                     Iniciar Sesi&oacute;n
                                 </a>
