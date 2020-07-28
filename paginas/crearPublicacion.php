@@ -284,7 +284,7 @@
                 <thead>
                     <tr>
                     <th scope="col">Cantidad Auxiliares</th>
-                    <th scope="col">Horas academicas (hrs/mes)</th>
+                    <th scope="col">Hrs academicas (Hrs/mes)</th>
                     <th scope="col">Destino</th>
                     </tr>
                 </thead>
@@ -370,7 +370,7 @@
             <label class ="nombramientolabel" for="delnombramiento">Del nombramiento: </label>
             <input class="nombramiento input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca del nombramiento" value=""/>
             <br>
-            <table class="table table-bordered">
+            <table class="table table-bordered border-dark"> <!-- "table table-bordered" -->
                 <thead>
                     <tr>
                     <th scope="col">Eventos</th>
