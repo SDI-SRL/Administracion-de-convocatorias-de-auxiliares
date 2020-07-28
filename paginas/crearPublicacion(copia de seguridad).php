@@ -303,14 +303,16 @@
             <input class="form-control input-lg" name="notaDocumentos" id="notaDocumentos" placeholder="Nota de documentos" value=""/>
             <br>
             <label for="formadeEntrega">De la forma: </label>
-            <textarea id="formaDeEntrega" rows="5" name="formaDeEntrega" style="resize:none; width:100%;" required placeholder="Escriba la forma en la que se presentaran los documentos"> </textarea>
-            <!--<input required class="form-control input-lg" name="formaDeEntrega" id="formaDeEntrega" placeholder="Escriba la forma en la que se presentaran los documentos" value=""/>-->
+            <input required class="form-control input-lg" name="formaDeEntrega" id="formaDeEntrega" placeholder="Escriba la forma en la que se presentaran los documentos" value=""/>
             <br>
             <label for="fechayLugarPresentacion">Fecha y lugar de la presentacion: </label>
             <input required class="form-control input-lg" name="fechaLugarPresentacion" id="fechaLugarPresentacion" placeholder="Escriba acerca de la fecha y el lugar de presentacion" value=""/>
             <br>
             <label for="delostribunales">De los tribunales: </label>
             <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
+            <br>
+            <label for="nombramientoLb">Del nombramiento o Seleccion: </label>
+            <input required class="form-control input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca de los tribunales" value=""/>
             <br>
             <label for="fechas_impLb">Acerca de las fechas a prueba: </label>
             <input class="form-control input-lg" name="fechas_imp" id="fechas_imp" placeholder="Escriba acerca de las fechas de las pruebas" value=""/>
@@ -442,9 +444,6 @@
             <label for="cronogramaNota">Nota: </label>
             <input class="form-control input-lg" name="notaCronograma" id="notaCronograma" placeholder="Nota del cronograma" value=""/>
             <br>
-            <label for="nombramientoLb">Del nombramiento o Seleccion: </label>
-            <input required class="form-control input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca de los tribunales" value=""/>
-            <br>
             <label class ="departamento" for="departamento">Departamento: </label>
             <br>
             <select id="listaDepartamento" name="listaDepartamento" class="mr-2" required>
@@ -494,28 +493,10 @@
             <input type="time" name="horaDeExpiracion" id="horaDeExpiracion">-->
             <br>
             <div class="btn-der">
-                <input type="submit" onclick='alerta()' name="insertarr" value="Publicar" class="btn btn-info"/>
+                <input type="submit" name="insertarr" value="Insertar" class="btn btn-info"/>
                 <a href="CRUD_publicaciones.php" class="btn btn-danger ml-5">Cancelar</a>
             </div>
         </form>
-        <script type="text/javascript">
-            function alerta()
-                {
-                var mensaje;
-                var opcion = confirm("Una vez publicado, no se podra editar la convocatoria, ¿esta seguro de publicarla?");
-                if (opcion == true) {
-                    mensaje = "Has clickado Aceptar";
-                    //location.href = "crearPublicacion.php";
-                    //location.href = "../formularios/form_eliminarConvocatoria.php?id=" + $x;
-                    //href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'
-                } else {
-                    mensaje = "cambiarEmailPassword.php";
-                    location.href = "#";
-                    //href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."'
-                }
-                //document.getElementById("ejemplo").innerHTML = mensaje;
-            }
-        </script>
         <?php
         //////////////////////// PRESIONAR EL BOTÓN //////////////////////////
         if(isset($_POST['insertarr'])){

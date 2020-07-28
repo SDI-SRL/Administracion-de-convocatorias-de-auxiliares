@@ -36,7 +36,8 @@
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/myStyle.css">
     <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>-->
+    <script type="text/javascript" src="../js/jquery.js"></script>
 </head>
 
 <body>
@@ -303,14 +304,118 @@
             <input class="form-control input-lg" name="notaDocumentos" id="notaDocumentos" placeholder="Nota de documentos" value=""/>
             <br>
             <label for="formadeEntrega">De la forma: </label>
-            <textarea id="formaDeEntrega" rows="5" name="formaDeEntrega" style="resize:none; width:100%;" required placeholder="Escriba la forma en la que se presentaran los documentos"> </textarea>
-            <!--<input required class="form-control input-lg" name="formaDeEntrega" id="formaDeEntrega" placeholder="Escriba la forma en la que se presentaran los documentos" value=""/>-->
+            <input required class="form-control input-lg" name="formaDeEntrega" id="formaDeEntrega" placeholder="Escriba la forma en la que se presentaran los documentos" value=""/>
             <br>
             <label for="fechayLugarPresentacion">Fecha y lugar de la presentacion: </label>
             <input required class="form-control input-lg" name="fechaLugarPresentacion" id="fechaLugarPresentacion" placeholder="Escriba acerca de la fecha y el lugar de presentacion" value=""/>
             <br>
+            <br>
+            <br>
+            <label for="calificacionLb">De la calificacion de meritos: </label>
+            <input required class="form-control input-lg" name="deLaCalificacion" id="deLaCalificacion" placeholder="Escriba acerca de la fecha y el lugar de presentacion" value=""/>
+            <br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col">Descripcion de meritos</th>
+                    <th scope="col">Porcentajes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">Rendimiento academico</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off"value="65">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">promedio genera de las materias cursadas (incluye reprobadas y abandonadas)</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="35">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">promedio genera de materias en el periodo academico</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="30">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Experiencia general</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="35">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">Documentos de experiencia en laboratorios</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="20?????">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">
+                    <label for="calificacionLb">a) auxiliar de laboratorio Departamento de informatica - Sistemas del item respectivo </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="12">
+                    <br>
+                    <label for="calificacionLb">a. 2 pts/semestre auxiliar titular </label>
+                    <br>
+                    <label for="calificacionLb">b. 1 pts/semestre auxiliar invitado </label>
+                    <br>
+                    <label for="calificacionLb">b) auxiliares de Practicas Laboratorio Departamento de Informatica - Sistemas </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="6">
+                    <br>
+                    <label for="calificacionLb">a. 1 pts/semestre auxiliar</label>
+                    <br>
+                    <label for="calificacionLb">c) Otros auxiliares en laboratorios de computacion </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="2">
+                    <br>
+                    <label for="calificacionLb">a. 1 pts/semestre auxiliar</label>
+                    <br>
+                    </th>
+                    </tr>
+                    <tr>
+                    <th scope="row">Produccion</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="5">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">
+                    <label for="calificacionLb">a) Disertacion cursos y/o participacion en proyectos </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="5">
+                    <br>
+                    <label for="calificacionLb">a. 2.5 pts/certificado </label>
+                    </th>
+                    </tr>
+                    <tr>
+                    <th scope="row">Documentos de experiencia extrauniversitaria y de capacitacion</th>
+                    <td>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="10">
+                    </td>
+                    </tr>
+                    <tr>
+                    <th scope="row">
+                    <label for="calificacionLb">a) experiencia como operador, programador, analista de sistemas, cargo directivo en centro de computo </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="6">
+                    <br>
+                    <label for="calificacionLb">a. 2 pts/certificado </label>
+                    <br>
+                    <label for="calificacionLb">b) certificado de capacitacion en el area especifica expedidos por el sistema </label>
+                    <input type="text" name="titulo" id="titulo" style="resize:none; width:20%;" placeholder="porcentaje" required autocomplete="off" value="4">
+                    <br>
+                    <label for="calificacionLb">a. 2 pts/certificado aprobacion</label>
+                    <label for="calificacionLb">b. 1 pts/certificado asistencia</label>
+                    </th>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
             <label for="delostribunales">De los tribunales: </label>
             <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
+            <br>
+            <label for="nombramientoLb">Del nombramiento o Seleccion: </label>
+            <input required class="form-control input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca de los tribunales" value=""/>
             <br>
             <label for="fechas_impLb">Acerca de las fechas a prueba: </label>
             <input class="form-control input-lg" name="fechas_imp" id="fechas_imp" placeholder="Escriba acerca de las fechas de las pruebas" value=""/>
@@ -442,9 +547,6 @@
             <label for="cronogramaNota">Nota: </label>
             <input class="form-control input-lg" name="notaCronograma" id="notaCronograma" placeholder="Nota del cronograma" value=""/>
             <br>
-            <label for="nombramientoLb">Del nombramiento o Seleccion: </label>
-            <input required class="form-control input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca de los tribunales" value=""/>
-            <br>
             <label class ="departamento" for="departamento">Departamento: </label>
             <br>
             <select id="listaDepartamento" name="listaDepartamento" class="mr-2" required>
@@ -494,7 +596,7 @@
             <input type="time" name="horaDeExpiracion" id="horaDeExpiracion">-->
             <br>
             <div class="btn-der">
-                <input type="submit" onclick='alerta()' name="insertarr" value="Publicar" class="btn btn-info"/>
+                <input type="submit" onclick = 'alerta()' name="insertarr" value="Publicar" class="btn btn-info"/>
                 <a href="CRUD_publicaciones.php" class="btn btn-danger ml-5">Cancelar</a>
             </div>
         </form>
