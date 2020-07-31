@@ -73,9 +73,23 @@ a.opcion-rojo{
 }
 
 body{
-    background-color: #a4b6c5;
+    background-color: #fff;
     margin: 0;
     margin-bottom: 40px;
+}
+
+table.table-bordered{
+    border:1px solid blue;
+    margin-top:20px;
+  }
+table.table-bordered > thead > tr > th{
+    border:1px solid blue;
+}
+table.table-bordered > tbody > tr > td {
+    border:1px solid blue;
+}
+table.table-bordered > tbody > tr > th {
+    border:1px solid blue;
 }
 
 img.cabecera{

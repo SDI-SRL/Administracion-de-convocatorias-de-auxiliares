@@ -45,6 +45,7 @@
                   </li>
                   
                   
+                  
                 </ul>           
                 <span class="navbar-text">
                     <script> fecha(); </script>
@@ -75,20 +76,20 @@
                       <div class="collapse navbar-collapse" id="navegacion2"> 
                         <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                           
-                          <li id="menus" class="nav-item dropdown">
+                          <!-- <li id="menus" class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="personal">
                                 Personal
                               </a>
                               
-                          </li>
+                          </li> -->
 
-                          <li id="menus" class="nav-item dropdown">
+                          <!-- <li id="menus" class="nav-item dropdown">
                               <a class="nav-link" role="button" aria-expanded="false" href="#" id="contactenos">
                                 Contactenos
                               </a>
-                          </li> 
+                          </li> --> 
                           
-                          <li id="menus" class="nav-item dropdown">
+                          <!-- <li id="menus" class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="publicaciones">
                               Convocatorias
                             </a>
@@ -100,13 +101,25 @@
                               Auxiliares de Laboratorio
                             </a>
                               </div>
-                          </li>
+                          </li> -->
                           
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/login.php">
                                 Iniciar Sesi&oacute;n 
                               </a>
-                            </li>
+                          </li>
+
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/postulante.php">
+                                Postulante 
+                              </a>
+                          </li>
+
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/comisionEvaluadora.php">
+                                Comision Evaluadora 
+                              </a>
+                          </li>
                         </ul>
                       </div>
                     </nav>

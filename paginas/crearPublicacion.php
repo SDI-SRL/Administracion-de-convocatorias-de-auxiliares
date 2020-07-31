@@ -370,7 +370,7 @@
             <label class ="nombramientolabel" for="delnombramiento">Del nombramiento: </label>
             <input class="nombramiento input-lg" name="delNombramiento" id="delNombramiento" placeholder="Escriba acerca del nombramiento" value=""/>
             <br>
-            <table class="table table-bordered border-dark"> <!-- "table table-bordered" -->
+            <table class="table table-bordered"> <!-- "table table-bordered" -->
                 <thead>
                     <tr>
                     <th scope="col">Eventos</th>
