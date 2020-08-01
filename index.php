@@ -105,19 +105,19 @@
                           
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/login.php">
-                                Iniciar Sesi&oacute;n 
+                                 Sesi&oacute;n Administrativo
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/postulante.php">
-                                Postulante 
+                                Sesion Postulante 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/comisionEvaluadora.php">
-                                Comision Evaluadora 
+                                Sesion Comision Evaluadora 
                               </a>
                           </li>
                         </ul>
