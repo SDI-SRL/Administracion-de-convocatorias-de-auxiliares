@@ -27,7 +27,7 @@
         </head>
 
         <body class="cuerpo">
-            <header class="bg-info w-100 p-4">
+            <header class="bg-primary w-100 p-4">
                 <h3 class="font-italic"><i class="fas fa-users"></i>  
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
@@ -65,12 +65,12 @@
                     ?>
                 
                 </h3>
-                <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
+                <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
                 <br>
-                <a href="form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
+                <a href="form_cerrarSession.php" class="float-right text-light">cerrar session</a>
             </header>
 
-            <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-secondary bg-primary">
+            <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-secondary alert alert-primary" role="alert">
             <h1>Editar Convocatoria</h1>
             <form action="../formularios/form_actualizarConvocatoria.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
                 <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" pattern="[a-zA-Z0-9 ]{2,100}" title="Solo puede ingresar numeros y letras" required value='<?php echo $resultado[0]['titulo'] ?>'>
