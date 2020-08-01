@@ -33,11 +33,6 @@
                                 INICIO
                                 </a>
                             </li>
-                            <li id="menu2" class="nav-item">
-                                <a class="nav-link" href="Postulante.php">
-                                Postulante
-                                </a>
-                            </li>
                             
                             </ul>           
                             <span class="navbar-text">
@@ -47,9 +42,54 @@
                         </div>
                     </div>
         </nav>
+
+        <div>
+            <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
+                                <div class="cabeceraCssAzul"></div>
+                                <div class="cabeceraCssAzulClaro"></div>
+                                <div class="cabeceraCssBlanca"></div>
+                                <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
+                                <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
+                                
+            </div> 
+        </div>
+
+                <div>
+
+                    <div id="navbar-color" class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12 p-0">
+                                <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
+                                    <div class="collapse navbar-collapse" id="navegacion2"> 
+                                    <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
+                                        
+                                        <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../paginas/login.php">
+                                            Sesi&oacute;n Administrativo
+                                            </a>
+                                        </li> 
+
+                                        <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../paginas/postulante.php">
+                                            Sesion Postulante 
+                                            </a>
+                                        </li>
+
+                                        <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../paginas/comisionEvaluadora.php">
+                                            Sesion Comision Evaluadora 
+                                            </a>
+                                        </li>  
+                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
     <section class="container border border-dark text-dark alert alert-primary w-50 mt-5 p-4" role="alert">
         <form action="../formularios/form_verificarEvaluador.php" method="post">
-            <h3 class="text-center"> Login de Evaluadores</h3>
+            <h3 class="text-center"> Autenticacion Evaluadores</h3>
             <div class="form-group">
                 <label for="idCorreo">Correo Electronico</label>
                 <input type="text" name="idCorreo" id="idCorreo" class="form-control">
