@@ -120,6 +120,12 @@
                                 Sesion Comision Evaluadora 
                               </a>
                           </li>
+
+                          <li id="menus" class="nav-item">
+                                    <a class="nav-link" href="paginas/buscarConvocatorias.php">
+                                    Buscar Convocatoria 
+                                    </a>
+                                </li>
                         </ul>
                       </div>
                     </nav>
