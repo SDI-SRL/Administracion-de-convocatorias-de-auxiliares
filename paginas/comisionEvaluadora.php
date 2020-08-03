@@ -21,7 +21,7 @@
 
 <body>
     <?php /* include("../plantillas/header.php");*/?>
-    <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+        <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
                     <div class="container">
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>     
@@ -79,7 +79,13 @@
                                             <a class="nav-link" href="../paginas/comisionEvaluadora.php">
                                             Sesion Comision Evaluadora 
                                             </a>
-                                        </li>  
+                                        </li>
+                                        
+                                        <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../paginas/buscarConvocatorias.php">
+                                            Buscar Convocatoria 
+                                            </a>
+                                        </li>
                                     </ul>
                                     </div>
                                 </nav>
