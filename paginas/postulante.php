@@ -49,14 +49,14 @@
         <div>
 
 
-        <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
-                        <div class="cabeceraCssAzul"></div>
-                        <div class="cabeceraCssAzulClaro"></div>
-                        <div class="cabeceraCssBlanca"></div>
-                        <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
-                        <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
-                        
-        </div> 
+            <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
+                            <div class="cabeceraCssAzul"></div>
+                            <div class="cabeceraCssAzulClaro"></div>
+                            <div class="cabeceraCssBlanca"></div>
+                            <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
+                            <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
+                            
+            </div> 
         </div>
 
         <div>
@@ -84,7 +84,13 @@
                                     <a class="nav-link" href="../paginas/comisionEvaluadora.php">
                                     Sesion Comision Evaluadora 
                                     </a>
-                                </li>  
+                                </li>
+                                
+                                <li id="menus" class="nav-item">
+                                    <a class="nav-link" href="../paginas/buscarConvocatorias.php">
+                                    Buscar Convocatoria 
+                                    </a>
+                                </li>
                             </ul>
                             </div>
                         </nav>
