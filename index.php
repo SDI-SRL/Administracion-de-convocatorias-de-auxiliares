@@ -111,7 +111,7 @@
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/postulante.php">
-                                Sesion Postulante 
+                                Sesi&oacute;n Postulante 
                               </a>
                           </li>
 
