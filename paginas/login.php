@@ -47,11 +47,11 @@
               </button>
               <div class="collapse navbar-collapse" id="navegacion">
                 <ul id="sub-header2" class="navbar-nav mr-auto">
-                  <li id="menu2" class="nav-item">
+                  <!-- <li id="menu2" class="nav-item">
                     <a class="nav-link" href="../index.php">
                     INICIO
                     </a>
-                  </li>
+                  </li> -->
                   
                   
                 </ul>           
@@ -84,38 +84,11 @@
                       <div class="collapse navbar-collapse" id="navegacion2"> 
                         <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                           
-                          <!-- <li id="menus" class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="personal">
-                                Personal
-                              </a>
-                              
-                          </li>
-
-                          <li id="menus" class="nav-item dropdown">
-                              <a class="nav-link" role="button" aria-expanded="false" href="#" id="contactenos">
-                                Contactenos
-                              </a>
-                          </li> 
-                          
-                          <li id="menus" class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="convocatorias">
-                              Convocatorias
-                            </a>
-                              <div id="enlace" class="dropdown-menu" aria-labelledby="tesis">
-                            <a class="dropdown-item" href="#">
-                              Auxiliares de Docencia
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              Auxiliares de Laboratorio
-                            </a>
-                              </div>
-                          </li> 
-                          
                           <li id="menus" class="nav-item">
-                              <a class="nav-link" href="../paginas/login.php">
-                                Iniciar Sesi&oacute;n 
-                              </a>
-                          </li> -->
+                            <a class="nav-link" href="../index.php">
+                            INICIO
+                            </a>
+                          </li>
                           
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="../paginas/login.php">
@@ -136,10 +109,11 @@
                           </li>
                           
                           <li id="menus" class="nav-item">
-                              <a class="nav-link" href="../paginas/buscarConvocatorias.php">
-                                Buscar Convocatoria 
-                              </a>
+                                    <a class="nav-link" href="../paginas/buscarConvocatorias.php">
+                                    Buscar Convocatoria 
+                                    </a>
                           </li>
+
                         </ul>
                       </div>
                     </nav>

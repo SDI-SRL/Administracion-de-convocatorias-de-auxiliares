@@ -31,11 +31,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
+                            <!-- <li id="menu2" class="nav-item">
                                 <a class="nav-link" href="../index.php">
                                 INICIO
                                 </a>
-                            </li>
+                            </li> -->
                             
                             </ul>           
                             <span class="navbar-text">
@@ -49,14 +49,14 @@
         <div>
 
 
-            <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
-                            <div class="cabeceraCssAzul"></div>
-                            <div class="cabeceraCssAzulClaro"></div>
-                            <div class="cabeceraCssBlanca"></div>
-                            <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
-                            <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
-                            
-            </div> 
+        <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
+                        <div class="cabeceraCssAzul"></div>
+                        <div class="cabeceraCssAzulClaro"></div>
+                        <div class="cabeceraCssBlanca"></div>
+                        <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
+                        <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
+                        
+        </div> 
         </div>
 
         <div>
@@ -67,6 +67,12 @@
                         <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
                             <div class="collapse navbar-collapse" id="navegacion2"> 
                             <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
+                                
+                                <li id="menus" class="nav-item">
+                                    <a class="nav-link" href="index.php">
+                                    INICIO
+                                    </a>
+                                </li>
                                 
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/login.php">
@@ -91,6 +97,7 @@
                                     Buscar Convocatoria 
                                     </a>
                                 </li>
+
                             </ul>
                             </div>
                         </nav>

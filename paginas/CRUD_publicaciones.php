@@ -39,7 +39,7 @@
         }
       </style>
         <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script> 
-</head>
+    </head>
 
 <body>
 

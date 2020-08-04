@@ -38,13 +38,11 @@
               </button>
               <div class="collapse navbar-collapse" id="navegacion">
                 <ul id="sub-header2" class="navbar-nav mr-auto">
-                  <li id="menu2" class="nav-item">
+                  <!-- <li id="menu2" class="nav-item">
                     <a class="nav-link" href="index.php">
                     INICIO
                     </a>
-                  </li>
-                  
-                  
+                  </li> -->
                   
                 </ul>           
                 <span class="navbar-text">
@@ -75,57 +73,34 @@
                     <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
                       <div class="collapse navbar-collapse" id="navegacion2"> 
                         <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
-                          
-                          <!-- <li id="menus" class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="personal">
-                                Personal
-                              </a>
-                              
-                          </li> -->
-
-                          <!-- <li id="menus" class="nav-item dropdown">
-                              <a class="nav-link" role="button" aria-expanded="false" href="#" id="contactenos">
-                                Contactenos
-                              </a>
-                          </li> --> 
-                          
-                          <!-- <li id="menus" class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="publicaciones">
-                              Convocatorias
+                          <li id="menus" class="nav-item">
+                            <a class="nav-link" href="index.php">
+                            INICIO
                             </a>
-                              <div id="enlace" class="dropdown-menu" aria-labelledby="tesis">
-                            <a class="dropdown-item" href="#">
-                              Auxiliares de Docencia
-                            </a>
-                            <a class="dropdown-item" href="#">
-                              Auxiliares de Laboratorio
-                            </a>
-                              </div>
-                          </li> -->
-                          
+                          </li>
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/login.php">
-                                 Sesi&oacute;n Administrativo
+                                 SESI&Oacute;N ADMINISTRATIVO
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/postulante.php">
-                                Sesi&oacute;n Postulante 
+                              SESI&Oacute;N POSTULANTE 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/comisionEvaluadora.php">
-                                Sesion Comision Evaluadora 
+                              SESI&Oacute;N COMISION EVALUADORA 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                                     <a class="nav-link" href="paginas/buscarConvocatorias.php">
-                                    Buscar Convocatoria 
+                                    BUSCAR CONVOCATORIA 
                                     </a>
-                                </li>
+                          </li>
                         </ul>
                       </div>
                     </nav>
@@ -229,27 +204,25 @@
                 <hr>
                 <!-- <div class="inline-flex justify-content-center row mt-1"> -->
                 <section>
-                    <div class="d-block w-75 mx-auto">
-                        <h2 class="text-center" >publicadas recientemente</h2>
-                        <?php
-                            date_default_timezone_set('America/La_Paz');
-                            $fechaActual=date("Y-m-d H:i:s");
-                            include_once("modelo/convocatoria.php");
-                            $convocatoria= new  Convocatoria();
-                            $consulta=$convocatoria->mostrarConvocatoriaFechaAscendente($fechaActual);
-                            foreach($consulta as $elemento){
-                                echo "<h2>".$elemento['titulo']."</h2>";
-                                echo "<h5>Descripcion del documento</h5>";
-                                echo "<h6>".$elemento['descripcion_convocatoria']."</h6>";
-                                echo "<a href='".$elemento['direcccion_pdf']."' target='_blank' >Abrir archivo ".$elemento['titulo']."</a>";
-                                echo "<p class='float-right'>".$elemento['fecha']."</p>";
-                                echo "<hr>";
-                            }
-                            $convocatoria->cerrarConexion();
-                            
-                        ?>
-                    </div>
-                </section>
+                  <div class="d-block w-75 mx-auto">
+                      <h2 class="text-center" >Publicaciones de Convocatorias</h2>
+                      <?php
+                          date_default_timezone_set('America/La_Paz');
+                          $fechaActual=date("Y-m-d H:i:s");
+                          include_once("modelo/convocatoria.php");
+                          $convocatoria = new  Convocatoria();
+                          $consulta = $convocatoria->mostrarConvocatoriaFechaDescendente();
+                          foreach($consulta as $elemento){
+                              echo "<h2>".$elemento['tipo_convocatoria']."</h2>";
+                              echo "<h5>Descripcion del documento</h5>";
+                              echo "<h6 class='w-75'>".$elemento['nombre_convocatoria']."</h6>";
+                              echo "<a href='".$elemento['direccion_pdf']."' target='_blank' >Descargar convocatoria</a>";
+                              echo "<p class='float-right'>".$elemento['fecha_subida']."</p>";
+                              echo "<hr>";
+                          }
+                      ?>
+                  </div>
+               </section>
                 <!-- </div> -->
             </div>        
         </div>

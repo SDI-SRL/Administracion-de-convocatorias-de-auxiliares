@@ -48,11 +48,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
+                            <!-- <li id="menu2" class="nav-item">
                                 <a class="nav-link" href="../index.php">
                                 INICIO
                                 </a>
-                            </li>
+                            </li> -->
                             
                             </ul>           
                             <span class="navbar-text">
@@ -83,6 +83,12 @@
                             <div class="collapse navbar-collapse" id="navegacion2"> 
                             <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                                 
+                                <li id="menus" class="nav-item">
+                                    <a class="nav-link" href="../index.php">
+                                    INICIO
+                                    </a>
+                                </li>
+
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/login.php">
                                     Sesi&oacute;n Administrativo

@@ -37,6 +37,28 @@
         <tbody id="listaEvaluadores">
         </tbody>
     </table>
+
+        <hr>
+            <div class="container bg-dark p-5">
+                <h3 class='text-white'>Lista de evaluadores disponibles</h3>
+                <div class="form-group">
+                    <input type="search" name="buscadorEvaluadores" id="buscadorEvaluadores" class='form-control' placeholder='Buscar evaluador'>
+                </div>
+            </div>
+            <table class='container table table-hover' >
+                <thead>
+                    <tr>
+                        <th>Nombre: </th>
+                        <th>Departamento:</th>
+                        <th>Telefono:</th>
+                        <th>Cargo:</th>
+                        <th>Opcion</th>
+                    </tr>
+                </thead>
+                <tbody id="listaComisionPosible">
+                </tbody>
+            </table>
+        <hr>
     <!-- Ventana model de actualizar usuario-->
                 <div id="ex1" class="modal">
                     <form id="formActualizarEvaluador">
@@ -82,8 +104,8 @@
                 <p><a href="#ex1" rel="modal:open" id="modalEvaluador"></a></p>
 
 
-    <div class="container" id="idAddEvaluador">
-        <form method="post" class="table table-warning border border-dark">
+    <div class="container " id="idAddEvaluador">
+        <form method="post" class="table table-warning border border-dark p-3">
             <h1 class='text-center'>Crear nuevo evaluador de <?php echo $tipo?></h1>
             <div class="form-group">
                 <label for="idName">Nombre completo :</label>
@@ -126,8 +148,10 @@
                 <input type="password" name="copyPass" id="copyPass" class='form-control'>
             </div>
 
+            <div class="text-center">
             <input type="submit"  class='btn btn-primary' value="Crear evaluador">
             <a href="" class='btn btn-danger'>Cancelar</a>
+            </div>
         </form>
 
     </div>

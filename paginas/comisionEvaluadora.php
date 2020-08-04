@@ -18,21 +18,21 @@
       <script src="../librerias/js/slick.js"></script>
       <script src="../librerias/archivos/jquery.snow.js"></script>
       <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
-
+    </head>
 <body>
     <?php /* include("../plantillas/header.php");*/?>
-        <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+    <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
                     <div class="container">
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>     
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
+                            <!-- <li id="menu2" class="nav-item">
                                 <a class="nav-link" href="../index.php">
                                 INICIO
                                 </a>
-                            </li>
+                            </li> -->
                             
                             </ul>           
                             <span class="navbar-text">
@@ -64,6 +64,12 @@
                                     <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                                         
                                         <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../index.php">
+                                            INICIO
+                                            </a>
+                                        </li>
+
+                                        <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/login.php">
                                             Sesi&oacute;n Administrativo
                                             </a>
@@ -84,8 +90,8 @@
                                         <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/buscarConvocatorias.php">
                                             Buscar Convocatoria 
-                                            </a>
-                                        </li>
+                                        </a>
+                                </li>
                                     </ul>
                                     </div>
                                 </nav>
