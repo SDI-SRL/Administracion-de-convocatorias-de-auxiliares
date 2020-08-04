@@ -67,42 +67,32 @@
                     <div class="col-md-12 p-0">
                         <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
                         <div class="collapse navbar-collapse" id="navegacion2"> 
-                            <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
-                            
-                            <li id="menus" class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="personal">
-                                    Personal
-                                </a>
-                            </li>
-                            <li id="menus" class="nav-item dropdown">
-                                <a class="nav-link" role="button" aria-expanded="false" href="#" id="contactenos">
-                                    Contactenos
-                                </a>
-                            </li> 
-                            <li id="menus" class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#" id="publicaciones">
-                                Convocatorias
-                                </a>
-                                <div id="enlace" class="dropdown-menu" aria-labelledby="tesis">
-                                <a class="dropdown-item" href="#">
-                                Auxiliares de Docencia
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                Auxiliares de Laboratorio
-                                </a>
-                                </div>
-                            </li>
-                            <li id="menus" class="nav-item">
-                                <a class="nav-link" href="paginas/buscarConvocatorias.php">
-                                    Buscar Convocatorias 
-                                </a>
-                                </li>
-                            <li id="menus" class="nav-item">
-                                <a class="nav-link" href="paginas/login.php">
-                                    Iniciar Sesi&oacute;n 
-                                </a>
-                                </li>
-                            </ul>
+                        <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
+                          
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/login.php">
+                                 Sesi&oacute;n Administrativo
+                              </a>
+                          </li>
+
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/postulante.php">
+                                Sesion Postulante 
+                              </a>
+                          </li>
+
+                          <li id="menus" class="nav-item">
+                              <a class="nav-link" href="paginas/comisionEvaluadora.php">
+                                Sesion Comision Evaluadora 
+                              </a>
+                          </li>
+
+                          <li id="menus" class="nav-item">
+                                    <a class="nav-link" href="paginas/buscarConvocatorias.php">
+                                    Buscar Convocatoria 
+                                    </a>
+                          </li>
+                        </ul>
                         </div>
                         </nav>
                     <div class="modal" id="busqueda-rapida">

@@ -20,6 +20,7 @@
 
     //$conexion_pdo = new PDO("pgsql:host=localhost;port=5432;dbname=sdiprueba","postgres","1234");//error
     //$conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
+    //$conexion = pg_connect("host=localhost dbname=sdiprueba3 user=postgres password=1234")or die ('No se ha podido conectar: '.pg_last_error());
     $conexion = pg_connect("host=ec2-52-201-55-4.compute-1.amazonaws.com dbname=ddm5k6l3g5nntm user=erpgwqxdcmmizk password=d764438378b6a33d99872ff2f4321949530f5f26e8271e10fb80ece8311e701a")or die ('No se ha podido conectar: '.pg_last_error());
     //return $conexion;
 ///////////////////CONSULTA DE LOS ALUMNOS///////////////////////
@@ -30,17 +31,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="../img/imagenes/icon.gif" type="image/gif">
+    <script src="../librerias/js/popper-1.14.7.min.js"></script>    
+    <link rel="stylesheet" href="../librerias/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="../librerias/css/styles.css">
+    <link rel="stylesheet" href="../librerias/css/slick.css">
+    <link rel="stylesheet" href="../librerias/css/slick-theme.css">
+    <link rel="stylesheet" href="../librerias/css/cabeceraCss.css">
+    <link rel="alternate" type="application/rss+xml" title="Avisos de Inform&aacute;tica - Sistemas (UMSS)" href="../rss/index.rss">
+    <script src="../librerias/js/jquery-3.3.1.min.js"></script>
+    <script src="../librerias/js/bootstrap.min.js"></script>
+    <script src="../librerias/archivos/script.js"></script>
+    <script src="../librerias/js/slider.js"></script>
+    <script src="../librerias/js/slick.js"></script>
+    <script src="../librerias/archivos/jquery.snow.js"></script>
+    <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/myStyle.css">
     <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+
+    <!--<link rel="stylesheet" href="../style/bootstrap.min.css">-->
+    <!-------------------<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>-->
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
 </head>
 
 <body>
-    <header class="bg-info w-100 p-4">
+    <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+                    <div class="container">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>     
+                        </button>
+                        <div class="collapse navbar-collapse" id="navegacion">
+                            <ul id="sub-header2" class="navbar-nav mr-auto">
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="../index.php">
+                                INICIO
+                                </a>
+                            </li>
+                            
+                            
+                            </ul>           
+                            <span class="navbar-text">
+                                <script> fecha(); </script>
+                            </span>
+                            
+                        </div>
+                    </div>
+    </nav>
+    <header class="bg-primary w-100 p-4">
             <h3 class="font-italic"><i class="fas fa-users"></i> 
             <?php
                     if(isset($_SESSION['sexoUsuario'])){
@@ -75,14 +117,14 @@
                         }
                     }
                     echo $_SESSION['sesion']; 
-                    ?>
+                    ?> 
             </h3>
-            <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
+            <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
             <br>
-            <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
+            <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
     </header>
 
-    <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
+    <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary alert alert-info" role="alert">
     <h1 class="text-center">Publicar Convocatoria</h1>
 <!---                     ---------------------------------------------------------------------------------     -------------------------------------------            -->
         
@@ -347,13 +389,8 @@
                         ?> 
                     <input type="date" name="fechaPresentacionDocIN" id="fechaPresentacionDocIN" min="<?php echo $fechaMinima;?>" required>  
                     <br>
-                    <label for="fechaPresentacionDocFin">Hasta: </label>
-                        <?php
-                            date_default_timezone_set('America/La_Paz');
-                            $fechaHoy=date('Y-m-d');
-                            $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
-                        ?>
-                    <input type="date" name="fechaPresentacionDocFin" id="fechaPresentacionDocFin" min="<?php echo $fechaMinima;?>" required>
+                    <label for="fechaPresentacionDocFinLb">Hasta horas: </label>
+                    <input type="time" name="fechaPresentacionDocFin" id="fechaPresentacionDocFin">
                     <br>
                     <label for="selectFechaDocLb">En: </label>
                         <select id="selectFechaDoc" name="selectFechaDoc" class="mr-2" required>
@@ -391,13 +428,8 @@
                         ?> 
                     <input type="date" name="fechaReclamosDesde" id="fechaReclamosDesde" min="<?php echo $fechaMinima;?>" required>  
                     <br>
-                    <label for="fechaReclamosHasta">Hasta: </label>
-                        <?php
-                            date_default_timezone_set('America/La_Paz');
-                            $fechaHoy=date('Y-m-d');
-                            $fechaMinima=date('Y-m-d',strtotime($fechaHoy."+ 1 days"))
-                        ?>
-                    <input type="date" name="fechaReclamosHasta" id="fechaReclamosHasta" min="<?php echo $fechaMinima;?>" required>
+                    <label for="fechaReclamosHasta">Hasta horas: </label>
+                    <input type="time" name="fechaReclamosHasta" id="fechaReclamosHasta">
                     <br>
                     <label for="selectReclamosLb">En: </label>
                     <select id="selectReclamos" name="selectReclamos" class="mr-2" required>
@@ -448,7 +480,7 @@
             <label class ="departamento" for="departamento">Departamento: </label>
             <br>
             <select id="listaDepartamento" name="listaDepartamento" class="mr-2" required>
-                    <option value="">General</option>
+                    <option value="">Seleccione el departamento</option>
                     <option value="Departamento De Biologia">Departamento De Biologia</option>
                     <option value="Departamento de Ingeniería Eléctrica y Electrónica">Departamento de Ingeniería Eléctrica y Electrónica</option>
                     <option value="Departamento de Química">Departamento de Química</option>
@@ -495,9 +527,61 @@
             <br>
             <div class="btn-der">
                 <input type="submit" onclick='alerta()' name="insertarr" value="Publicar" class="btn btn-info"/>
+                <!---                        --------------------------------- -------------------->
+                <!--<input type="submit" onclick='sub()' name="visualizarrr" value="visualizarrrrrrr" data-toggle="modal" data-target="#miModal" class="btn btn-success"/>-->
+                <!--<a class="btn btn-success ml-5" name="visualizarr" data-toggle="modal" data-target="#miModal" method='post'>Visualizar</a>-->
+                <!--<a href="../formularios/generarPDF.php" class="btn btn-success ml-5" data-toggle="modal" data-target="#miModal">Visualizar</a>-->
                 <a href="CRUD_publicaciones.php" class="btn btn-danger ml-5">Cancelar</a>
             </div>
+
+            <!--<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#miModal">
+                Abrir modal
+            </button>-->
+            <div class="modal fade bd-example-modal-lg" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <!--<h4 class="modal-title" id="myModalLabel">Esto es un modal</h4>-->
+                        </div>
+                        <div class="modal-body">
+                            
+                            <?php 
+                            if(isset($_POST['visualizarrr'])){
+                                //echo "?????".$nombreDeConvocatoria=($_POST['titulo']);
+                                //echo $descripcionConvocatoria=($_POST['descripcion']);
+                            }
+                            //$nombreDeConvocatoria=($_GET['titulo']);
+                            //echo $nombreDeConvocatoria;
+                             //   if(isset($_POST['visualizarr'])){
+                              //      $nombreDeConvocatoria=($_GET['titulo']); 
+                               //     echo $nombreDeConvocatoria;
+                                //}
+                            ?>
+                            <?php include("../formularios/1234.php"); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
+
+        <script type="text/javascript">
+            //variables
+            var titulo = null;
+            var fecha = null;
+            var descripcion = null;
+
+        //submit
+        function sub(){
+            product = document.getElementById("titulo").value;
+            shelf = document.getElementById("descripcion").value;
+            //alert(product+" "+shelf);
+            return shelf;
+        };
+        </script>
+        
         <script type="text/javascript">
             function alerta()
                 {
@@ -514,6 +598,7 @@
                     //href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."'
                 }
                 //document.getElementById("ejemplo").innerHTML = mensaje;
+                
             }
         </script>
         <?php
@@ -558,6 +643,9 @@
             $fechaRolPruebas=$_POST['fechaRol'];
             $fechaPublicacionResultados=$_POST['fechaPublicacionResultados'];
 
+            $fechaPresentacionDocumentosFin2 = "Hasta horas: ".$fechaPresentacionDocumentosFin;
+            $fechaReclamosFin2 = "Hasta horas:". $fechaReclamosFin;
+
             //////////
             $tipoConv="ninguna";
             $gestionYsemestre="$semestreConv $gestionConv";
@@ -594,7 +682,22 @@
             VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria','$tipoConv','$notaRequerimientos','$notaRequisitos','$notaDocumentos','$formaDeEntrega',
             '$fechaPresentacion','$tribunalesConv','$gestionYsemestre','$notaFechas','$nombramiento','$departamento', '$fechaExpiracion', '$fechaPublicacion', 
             '$fechasImportantes', 'TRUE', '$autorConv')");
+
+            $idConv2= pg_query("SELECT MAX(id_convocatoria) from convocatoria");
+            $idConvMax= pg_fetch_row($idConv2);                
+            $idConvMaxFinal=$idConvMax[0];
             //pg_query($conexion,"INSERT INTO convocatorias (titulo, descripcion) VALUES ('$nombreDeConvocatoria','$descripcionConvocatoria')");
+            pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+            VALUES ('$idConvMaxFinal','Presentacion de documentos','$fechaPresentacionDocumentosInicio','$fechaPresentacionDocumentosFin2','$fechaPresentacionDocumentosLugar')");
+            pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+            VALUES ('$idConvMaxFinal','publicacion de habilitados','$fechaPublicacionHabilidatos')");
+            pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+            VALUES ('$idConvMaxFinal','Reclamos','$fechaReclamosInicio','$fechaReclamosFin2','$fechaReclamosLugar')");
+            pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+            VALUES ('$idConvMaxFinal','Rol de pruebas','$fechaRolPruebas')");
+            pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+            VALUES ('$idConvMaxFinal','Publicacion de resultados','$fechaPublicacionResultados')");
+
 
             $items0 = ($_POST['documentos']);
             $items1 = ($_POST['requisito']);
@@ -642,10 +745,10 @@
                     $valores1=''.$id1.',';
                     //$idRR1 = ''.$idR1.'';
                     if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
-                        $valoresRF1="('$idConvMaxFinal','$idR1','$idR2','$idR3','$idR4'),";
+                        $valoresRF1="('$idConvMaxFinal','$idR1','$idR2','$idR3','$idR4'),"; //,
                     }else{
                         if($tipoConvocatoria=="ConvocatoriaDocencia"){
-                            $valoresRF1="('$idConvMaxFinal','$idR1','$idR2','$idR5'),";
+                            $valoresRF1="('$idConvMaxFinal','$idR1','$idR2','$idR5'),"; //,
                         }else{}
                     }
                 //////// YA QUE TERMINA CON COMA CADA FILA, SE RESTA CON LA FUNCIÓN SUBSTR EN LA ULTIMA FILA /////////////////////
@@ -654,11 +757,11 @@
                     $valoresRFF1= substr($valoresRF1, 0, -1);
                     //$valoresR1 = "'1', " + $valoresRF1;
                 ///////// QUERY DE INSERCIÓN ////////////////////////////
-                    if($tipoConvocatoria=="ConvocatoriaLaboratorio"){
+                    if($tipoConvocatoria =="ConvocatoriaLaboratorio"){
                         $sqlR1="INSERT INTO requerimientos (id_convocatoria, cantidad_requerimiento, cant_horas, nombre_auxiliatura, codigo_auxiliatura)
                         VALUES $valoresRFF1";
                     }else{
-                        if($tipoConvocatoria=="ConvocatoriaDocencia"){
+                        if($tipoConvocatoria =="ConvocatoriaDocencia"){
                             $sqlR1="INSERT INTO requerimientos (id_convocatoria, cantidad_requerimiento, cant_horas, destino_requerimiento)
                             VALUES $valoresRFF1";
                         }else{}
@@ -676,16 +779,18 @@
                     }
                     //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
                     //VALUES ('$idConvMaxFinal','Publicacion convocatoria','$','$','$')");
-                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
-                    VALUES ('$idConvMaxFinal','Presentacion de documentos','$fechaPresentacionDocumentosInicio','$fechaPresentacionDocumentosFin','$fechaPresentacionDocumentosLugar')");
-                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
-                    VALUES ('$idConvMaxFinal','publicacion de habilitados','$fechaPublicacionHabilidatos')");
-                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
-                    VALUES ('$idConvMaxFinal','Reclamos','$fechaReclamosInicio','$fechaReclamosFin','$fechaReclamosLugar')");
-                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
-                    VALUES ('$idConvMaxFinal','Rol de pruebas','$fechaRolPruebas')");
-                    pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
-                    VALUES ('$idConvMaxFinal','Publicacion de resultados','$fechaPublicacionResultados')");
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+                    //VALUES ('$idConvMaxFinal','Presentacion de documentos','$fechaPresentacionDocumentosInicio','$fechaPresentacionDocumentosFin','$fechaPresentacionDocumentosLugar')");
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    //VALUES ('$idConvMaxFinal','publicacion de habilitados','$fechaPublicacionHabilidatos')");
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio, fecha_final, ubicacion) 
+                    //VALUES ('$idConvMaxFinal','Reclamos','$fechaReclamosInicio','$fechaReclamosFin','$fechaReclamosLugar')");
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    //VALUES ('$idConvMaxFinal','Rol de pruebas','$fechaRolPruebas')");
+                    //pg_query($conexion,"INSERT INTO fechas_importantes (id_convocatoria, evento_importante, fecha_inicio) 
+                    //VALUES ('$idConvMaxFinal','Publicacion de resultados','$fechaPublicacionResultados')");
+
+
                     //pg_query($conexion,"INSERT INTO documentos (id_convocatoria, descripcion_documento) VALUES ('1','$valoresD')");
                     //pg_query($conexion,"INSERT INTO requisitos (id_convocatoria, descripcion_requisito) VALUES ('1','$valoresQ')");
             
@@ -707,9 +812,16 @@
                     }
                 // Check terminator
                 if($item0 === false && $item1 === false && $itemR1 === false) break;
-            }            
+            }      
+            $convocatoria = new Convocatoria();  
+            $guardar=$convocatoria->guardarConvocatoria($idConvMaxFinal);    
         }
 
+        ?>
+        <?php
+        //////////////////////// PRESIONAR EL BOTÓN //////////////////////////
+        if(isset($_POST['visualizar'])){
+        }
         ?>
     </section>
     <br>
@@ -739,25 +851,45 @@
 
     </div>
 
-    <footer class="pieIndice">
-        <div class="text-center">
-            <h6 class="d-inline-block">Contacto: <a  href="mailto:elcorreoquequieres@correo.com">correo_del_Administardor@mail.com ,</a> <a  href="mailto:elcorreoquequieres@correo.com">  correo_de_la_Empresa@mail.com</a></h6>
-            <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
-        </div>
-        <div class="text-center">
-            <h6>Sitios Relacionados :
-                <a href="http://www.umss.edu.bo/" target="_blank">UMSS</a>
-                <a href="http://websis.umss.edu.bo/" target="_blank"> | WEBSISS</a>
-                <a href="https://www.facebook.com/UmssBolOficial" target="_blank"> | facebook</a>
-                <a href="https://twitter.com/UmssBolOficial" target="_blank"> | Twitter</a>
-                <a href="https://www.instagram.com/umssboloficial/" target="_blank"> | Instagram</a>
-                <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/" target="_blank"> | Linkedin</a>
-                <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>
-            </h6>
-        </div>
-        <div class="text-center">
-            <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
-        </div>
-    </footer>
+    <footer class="container-fluid text-center footer-guest">
+            <!DOCTYPE html>
+            <hr>
+            <div class="container col-xs- col-sm- col-md-12 col-log-">
+                            <div class="text-center">
+                                <h6 class="d-inline-block">Contacto: <a href="">correo_del_Administardor@mail.com ,</a> <a href="">  correo_de_la_Empresa@mail.com</a></h6>
+                                <h6 class="d-inline-block">Telefono: (+591) 72584871 Administrador, (+591) 77581871 Secretaria</h6 >
+                            </div>
+                            <div class="text-center">
+                                <h6>Sitios Relacionados :
+                                    <a href="http://www.umss.edu.bo/" target="_blank">UMSS</a>
+                                    <a href="http://websis.umss.edu.bo/" target="_blank"> | WEBSISS</a>
+                                    <a href="https://www.facebook.com/UmssBolOficial" target="_blank"> | facebook</a>
+                                    <a href="https://twitter.com/UmssBolOficial" target="_blank"> | Twitter</a>
+                                    <a href="https://www.instagram.com/umssboloficial/" target="_blank"> | Instagram</a>
+                                    <a href="https://www.linkedin.com/school/universidad-mayor-de-san-simon/" target="_blank"> | Linkedin</a>
+                                    <a href="https://www.youtube.com/universidadmayordesansimon" target="_blank"> | Youtube</a>
+                                </h6>
+                            </div>
+                            <div class="text-center">
+                                <h6>Derechos Reservados © 2020 · Universidad Mayor de San Simón.</h6>
+                            </div>
+                        </div>
+            <div><br></div>
+        </footer>
+        <!--La libreria jquery.snow.js es obsoleta(21-01-2012)se sugiere poner un nav especifico para estas fechas-->      
+        <script>
+            $(document).ready( function(){
+            var date = new Date();          
+            if(date.getMonth()==11){
+                $.fn.snow({
+                    minSize: 10, //Tamaño mínimo del copo de nieve, 10 por defecto
+                    maxSize: 20, //Tamaño máximo del copo de nieve, 10 por defecto
+                    newOn: 1000, //Frecuencia (en milisegundos) con la que aparecen los copos de nieve, 500 por defecto
+                    flakeColor: '#FFFFFF' //Color del copo de nieve, #FFFFFF por defecto
+                });
+            }
+            });
+            ajustarFooter();
+        </script>
 </body>
 </html>

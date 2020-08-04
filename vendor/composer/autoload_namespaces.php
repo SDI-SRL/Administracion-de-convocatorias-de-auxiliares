@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'SendGrid' => array($vendorDir . '/sendgrid/php-http-client/lib'),
+    'Sabberworm\\CSS' => array($vendorDir . '/sabberworm/php-css-parser/lib'),
 );
