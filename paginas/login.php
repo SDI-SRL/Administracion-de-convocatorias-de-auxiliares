@@ -227,24 +227,24 @@
                                     <input class="d-block my-2 mx-auto btn btn-success" type="submit" value="Reenviar">
                                 </form>
                             </div>
-                    </div> -->
-
+                    </div> -->                  
                     <section class="principal">
-                        <div class="border border-dark alert alert-primary w-50 mx-auto my-5 p3" role="alert">
-                            <form action="../formularios/form_VerificarUsuario.php" method="post" class="rounded-sm">
-                                <label class="font-italic d-block p-1" for="loginCorreo">Correo Electronico</label>
-                                <input required class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="email" name="IdUsuaario" id=""  autocomplete='off' id="loginCorreo" placeholder="Ejemplo@gmail.com">
-                                <label class="font-italic d-block p-1" for="loginPass"> Contraseña</label>
-                                <input class="font-italic h4 d-block w-75 mx-auto p-2 rounded-sm" type="password" name="IdPassword" id="loginPass"
-                                placeholder="****************" autocomplete='off' title="debe tener al menos 4 caracteres, una minuscula, una mayuscula y un numero"
-                                pattern="^(?=.{4,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" required>
-                                <input type="submit" value="Entrar" class="btn btn-success d-block mx-auto my-3">
-                                <!--<a class="text-dark m-2" href="" id="btnSend">Reenviar contraseña a tu correo</a>   pattern="^[a-z0-9_-]{3,30}-->
-                            </form>
-                            <a class="text-dark m-2" href="#" id="btnSend">Reenviar contraseña a tu correo</a>
-                            <!--<button class="bg-success"id="btnSend">Reenviar contraseña a tu correo</button>-->
-                        </div>
-                    </section>
+                        <form action="../formularios/form_VerificarUsuario.php" method="post" class="footer-guest" style="border-radius: 5px; width: 100%; max-width: 400px; padding: 15px 20px; margin: auto;">
+                          <div class="form-group">
+                            <label for="loginCorreo">Correo electr&oacute;nico</label>
+                            <input required type="email" name="IdUsuaario" class="form-control" id="loginCorreo" aria-describedby="emailHelp" autocomplete='off'>
+                          </div>
+                          <div class="form-group">
+                            <label for="loginPass">Contraseña</label>
+                            <input type="password" class="form-control" id="loginPass" name="IdPassword" autocomplete='off' title="Debe tener al menos 4 caracteres, una min&uacute;scula, una may&uacute;scula y un n&uacute;mero"
+                                 pattern="^(?=.{4,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" required>
+                          </div>
+                          <div class="form-group">
+                           <a class="" href="#" id="btnSend">Reenviar contraseña a tu correo</a>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Iniciar sesi&oacute;n</button>
+                        </form>
+                     </section>              
                 <!-- </div> -->
             </div>
         </div>
