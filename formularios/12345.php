@@ -1,5 +1,5 @@
 <?php
-    //$clavePrincipal = 142; // la clave de la convocatoria
+    //$clavePrincipal = 159; // la clave de la convocatoria
     $clavePrincipal = $idConvMaxFinal;
     //$clavePrincipal = 2;
     require_once("../modelo/convocatoria.php");
@@ -110,7 +110,8 @@
                                     <td class='p-1'>".$actual->destino_requerimiento."</td>
                                 </tr>";
                         }
-                        echo "<tr><td>Total</td><td>".$total."  ".$aux[1]."</td><td colspan='2'></td></tr>";
+                            echo "<tr><td>Total</td><td>".$total."</td><td colspan='2'></td></tr>";
+                            //echo "<tr><td>Total</td><td>".$total."  ".$aux[1]."</td><td colspan='2'></td></tr>";
                     ?>
                 </tbody>
             </table>

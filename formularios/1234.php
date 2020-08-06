@@ -1,5 +1,5 @@
 <?php
-    $clavePrincipal = 130; // la clave de la convocatoria
+    $clavePrincipal = 148; // la clave de la convocatoria
     require_once("../modelo/convocatoria.php");
     $convocatoria = new Convocatoria();
     $res=$convocatoria->mostrarConvocatoriaCompleta($clavePrincipal);
@@ -54,7 +54,7 @@
         <p class='text-justify'><?php echo $descripcion; ?></p>
         <h5><?php echo $indice.".- "; $indice++ ;?>Requerimientos</h5>
         <!-- tabla para Auxiliatur a de Docencia -->
-        <?php if($tipoConovcatoria=='Auxiliatura de docencia'){?>
+        <?php if($tipoConovcatoria=='Auxiliatura de Docencia'){?>
             <table border=2 class="w-100">
                 <thead>
                     <tr>
@@ -83,7 +83,7 @@
             </table>
             <br>
         <?php }
-        if($tipoConovcatoria=='Auxiliatura de laboratorio'){ ?>
+        if($tipoConovcatoria=='Auxiliatura de Laboratorio'){ ?>
             <table border=2 class="m-1 w-100">
                 <thead>
                     <tr>
