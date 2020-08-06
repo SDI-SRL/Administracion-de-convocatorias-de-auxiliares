@@ -30,9 +30,9 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="../style/bootstrap.css">
-      <link rel="stylesheet" href="../style/myStyle.css">
-      <style type="text/css">
+      <!-- <link rel="stylesheet" href="../style/bootstrap.css">
+      <link rel="stylesheet" href="../style/myStyle.css"> -->
+      <style type="text/css"> 
         #nuevaConvocatoria:link
         {
         text-decoration:none;
@@ -42,32 +42,50 @@
     </head>
 
 <body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+            <!-- <div class="col-md-12 p-0"> -->
+                
+                        <div class="container">
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>     
+                            </button>
+                            <div class="collapse navbar-collapse" id="navegacion">
+                                <ul id="sub-header2" class="navbar-nav mr-auto">
+                                <li id="menu2" class="nav-item">
+                                    <a class="nav-link" href="../index.php">
+                                    INICIO
+                                    </a>
+                                </li>
+                                
+                                <li id="menu2" class="nav-item">
+                                    <a class="nav-link" href="../paginas/cambiarEmailPassword.php">
+                                    CAMBIAR CONTRASEÑA
+                                    </a>
+                                </li>
 
-    <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
-                    <div class="container">
-                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>     
-                        </button>
-                        <div class="collapse navbar-collapse" id="navegacion">
-                            <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
-                                <a class="nav-link" href="../index.php">
-                                INICIO
-                                </a>
-                            </li>
-                            
-                            
-                            </ul>           
-                            <span class="navbar-text">
-                                <script> fecha(); </script>
-                            </span>
-                            
+                                <li id="menu2" class="nav-item">
+                                    <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                                    CERRAR SESION
+                                    </a>
+                                </li>
+                                
+                                </ul>           
+                                <span class="navbar-text">
+                                    <script> fecha(); </script>
+                                </span>
+                                
+                            </div>
                         </div>
-                    </div>
-    </nav>
+                </nav>
+            <!-- </div> -->
+            
+    </div>
+    
 
-    <header class="bg-primary w-100 p-4">
-        <h3 class="font-italic"><i class="fas fa-users"></i>  
+    <header class="p-3 navbar navbar-expand-lg navbar-custom padding-navbar">  <!-- w-100 p-4 -->
+
+        <h3 class="font-italic text-light"><i class="fas fa-users"></i>  
             <?php
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
@@ -112,9 +130,9 @@
 
             ?>
         </h3>        
-        <a href="../paginas/cambiarEmailPassword.php" class="float-right text-light">Cambiar Contraseña</a>
+        <!-- <a href="../paginas/cambiarEmailPassword.php" class="float-right text-light">Cambiar Contraseña</a>
         <br>
-        <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+        <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a> -->
     </header>
     <?php
                 if(isset($_GET['tit']) && isset($_GET['color'])){ ?>
@@ -131,17 +149,17 @@
     <main class='container-fluid mt-2'>
         <div class="row">
           <div class='col-10 p-5 table-responsive'>
-            <table class='table table-hover'>
+            <table class='table table-bordered'>
                 <h4>Lista de convocatoria</h4>
                 <a href='crearPublicacion.php' class='btn btn-success p-2 rounded-lg m-2' id='nuevaConvocatoria'>Crear nueva convocatoria</a>
                 <a href="convocatoriaPersonalisada.php">Crear una convocatoria personalizada</a>
                     <thead class='bg-primary'>
                         <tr>
-                            <th><a href="CRUD_publicaciones.php?convocatoria=<?php echo $extension ?>" class="btn btn-dark">Convocatoria &#8597;</a></th>
-                            <th><a href="CRUD_publicaciones.php?autor=<?php echo $extension ?>" class="btn btn-dark">Autor &#8597;</a></th>
-                            <th><a href="CRUD_publicaciones.php?fecha=<?php echo $extension ?>" class="btn btn-dark">Fecha de creacion &#8597;</a></th>
-                            <th>PDF</th>
-                            <th>Opciones</th>
+                            <th><a href="CRUD_publicaciones.php?convocatoria=<?php echo $extension ?>" class="btn btn-primary">Convocatoria &#8597;</a></th>
+                            <th><a href="CRUD_publicaciones.php?autor=<?php echo $extension ?>" class="btn btn-primary">Autor &#8597;</a></th>
+                            <th><a href="CRUD_publicaciones.php?fecha=<?php echo $extension ?>" class="btn btn-primary">Fecha de creacion &#8597;</a></th>
+                            <th class="text-light">PDF</th>
+                            <th class="text-light">Opciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -182,9 +200,9 @@
                             echo        "<a  href='".$elemento['direccion_pdf']."' target='_blank'>Abrir ".$elemento['tipo_convocatoria']."</a>";
                             echo    "</td>";
                             echo    "<td>";
-                            echo        "<a href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'  class='btn btn-danger' title='Eliminar convocatoria'><i class='fas fa-trash-alt'></i></a>
-                                        <a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' title='Editar convocatoria'><i class='fas fa-edit'></i></a>
+                            echo        "<a href='editarConvocatoria.php?id=".$elemento['id_convocatoria']."' class='btn btn-primary' title='Editar convocatoria'><i class='fas fa-edit'></i></a>
                                         <a href='listaPostulantes.php?id=".$elemento['id_convocatoria']."' class='btn btn-info' title='Lista de postulantes'><i class='fas fa-user-tie'></i></a>
+                                        <a href='../formularios/form_eliminarConvocatoria.php?id=".$elemento['id_convocatoria']."'  class='btn btn-danger' title='Eliminar convocatoria'><i class='fas fa-trash-alt'></i></a>
                                 </td>
                             </tr>";
                         }

@@ -55,14 +55,14 @@
         <div>
 
 
-        <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
-                          <div class="cabeceraCssAzul"></div>
-                          <div class="cabeceraCssAzulClaro"></div>
-                          <div class="cabeceraCssBlanca"></div>
-                          <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
-                          <img class="logoUmssCss" src="img/imagenes/LogoUMSS.png" alt="UMSS"> 
-                          
-        </div> 
+          <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
+                            <div class="cabeceraCssAzul"></div>
+                            <div class="cabeceraCssAzulClaro"></div>
+                            <div class="cabeceraCssBlanca"></div>
+                            <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
+                            <img class="logoUmssCss" src="img/imagenes/LogoUMSS.png" alt="UMSS"> 
+                            
+          </div> 
         </div>                 
         
         <div>
@@ -104,58 +104,7 @@
                         </ul>
                       </div>
                     </nav>
-                      
-  
-                    <div class="modal" id="busqueda-rapida">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h4 class="modal-title">
-                              B&uacute;squeda R&aacute;pida de Perfil
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>                     
-                          </div>
-                          <div class="modal-body">
-                            <form action="/buscador" method="post" name="search" onsubmit="return validarBusqueda();">
-                              <input type="hidden" name="tipo" value="15">
-                              <input type="hidden" name="operacion" value="busqueda">
-                              <input type="hidden" name="tipo_tesis" value="2">
-                              <input type="hidden" name="bus_por" value="todos">
-                              <input type="hidden" name="anio" value="todos">
-                              <input type="hidden" name="periodo" value="todos">
-                              <div class="form-group">
-                                <label for="texto_busqueda">
-                                    B&uacute;squeda r&aacute;pida de <strong>Perfil</strong>
-                                </label>
-                                <input type="text" id="texto_busqueda" name="texto_busqueda" class="form-control">
-                              </div>
-                              <div class="text-center">
-                                <input type="submit" value="Buscar" name="Buscar" class="btn btn-primary">
-                              </div>                  
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                        $('ul.nav li.dropdown').hover(function() {
-                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeIn(500);
-                        }, function() {
-                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeOut(500);
-                        });
-                    </script>
-                    <script>
-                        $(function(){
-                          var url = window.location.href; 
                   
-                          $("#sub-header a").each(function() {
-                                  // checks if its the same on the address bar
-                              if(url == (this.href)) { 
-                                  $(this).closest("li").addClass("active");
-                              }
-                          });
-                        });
-                    </script>
                   </div>
               </div>
           </div>
@@ -190,9 +139,9 @@
             <hr>
             <div class="container-fluid">
               <div>
-                <h4 class="p-2 text-center">
-                  <a href="#">Convocatorias Publicadas</a>
-                </h4>
+                <h2 class="p-2 text-center">
+                  <a>Publicaciones de Convocatorias</a>
+                </h2>
                 <!-- <div>
                   
                     <div>
@@ -205,7 +154,7 @@
                 <!-- <div class="inline-flex justify-content-center row mt-1"> -->
                 <section>
                   <div class="d-block w-75 mx-auto">
-                      <h2 class="text-center" >Publicaciones de Convocatorias</h2>
+                      <!-- <h2 class="text-center" >Publicaciones de Convocatorias</h2>  -->
                       <?php
                           date_default_timezone_set('America/La_Paz');
                           $fechaActual=date("Y-m-d H:i:s");

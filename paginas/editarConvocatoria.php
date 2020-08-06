@@ -15,20 +15,63 @@
     }
 ?>
 <!DOCTYPE html>
-    <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-            <link href="css/estilos.css" rel="stylesheet">
-            <link rel="stylesheet" href="../style/bootstrap.css">
-            <!-- <link rel="stylesheet" href="../style/myStyle.css"> -->
-            <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
-        </head>
+  <html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" href="../img/imagenes/icon.gif" type="image/gif">
+      <script src="../librerias/js/popper-1.14.7.min.js"></script>    
+      <link rel="stylesheet" href="../librerias/css/bootstrap.min.css">    
+      <link rel="stylesheet" href="../librerias/css/styles.css">
+      <link rel="stylesheet" href="../librerias/css/slick.css">
+      <link rel="stylesheet" href="../librerias/css/slick-theme.css">
+      <link rel="stylesheet" href="../librerias/css/cabeceraCss.css">
+      <link rel="alternate" type="application/rss+xml" title="Avisos de Inform&aacute;tica - Sistemas (UMSS)" href="../rss/index.rss">
+      <script src="../librerias/js/jquery-3.3.1.min.js"></script>
+      <script src="../librerias/js/bootstrap.min.js"></script>
+      <script src="../librerias/archivos/script.js"></script>
+      <script src="../librerias/js/slider.js"></script>
+      <script src="../librerias/js/slick.js"></script>
+      <script src="../librerias/archivos/jquery.snow.js"></script>
+      <title>Document</title>
+      <link href="css/estilos.css" rel="stylesheet">
+      <link rel="stylesheet" href="../style/bootstrap.css">
+      <!-- <link rel="stylesheet" href="../style/myStyle.css"> -->
+      <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
+    </head>
 
-        <body class="cuerpo">
-            <header class="bg-primary w-100 p-4">
-                <h3 class="font-italic"><i class="fas fa-users"></i>  
+    <body>  
+        <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+                <div class="container">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>     
+                </button>
+                <div class="collapse navbar-collapse" id="navegacion">
+                    <ul id="sub-header2" class="navbar-nav mr-auto">
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="../index.php">
+                        INICIO
+                        </a>
+                    </li>
+                    
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="CRUD_publicaciones.php" class="float-right text-light">CONVOCATORIAS</a>
+                    </li>
+                    
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="../formularios/form_cerrarSession.php" class="float-right text-light">CERRAR SESION</a>
+                    </li>
+                    
+                    </ul>           
+                    <span class="navbar-text">
+                        <script> fecha(); </script>
+                    </span>
+                    
+                </div>
+                </div>
+        </nav>
+            <header class="navbar navbar-expand-lg navbar-custom padding-navbar w-100 p-3">
+                <h3 class="font-italic text-light"><i class="fas fa-users"></i>  
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -65,9 +108,9 @@
                     ?>
                 
                 </h3>
-                <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
+                <!-- <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
                 <br>
-                <a href="form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+                <a href="form_cerrarSession.php" class="float-right text-light">cerrar session</a> -->
             </header>
 
             <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-secondary alert alert-primary" role="alert">

@@ -18,8 +18,8 @@
       <script src="../librerias/js/slick.js"></script>
       <script src="../librerias/archivos/jquery.snow.js"></script>
       <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
-      <link rel="stylesheet" href="../style/bootstrap.css">
-      <link rel="stylesheet" href="../style/myStyle.css">
+      <!-- <link rel="stylesheet" href="../style/bootstrap.css">
+      <link rel="stylesheet" href="../style/myStyle.css">  -->
     </head>
     <body>
         <?php /* include("../plantillas/header.php"); */?>
@@ -76,25 +76,25 @@
                                 
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/login.php">
-                                    Sesi&oacute;n Administrativo
+                                        SESI&Oacute;N ADMINISTRATIVO
                                     </a>
                                 </li> 
 
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/postulante.php">
-                                    Sesion Postulante 
+                                        SESI&Oacute;N POSTULANTE 
                                     </a>
                                 </li>
 
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/comisionEvaluadora.php">
-                                    Sesion Comision Evaluadora 
+                                        SESI&Oacute;N COMISION EVALUADORA 
                                     </a>
                                 </li>
                                 
                                 <li id="menus" class="nav-item">
                                     <a class="nav-link" href="../paginas/buscarConvocatorias.php">
-                                    Buscar Convocatoria 
+                                        BUSCAR CONVOCATORIA
                                     </a>
                                 </li>
 
@@ -104,10 +104,18 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        
+        <div>
+            <h3 class="p-2 text-center">
+                <a>Autenticacion Postulante</a>
+            </h3>
+                
+        </div>
+
         <div class="container p-2 border border-dark text-dark alert alert-primary w-50 mt-5 p-3" role="alert">
             <form action="../formularios/form_verificarPostulante.php" method="post" class="form-horizontal">
-                <h3 class="text-center"> Autenticacion Postulante</h3>
+                <!-- <h3 class="text-center"> Autenticacion Postulante</h3> -->
                 <div class="form-group">
                     <label for="correoPostulante">Correo Electronico: </label>
                     <input type="email" name="correoPostulante" id="correoPostulante" class="form-control" required>
@@ -120,7 +128,7 @@
                     <label><input type="checkbox"> Recordar usuarios</label>
                 </div>
                 <div class='text-center'>
-                    <input type="submit" class='btn btn-primary' value="Ingresar">
+                    <input type="submit" class='btn btn-success' value="Entrar">
                 </div>
             </form>
             <a href="crearNuevaCuenta.php">Crear una cuenta de postulante</a>

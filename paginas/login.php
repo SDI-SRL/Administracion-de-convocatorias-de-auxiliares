@@ -92,88 +92,36 @@
                           
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="../paginas/login.php">
-                                 Sesi&oacute;n Administrativo
+                                SESI&Oacute;N ADMINISTRATIVO
                               </a>
                           </li> 
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="../paginas/postulante.php">
-                                Sesion Postulante 
+                                SESI&Oacute;N POSTULANTE 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="../paginas/comisionEvaluadora.php">
-                                Sesion Comision Evaluadora 
+                                SESI&Oacute;N COMISION EVALUADORA 
                               </a>
                           </li>
                           
                           <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/buscarConvocatorias.php">
-                                    Buscar Convocatoria 
-                                    </a>
+                              <a class="nav-link" href="../paginas/buscarConvocatorias.php">
+                                BUSCAR CONVOCATORIA
+                              </a>
                           </li>
 
                         </ul>
                       </div>
                     </nav>
-                      
-  
-                    <div class="modal" id="busqueda-rapida">
-                      <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h4 class="modal-title">
-                              B&uacute;squeda R&aacute;pida de Perfil
-                            </h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>                     
-                          </div>
-                          <div class="modal-body">
-                            <form action="/buscador" method="post" name="search" onsubmit="return validarBusqueda();">
-                              <input type="hidden" name="tipo" value="15">
-                              <input type="hidden" name="operacion" value="busqueda">
-                              <input type="hidden" name="tipo_tesis" value="2">
-                              <input type="hidden" name="bus_por" value="todos">
-                              <input type="hidden" name="anio" value="todos">
-                              <input type="hidden" name="periodo" value="todos">
-                              <div class="form-group">
-                                <label for="texto_busqueda">
-                                    B&uacute;squeda r&aacute;pida de <strong>Perfil</strong>
-                                </label>
-                                <input type="text" id="texto_busqueda" name="texto_busqueda" class="form-control">
-                              </div>
-                              <div class="text-center">
-                                <input type="submit" value="Buscar" name="Buscar" class="btn btn-primary">
-                              </div>                  
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <script>
-                        $('ul.nav li.dropdown').hover(function() {
-                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeIn(500);
-                        }, function() {
-                          $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeOut(500);
-                        });
-                    </script>
-                    <script>
-                        $(function(){
-                          var url = window.location.href; 
-                  
-                          $("#sub-header a").each(function() {
-                                  // checks if its the same on the address bar
-                              if(url == (this.href)) { 
-                                  $(this).closest("li").addClass("active");
-                              }
-                          });
-                        });
-                    </script>
                   </div>
               </div>
           </div>
         </div>
-        <script>
+        <!-- <script>
             $(function(){
               var url = window.location.href; 
       
@@ -184,7 +132,7 @@
                   }
               })
             });
-        </script>
+        </script> -->
         </div>
       </header>
       
@@ -204,32 +152,11 @@
             <div class="container-fluid">
               <div>
                 <h4 class="p-2 text-center">
-                  <a href='rep_lista_avisos.html'>Autenticacion Administrativo</a>
+                  <a>Autenticacion Administrativo</a>
                 </h4>
-                <!-- <div>
-                  
-                    <div>
-                      <h3>No existen convocatorias publicadas</h3>
-                    </div>
-                  
-                </div> -->
+                
               </div> 
                 <hr>
-                <!-- <div class="inline-flex justify-content-center row mt-1"> -->
-                <!-- Login -->
-                    <!-- <div class="overlay" id="overlay">
-                            <div id="formReenvio">
-                                <form action="../formularios/form_enviarEmail.php" method="post">
-                                    <a href="" class="float-right m-2">Cancelar</a>
-                                    <br>
-                                    <h2>Formulario de Reenvio</h2>
-                                    <label class="d-block mx-auto" for="reenvio_Pass">Correo Electronico: <input class="p-2 font" type="email" name="reenvio_Pass" id="reenvio_Pass" required placeholder="ejemplo@gmail.com"></label>
-                                    <label class="d-block mx-auto" for="catcha"><input type="text" name="" id="catcha"></label>
-                                    <input class="d-block my-2 mx-auto btn btn-success" type="submit" value="Reenviar">
-                                </form>
-                            </div>
-                    </div> -->
-
                     <section class="principal">
                         <div class="border border-dark alert alert-primary w-50 mx-auto my-5 p3" role="alert">
                             <form action="../formularios/form_VerificarUsuario.php" method="post" class="rounded-sm">

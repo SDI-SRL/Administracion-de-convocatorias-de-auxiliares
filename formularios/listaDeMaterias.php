@@ -37,7 +37,7 @@
       <link rel="stylesheet" href="../style/bootstrap.css">
       <link rel="stylesheet" href="../style/myStyle.css">
     </head>
-<body class="alert alert-primary">
+<body>
     <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
             <div class="container">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,6 +50,12 @@
                     INICIO
                     </a>
                   </li>
+
+                  <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                            CERRAR SESION
+                        </a>
+                  </li>
                   
                   
                 </ul>           
@@ -61,46 +67,53 @@
             </div>
     </nav>
     <hr>
-    <div class="container-fluid text-left">
-        <?php
-            require_once("../modelo/convocatoria.php");  
-            $convocatoria = new  Convocatoria();
-            $tipoConvocatoria = $convocatoria->mostrarConvocatoriaUnica($id_convocatoria);
-            $materias = $convocatoria->mostrarMateriasDisponibles($id_convocatoria);
-            if($tipoConvocatoria['tipo_convocatoria'] == 'Auxiliatura de laboratorio'){
-                foreach($materias as $materia){
-                    echo "<h2>Nombre de la Auxiliatura</h2>";
-                    echo "<h4>".$materia['nombre_auxiliatura']."</h4>";
-                    $contexto = $convocatoria->materiaInscrita($_SESSION['id_postulante'],$materia['id_requerimiento']);
-                    if($contexto){ ?>
-                        <a href="../formularios/form_eliminarPostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-danger">Eliminar</a>
-                        <hr>
-                    <?php 
-                    }else{
-                        ?>
-                        <a href="../formularios/form_InscribirsePostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-primary">Inscribirse</a> 
-                        <hr>
+    <!-- <div class="container-fluid">
+        <div class="row"> --> <!-- col-7 p-5 -->
+                <div class="container-fluid text-left">
+                    <div class="border border-dark alert alert-primary">    
                     <?php
-                    }
-                }
-            }else{
-                foreach($materias as $materia){
-                    echo "<h2>Nombre de la Materia</h2>";
-                    echo "<h4>".$materia['destino_requerimiento']."</h4>";
-                    $contexto = $convocatoria->materiaInscrita($_SESSION['id_postulante'],$materia['id_requerimiento']);
-                    if($contexto){ ?>
-                        <a href="../formularios/form_eliminarPostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-danger">Eliminar</a>
-                        <hr>
-                    <?php 
-                    }else{
-                        ?>
-                        <a href="../formularios/form_InscribirsePostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-primary">Inscribirse</a> 
-                        <hr>
-                    <?php
-                    }
-                }
-            }
-        ?>
-    </div>  
+                        require_once("../modelo/convocatoria.php");  
+                        $convocatoria = new  Convocatoria();
+                        $tipoConvocatoria = $convocatoria->mostrarConvocatoriaUnica($id_convocatoria);
+                        $materias = $convocatoria->mostrarMateriasDisponibles($id_convocatoria);
+                        if($tipoConvocatoria['tipo_convocatoria'] == 'Auxiliatura de laboratorio'){
+                            foreach($materias as $materia){
+                                echo "<h2>Nombre de la Auxiliatura</h2>";
+                                echo "<h4>".$materia['nombre_auxiliatura']."</h4>";
+                                $contexto = $convocatoria->materiaInscrita($_SESSION['id_postulante'],$materia['id_requerimiento']);
+    
+                                if($contexto){ ?>
+                                    <a href="../formularios/form_eliminarPostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-danger">Eliminar</a>
+                                    <hr>
+                                <?php 
+                                }else{
+                                    ?>
+                                    <a href="../formularios/form_InscribirsePostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-primary">Inscribirse</a> 
+                                    <hr>
+                                <?php
+                                }
+                            }
+                        }else{
+                            foreach($materias as $materia){
+                                echo "<h2>Nombre de la Materia</h2>";
+                                echo "<h4>".$materia['destino_requerimiento']."</h4>";
+                                $contexto = $convocatoria->materiaInscrita($_SESSION['id_postulante'],$materia['id_requerimiento']);
+                                if($contexto){ ?>
+                                    <a href="../formularios/form_eliminarPostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-danger">Eliminar</a>
+                                    <hr>
+                                <?php 
+                                }else{
+                                    ?>
+                                    <a href="../formularios/form_InscribirsePostulanteMateria.php?id_post=<?php echo $_SESSION['id_postulante']; ?>&id_req=<?php echo $materia['id_requerimiento'];?>" class="btn btn-primary">Inscribirse</a> 
+                                    <hr>
+                                <?php
+                                }
+                            }
+                        }
+                    ?>
+                    </div>
+                </div>
+        <!-- </div>
+    </div> -->  
 </body>
 </html>
