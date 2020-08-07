@@ -17,8 +17,6 @@
             $_SESSION['cargoUsuario']=$getCargo;
             $getSexo=$administrativo->obtenerSexoAdministrativo($usuario);
             $_SESSION['sexoUsuario']=$getSexo;
-            $getci=$administrativo->obtenerCIAdministrativo($usuario);
-            $_SESSION['ciUsuario']=$getci;
             $_SESSION['bandera']=true;
             $administrativo->cerrarConexion();
             header("Location:../paginas/CRUD_publicaciones.php");

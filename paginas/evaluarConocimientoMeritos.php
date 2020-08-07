@@ -1,4 +1,14 @@
 <?php
+    session_start();
+    if(isset($_SESSION['nombreEvaluador'])  &&  isset($_SESSION['idEvaluador'])){
+        $nombreEvaluador = $_SESSION['nombreEvaluador'];
+        $idEvaluador = $_SESSION['idEvaluador'];
+    }else{
+        header("Location:comisionEvaluadora.php?error=x");
+    }
+?>
+
+<?php
 if(isset($_GET['idPost']) && isset($_GET['idMat'])){
     $idPostulante = $_GET['idPost'];
     $idMateria = $_GET['idMat'];
@@ -30,7 +40,7 @@ if(isset($_GET['idPost']) && isset($_GET['idMat'])){
       <link rel="stylesheet" href="../style/bootstrap.css">
       <link rel="stylesheet" href="../style/myStyle.css">
     </head>
-<body class='p-2 alert alert-primary'>
+<body>
 
     <div>    
           <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
@@ -45,7 +55,9 @@ if(isset($_GET['idPost']) && isset($_GET['idMat'])){
                     INICIO
                     </a>
                   </li>
-                  
+                  <li id="menu2" class="nav-item">
+                    <a class="nav-link" href="../formularios/form_cerrarSession.php" class="float-right text-light">CERRAR SESION</a>
+                  </li>
                   
                 </ul>           
                 <span class="navbar-text">
@@ -54,46 +66,54 @@ if(isset($_GET['idPost']) && isset($_GET['idMat'])){
                 
               </div>
             </div>
-          </nav> 
-    <div>
-    <h2>Evaluacion de meritos</h2>
-    <form action="" class="table table-warning text-dark">
-        <input type="text" name="id_postulante" id="id_postulante" value="<?php echo $idPostulante;?>">
-        <input type="text" name="id_materia" id="id_materia" value="<?php echo $idMateria;?>">
-        <input type="text" name="id_convocatoria" id="id_convocatoria" value="<?php echo $idConvocatoria;?>">
-        <section class='p-4'>
-            <ol class='list-group-flush'>
-            <?php
-                require_once('../modelo/evaluacion.php');
-                $evaluacion = new Evaluacion();
-                $evaluacionMeritos = $evaluacion->obtenerTitulosPruebas($idConvocatoria);
-                foreach($evaluacionMeritos as $meritoGeneral){
-                    echo "<li class='p-1'>".$meritoGeneral['titulo_merito']."                          <span>".$meritoGeneral['porcentaje_merito']."</span>";
-                    $evaluacionReglas = $evaluacion->obtenerReglas($meritoGeneral['id_merito']);
-                    echo "<ol type='A'>";
-                    foreach($evaluacionReglas as $regla){
-                        echo "<li class='pl-3'>".$regla['titulo_regla']."                <span>".$regla['porcentaje_regla']."</span>";
+          </nav>
+          
+          <header class='p-3 navbar navbar-expand-lg navbar-custom padding-navbar'>
+            <h3 class='text-light'>Bienvenido <?php echo $nombreEvaluador; ?></h3>
+            <!-- <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a> -->
+          </header>
+    </div>
+    <hr>
+    <div class="container-fluid text-left">
+        <h2>Evaluacion de meritos</h2>
+        <form action="" class="table table-primary text-dark">
+            <input type="text" name="id_postulante" id="id_postulante" value="<?php echo $idPostulante;?>">
+            <input type="text" name="id_materia" id="id_materia" value="<?php echo $idMateria;?>">
+            <input type="text" name="id_convocatoria" id="id_convocatoria" value="<?php echo $idConvocatoria;?>">
+            <section class='p-4'>
+                <ol class='list-group-flush'>
+                <?php
+                    require_once('../modelo/evaluacion.php');
+                    $evaluacion = new Evaluacion();
+                    $evaluacionMeritos = $evaluacion->obtenerTitulosPruebas($idConvocatoria);
+                    foreach($evaluacionMeritos as $meritoGeneral){
+                        echo "<li class='p-1'>".$meritoGeneral['titulo_merito']."                          <span>".$meritoGeneral['porcentaje_merito']."</span>";
+                        $evaluacionReglas = $evaluacion->obtenerReglas($meritoGeneral['id_merito']);
+                        echo "<ol type='A'>";
+                        foreach($evaluacionReglas as $regla){
+                            echo "<li class='pl-3'>".$regla['titulo_regla']."                <span>".$regla['porcentaje_regla']."</span>";
 
-                        $evaluacionNormas = $evaluacion->obtenerNormas($regla['id_regla']);
-                        if(empty($evaluacionNormas)){
-                            echo "<label for='' class='ml-5'>Escriba la nota sobre 100 --------> <input type='number'></label>";
-                        }
-                        echo "<ol type='a'>";
-                        foreach($evaluacionNormas as $norma){
-                            //echo var_dump($norma);
-                            echo "<li class='pl-3'>".$norma['descripcion_norma']."                <span>".$norma['puntos_norma']."</span></li>";
-                            if($evaluacionNormas){
-                                echo "<label for='' class='ml-5'>Escriba la cantidad --------> <input type='number'></label>";
+                            $evaluacionNormas = $evaluacion->obtenerNormas($regla['id_regla']);
+                            if(empty($evaluacionNormas)){
+                                echo "<label for='' class='ml-5'>Escriba la nota sobre 100 --------> <input type='number'></label>";
                             }
+                            echo "<ol type='a'>";
+                            foreach($evaluacionNormas as $norma){
+                                //echo var_dump($norma);
+                                echo "<li class='pl-3'>".$norma['descripcion_norma']."                <span>".$norma['puntos_norma']."</span></li>";
+                                if($evaluacionNormas){
+                                    echo "<label for='' class='ml-5'>Escriba la cantidad --------> <input type='number'></label>";
+                                }
+                            }
+                            echo "</ol></li>";
                         }
-                        echo "</ol></li>";
-                    }
-                    echo "</ol></li><hr>";
+                        echo "</ol></li><hr>";
 
-                }
-            ?>
-            </ol> 
-        </section>  
-    </form>
+                    }
+                ?>
+                </ol> 
+            </section>  
+        </form>
+    </div>    
 </body>
 </html>

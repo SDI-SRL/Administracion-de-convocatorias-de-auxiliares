@@ -28,11 +28,11 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
+                            <!--<li id="menu2" class="nav-item">
                                 <a class="nav-link" href="../index.php">
                                 INICIO
                                 </a>
-                            </li>
+                            </li>-->
                             
                             </ul>           
                             <span class="navbar-text">
@@ -64,6 +64,12 @@
                                     <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                                         
                                         <li id="menus" class="nav-item">
+                                            <a class="nav-link" href="../index.php">
+                                            INICIO
+                                            </a>
+                                        </li>
+
+                                        <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/login.php">
                                             Sesi&oacute;n Administrativo
                                             </a>
@@ -71,31 +77,38 @@
 
                                         <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/postulante.php">
-                                            Sesion Postulante 
+                                                SESI&Oacute;N POSTULANTE 
                                             </a>
                                         </li>
 
                                         <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/comisionEvaluadora.php">
-                                            Sesion Comision Evaluadora 
+                                                SESI&Oacute;N COMISION EVALUADORA 
                                             </a>
                                         </li>
                                         
                                         <li id="menus" class="nav-item">
                                             <a class="nav-link" href="../paginas/buscarConvocatorias.php">
-                                            Buscar Convocatoria 
-                                        </a>
-                                </li>
+                                                BUSCAR CONVOCATORIA
+                                                </a>
+                                        </li>
                                     </ul>
                                     </div>
                                 </nav>
                             </div>
                         </div>
-                    </div>
-                </div> 
+            </div>
+        </div>
+                
+            <div>
+                <h3 class="p-2 text-center">
+                    <a>Autenticacion Evaluadores</a>
+                </h3>
+            </div>
+
     <section class="container border border-dark text-dark alert alert-primary w-50 mt-5 p-4" role="alert">
         <form action="../formularios/form_verificarEvaluador.php" method="post">
-            <h3 class="text-center"> Autenticacion Evaluadores</h3>
+            <!-- <h3 class="text-center"> Autenticacion Evaluadores</h3> -->
             <div class="form-group">
                 <label for="idCorreo">Correo Electronico</label>
                 <input type="text" name="idCorreo" id="idCorreo" class="form-control">
@@ -105,7 +118,7 @@
                 <input type="password" name="idPass" id="idPass" class="form-control">
             </div>
             <div class="text-center">
-                <input type="submit" class='btn btn-primary' value="Ingresar">
+                <input type="submit" class='btn btn-success' value="Entrar">
             </div>
         </form>
     </section>

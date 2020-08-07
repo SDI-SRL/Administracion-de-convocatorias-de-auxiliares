@@ -48,12 +48,7 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <li id="menu2" class="nav-item">
-                                <a class="nav-link" href="../index.php">
-                                INICIO
-                                </a>
-                            </li>
-                            
+
                             </ul>           
                             <span class="navbar-text">
                                 <script> fecha(); </script>
@@ -83,22 +78,28 @@
                             <div class="collapse navbar-collapse" id="navegacion2"> 
                             <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
                                 
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/login.php">
-                                    Sesi&oacute;n Administrativo
-                                    </a>
-                                </li> 
+                                    <li id="menus" class="nav-item">
+                                        <a class="nav-link" href="../index.php">
+                                        INICIO
+                                        </a>
+                                    </li>
+
+                                    <li id="menus" class="nav-item">
+                                        <a class="nav-link" href="../paginas/login.php">
+                                            SESI&Oacute;N ADMINISTRATIVO
+                                        </a>
+                                    </li>
+
+                                    <li id="menus" class="nav-item">
+                                        <a class="nav-link" href="../paginas/postulante.php">
+                                            SESI&Oacute;N POSTULANTE
+                                        </a>
+                                    </li>
 
                                 <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/postulante.php">
-                                    Sesi&oacute;n Postulante 
-                                    </a>
-                                </li>
-
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/comisionEvaluadora.php">
-                                    Sesion Comision Evaluadora 
-                                    </a>
+                                        <a class="nav-link" href="../paginas/comisionEvaluadora.php">
+                                            SESI&Oacute;N COMISION EVALUADORA
+                                        </a>
                                 </li>
                                 
                                 <li id="menus" class="nav-item">
@@ -115,8 +116,14 @@
             </div>
         </div>
 
+        <div>
+            <h3 class="p-2 text-center">
+                <a>Buscar Convocatoria</a>
+            </h3>
+        </div>
+
         <form action="#" method="post" class="container w-50 p-3 my-5 border border-dark alert alert-primary text-dark md w-75 sm w-100" role="alert">
-            <h1 class="text-center">Buscar convotatoria</h1>
+            <!--<h1 class="text-center">Buscar convotatoria</h1>-->
             <!--<label for="label">Nombre de la convocatoria: </label>
             <input type="text" name="titulo" id="titulo" style="resize:none; width:100%;" placeholder="Titulo" required autocomplete="off">
             <br>-->
@@ -178,7 +185,7 @@
             <div class="row justify-content-center">    
                 <!--<input class="btn btn-primary mr-2" type="submit" value="ActualizarDatos" >-->
                 <!--<a class="btn btn-primary ml-2" href=""> Buscar</a>-->
-                <input type="submit" name="buscar" value="Buscar" class="btn btn-info"/>
+                <input type="submit" name="buscar" value="Buscar" class="btn btn-success"/>
             </div>
         </form>
         <section>
