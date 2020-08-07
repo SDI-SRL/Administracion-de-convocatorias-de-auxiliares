@@ -66,7 +66,18 @@
                                 INICIO
                                 </a>
                             </li>
-                            
+
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="CRUD_publicaciones.php">
+                                CONVOCATORIAS
+                                </a>
+                            </li>
+
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                                CERRAR SESION
+                                </a>
+                            </li>
                             
                             </ul>           
                             <span class="navbar-text">
@@ -77,8 +88,8 @@
                     </div>
     </nav>
      
-    <header class="bg-primary w-100 p-4">
-            <h3 class="font-italic"><i class="fas fa-users"></i> 
+    <header class="navbar navbar-expand-lg navbar-custom padding-navbar w-100 p-3">
+            <h3 class="font-italic text-white"><i class="fas fa-users"></i> 
             <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -114,9 +125,9 @@
                     echo $_SESSION['sesion']; 
                     ?> 
             </h3>
-            <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
+            <!-- <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
             <br>
-            <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+            <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a> -->
     </header>
 
     <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary alert alert-info" role="alert">
@@ -297,7 +308,7 @@
                         <td class="eliminarD"><input type="button"   value="Eliminar fila"/></td>
                     </tr>
                 </table>
-                <button id="adicionarD" name="adicionarD" type="button" class="btnD btn-warning"> Agregar fila </button>
+                <button id="adicionarD" name="adicionarD" type="button" class="btnD btn-success"> Agregar fila </button>
                 <table class="tableL bg-info"  id="tablaL">
                 <thead>
                     <tr>
@@ -317,7 +328,7 @@
                         <td class="eliminarL"><input type="button"   value="Eliminar fila"/></td>
                     </tr>
                 </table>
-                <button id="adicionarL" name="adicionarL" type="button" class="btnL btn-warning"> Agregar fila </button>
+                <button id="adicionarL" name="adicionarL" type="button" class="btnL btn-success"> Agregar fila </button>
             <!--</form>-->
             <br>
             <label for="requerimientosNota">Nota: </label>
@@ -333,7 +344,7 @@
 
             <div class="btn-der">
                 <!--<input type="submit" name="insertarrr" value="Insertar Alumno" class="btn btn-info"/>-->
-                <button id="adicionall" name="adicional1" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicionall" name="adicional1" type="button" class="btn btn-success"> Agregar fila </button>
                 <br>
             </div>
             <br>
@@ -348,7 +359,7 @@
                 </tr>
             </table>
             <div class="btn-der">
-                <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicional2" name="adicional2" type="button" class="btn btn-success"> Agregar fila </button>
                 <br>
             </div>
             <br>
