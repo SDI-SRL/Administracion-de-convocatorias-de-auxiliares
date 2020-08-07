@@ -479,12 +479,19 @@
                     </tr>
                 </tbody>
             </table>
-
-
-            <br>
             <label for="calificacionMeritosNotaLb">Nota: </label>
-            <input class="form-control input-lg" name="notaCalificacionMeritos" id="notaCalificacionMeritos" placeholder="Nota de documentos" value=""/>
+            <input class="form-control input-lg" name="notaCalificacionMeritos" id="notaCalificacionMeritos" placeholder="Nota de calificacion de meritos" value=""/>
             <br>
+            <br>
+            <label for="calificacionMeritosNotaLb">Calificacion de conocimientos </label>
+            <br>
+            <label for="calificacionMeritosNotaLb">La calificación de conocimientos se realiza sobre la base de 100 puntos, equivalentes al 80% de la calificación final. Se realizarán las siguientes pruebas: </label>
+            <label for="calificacionMeritosNotaLb" name="lbconocimientoA" id="lbconocimientoA">Examen escrito de conocimientos (prueba de preselección)</label> 
+            <input type="text" name="conocimientosA" id="conocimientosA" value="40"/>
+            <label for="conocimientosB" name="lbconocimientoB" id="lbconocimientoB">Examen oral, donde se evaluarán aspectos didácticos y pedagógicos sobre conocimiento y dominio de la materia. Tendrá una duración máxima de 25 minutos: 15 minutos de exposición y 10 minutos de preguntas: </label>
+            <input type="text" name="conocimientosB" id="conocimientosB" value="60"/>
+            <br>  
+            <br>         
             <label for="delostribunales">De los tribunales: </label>
             <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
             <br>
@@ -942,6 +949,15 @@
             $calificacionExtraB=$_POST['documentosExtra2'];
             $calificacionExtraBB=$_POST['documentosExtraB'];
 
+
+            $conocimientoNotaA=$_POST['conocimientosA'];
+            $conocimientoNotaA=$_POST['conocimientosB'];
+            //$conocimientolbA=$_POST['lbconocimientoA'];
+            $conocimientolbA = "Examen escrito de conocimientos (prueba de preselección)";
+            //$conocimientolbB=$_POST['lbconocimientoB'];
+            $conocimientolbB="Examen oral, donde se evaluarán aspectos didácticos y pedagógicos sobre conocimiento y dominio de la materia. Tendrá una duración máxima de 25 minutos: 15 minutos de exposición y 10 minutos de preguntas: ";
+            
+
             //$itemsR1 = ($_POST['cantidadL']);
             //$itemsR2 = ($_POST['cantidadL']);
             //$itemsR3 = ($_POST['cantidadL']);
@@ -1057,8 +1073,13 @@
                     $idMeritoGencB= pg_query("SELECT MAX(id_regla) from reglas_meritos");
                     $idMeritoGenMaxcB= pg_fetch_row($idMeritoGencB);
                     $idMeritoGenMaxaFinalcB=$idMeritoGenMaxcB[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_conocimiento, nota_conocimiento)
                     VALUES ('$idMeritoGenMaxaFinalcB', 'punto cargo/semestre','$calificacionExtraBB')");
+
+            pg_query($conexion,"INSERT INTO conocimientos (id_convocatoria, descripcion_conocimiento, puntos_norma)
+            VALUES ('$idConvMaxFinal', '$conocimientolbA','$conocimientoNotaA')");
+            pg_query($conexion,"INSERT INTO conocimientos (id_convocatoria, descripcion_conocimiento, puntos_norma)
+            VALUES ('$idConvMaxFinal', '$conocimientolbB','$conocimientoNotaB')");
 
 
         ///////////// SEPARAR VALORES DE ARRAYS, EN ESTE CASO SON 4 ARRAYS UNO POR CADA INPUT (ID, NOMBRE, CARRERA Y GRUPO////////////////////)
