@@ -72,7 +72,17 @@
                                 INICIO
                                 </a>
                             </li>
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="CRUD_publicaciones.php">
+                                CONVOCATORIAS
+                                </a>
+                            </li>
 
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                                CERRAR SESION
+                                </a>
+                            </li>
 
                             </ul>
                             <span class="navbar-text">
@@ -82,8 +92,8 @@
                         </div>
                     </div>
     </nav>
-    <header class="bg-primary w-100 p-4">
-            <h3 class="font-italic"><i class="fas fa-users"></i>
+    <header class="navbar navbar-expand-lg navbar-custom padding-navbar w-100 p-3">
+            <h3 class="font-italic text-white"><i class="fas fa-users"></i>
             <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -119,9 +129,9 @@
                     echo $_SESSION['sesion'];
                     ?>
             </h3>
-            <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
+            <!--<a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
             <br>
-            <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+            <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>-->
     </header>
 
     <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary alert alert-info" role="alert">
@@ -287,7 +297,7 @@
                         <td class="eliminarD"><input type="button"   value="Eliminar fila"/></td>
                     </tr>
                 </table>
-                <button id="adicionarD" name="adicionarD" type="button" class="btnD btn-warning"> Agregar fila </button>
+                <button id="adicionarD" name="adicionarD" type="button" class="btnD btn-success"> Agregar fila </button>
                 <table class="tableL bg-info"  id="tablaL">
                 <thead>
                     <tr>
@@ -307,7 +317,7 @@
                         <td class="eliminarL"><input type="button"   value="Eliminar fila"/></td>
                     </tr>
                 </table>
-                <button id="adicionarL" name="adicionarL" type="button" class="btnL btn-warning"> Agregar fila </button>
+                <button id="adicionarL" name="adicionarL" type="button" class="btnL btn-success"> Agregar fila </button>
             <!--</form>-->
             <br>
             <label for="requerimientosNota">Nota: </label>
@@ -324,7 +334,7 @@
 
             <div class="btn-der">
                 <!--<input type="submit" name="insertarrr" value="Insertar Alumno" class="btn btn-info"/>-->
-                <button id="adicionall" name="adicional1" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicionall" name="adicional1" type="button" class="btn btn-success"> Agregar fila </button>
                 <br>
             </div>
             <br>
@@ -340,7 +350,7 @@
                 </tr>
             </table>
             <div class="btn-der">
-                <button id="adicional2" name="adicional2" type="button" class="btn btn-warning"> Agregar fila </button>
+                <button id="adicional2" name="adicional2" type="button" class="btn btn-success"> Agregar fila </button>
                 <br>
             </div>
             <br>
@@ -406,12 +416,12 @@
                             <br>
                             <label for="rendimientoAcademicoPorcentaje">c.</label><input type="text" name="experienciaGenA3" id="experienciaGenA3" value="1" pattern="[0-9]{1,2}"/><label for="">ptos/semestre y materia de aux. de practicas</label>
                             <br>
-                        
+
                         <label scope="row">
-                        
+
                         <label scope="row">
-                        
-                            
+
+
                         </th>
                             <th scope="row">
                             <input required class="input-sm" name="experienciaGeneral1" id="experienciaGeneral1" value="15" pattern="[0-9]{1,2}"/>
@@ -466,7 +476,7 @@
                         <input required class="input-sm" name="documentosExtra2" id="documentosExtra2" value="5" pattern="[0-9]{1,2}"/>
                         <label for="rendimientoAcademicoPorcentaje">%</label>
                         </th>
-                    </tr> 
+                    </tr>
                 </tbody>
             </table>
 
@@ -925,7 +935,7 @@
             $calificacionExperienciaMs2=$_POST['docExpB'];
             $calificacionExperienciaMs3=$_POST['docExpC'];
 
-            
+
             $calificacionExtra=$_POST['documentosExtra'];
             $calificacionExtraA=$_POST['documentosExtra1'];
             $calificacionExtraAA=$_POST['documentosExtraA'];
@@ -985,69 +995,69 @@
             $items1 = ($_POST['requisito']);
 
             //calificaicones//
-            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito)
             VALUES ('$idConvMaxFinal','RENDIMIENTO ACADEMICO','$calificacionRendimiento')");
                 $idMeritoGen= pg_query("SELECT MAX(id_merito) from meritos_generales");
-                $idMeritoGenMax= pg_fetch_row($idMeritoGen);                
+                $idMeritoGenMax= pg_fetch_row($idMeritoGen);
                 $idMeritoGenMaxFinal=$idMeritoGenMax[0];
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal', '$calificacionRendimientoAMss','$calificacionRendimientoA')");
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal', '$calificacionRendimientoBMss','$calificacionRendimientoB')");
 
-            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito)
             VALUES ('$idConvMaxFinal','Documentos de experiencia universitaria','$calificacionExperiencia')");
                 $idMeritoGen2= pg_query("SELECT MAX(id_merito) from meritos_generales");
-                $idMeritoGenMax2= pg_fetch_row($idMeritoGen2);                
+                $idMeritoGenMax2= pg_fetch_row($idMeritoGen2);
                 $idMeritoGenMaxFinal2=$idMeritoGenMax2[0];
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs1','$calificacionExperienciaA')");//A
                     $idMeritoGena= pg_query("SELECT MAX(id_regla) from reglas_meritos");
-                    $idMeritoGenMaxa= pg_fetch_row($idMeritoGena);                
+                    $idMeritoGenMaxa= pg_fetch_row($idMeritoGena);
                     $idMeritoGenMaxaFinala=$idMeritoGenMaxa[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. titular','$calificacionExperienciaA1')");
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. invitado','$calificacionExperienciaA2')");
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. de practicas','$calificacionExperienciaA3')");
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs2','$calificacionExperienciaB')");//B
                     $idMeritoGenb= pg_query("SELECT MAX(id_regla) from reglas_meritos");
-                    $idMeritoGenMaxb= pg_fetch_row($idMeritoGenb);                
+                    $idMeritoGenMaxb= pg_fetch_row($idMeritoGenb);
                     $idMeritoGenMaxaFinalb=$idMeritoGenMaxb[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalb', 'pto/semestre x materia de aux. invitado o titular','$calificacionExperienciaB1')");
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalb', 'pto/semestre x materia de aux. de practicas','$calificacionExperienciaB2')");
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs3','$calificacionExperienciaC')");//C
                     $idMeritoGenc= pg_query("SELECT MAX(id_regla) from reglas_meritos");
-                    $idMeritoGenMaxc= pg_fetch_row($idMeritoGenc);                
+                    $idMeritoGenMaxc= pg_fetch_row($idMeritoGenc);
                     $idMeritoGenMaxaFinalc=$idMeritoGenMaxc[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalc', 'ptos por dirección de cursillo','$calificacionExperienciaC1')");
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalc', 'ptos por participación en proyectos','$calificacionExperienciaC2')");
 
-            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito)
             VALUES ('$idConvMaxFinal','Documentos de experiencia extrauniversitaria','$calificacionExtra')");
                 $idMeritoGen3= pg_query("SELECT MAX(id_merito) from meritos_generales");
-                $idMeritoGenMax3= pg_fetch_row($idMeritoGen3);                
+                $idMeritoGenMax3= pg_fetch_row($idMeritoGen3);
                 $idMeritoGenMaxFinal3=$idMeritoGenMax3[0];
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal3', 'Auxiliar docente en materias del área troncal','$calificacionExtraA')");
                     $idMeritoGencA= pg_query("SELECT MAX(id_regla) from reglas_meritos");
-                    $idMeritoGenMaxcA= pg_fetch_row($idMeritoGencA);                
+                    $idMeritoGenMaxcA= pg_fetch_row($idMeritoGencA);
                     $idMeritoGenMaxaFinalcA=$idMeritoGenMaxcA[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalcA', 'punto cargo/semestre','$calificacionExtraAA')");
-                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla)
                 VALUES ('$idMeritoGenMaxFinal3', 'Auxiliar en otras ramas o carreras','$calificacionExtraB')");
                     $idMeritoGencB= pg_query("SELECT MAX(id_regla) from reglas_meritos");
-                    $idMeritoGenMaxcB= pg_fetch_row($idMeritoGencB);                
+                    $idMeritoGenMaxcB= pg_fetch_row($idMeritoGencB);
                     $idMeritoGenMaxaFinalcB=$idMeritoGenMaxcB[0];
-                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma)
                     VALUES ('$idMeritoGenMaxaFinalcB', 'punto cargo/semestre','$calificacionExtraBB')");
 
 
