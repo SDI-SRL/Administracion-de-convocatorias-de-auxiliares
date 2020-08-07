@@ -50,8 +50,8 @@
     <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
     <link rel="stylesheet" href="../style/bootstrap.css">
     <link rel="stylesheet" href="../style/myStyle.css">
-    <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>
+    <!--<script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.js"></script>-->
 
     <!--<link rel="stylesheet" href="../style/bootstrap.min.css">-->
     <!-------------------<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
@@ -355,6 +355,126 @@
             <label for="fechayLugarPresentacion">Fecha y lugar de la presentacion: </label>
             <input required class="form-control input-lg" name="fechaLugarPresentacion" id="fechaLugarPresentacion" placeholder="Escriba acerca de la fecha y el lugar de presentacion" value=""/>
             <br>
+            <label for="calificacionMeritosLb">Calificacion de meritos: </label>
+            <input required class="form-control input-lg" name="calificacionMeritos" id="calificacionMeritosLb" placeholder="Escriba acerca de la calificacion de meritos" value=""/>
+            <br>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                    <th scope="col">Descripcion de meritos</th>
+                    <th scope="col">Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Rendimiento academico</th>
+                        <td>
+                            <input required class="input-sm" name="rendimientoAcademico" id="rendimientoAcademico" value="65" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-control input-md" for="rendimientoAcademicoA" name="rendimientoAcademicoA" id="rendimientoAcademicoA" value="a) Promedio de aprobación de la materia a la que postula (incluye reprobadas y abandonos):"/>
+                        <input class="form-control input-md" for="rendimientoAcademicoB" name="rendimientoAcademicoB" id="rendimientoAcademicoB" value="b) Promedio general de materias:"/>
+                        <th scope="row">
+                        <input required class="input-sm" name="rendimientoAcademico1" id="rendimientoAcademico1" value="35" pattern="[0-9]{1,2}"/>
+                        <label for="rendimientoAcademicoPorcentaje">%</label>
+                        <br>
+                        <input required class="input-sm" name="rendimientoAcademico2" id="rendimientoAcademico2" value="30" pattern="[0-9]{1,2}"/>
+                        <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </th>
+                        </th>
+                    <tr>
+                        <th scope="row">Experiencia general</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Se califica sobre la base de tablas elaboradas por el Departamento de Informática y Sistemas conforme a este desglose.</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">Documentos de experiencia universitaria</th>
+                        <td>
+                            <input required class="input-sm" name="experienciaGeneral" id="experienciaGeneral" value="25" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-control input-md" for="docExpA" name="docExpA" id="docExpA" value="a) Auxiliar docente en materias del área troncal:"/>
+                            <label for="rendimientoAcademicoPorcentaje">a.</label>
+                            <input type="text" name="experienciaGenA1" id="experienciaGenA1" value="2" pattern="[0-9]{1,2}"/><label for="">ptos/semestre y materia de aux. titular</label>
+                            <br>
+                            <label for="rendimientoAcademicoPorcentaje">b.</label><input type="text" name="experienciaGenA2" id="experienciaGenA2" value="1" pattern="[0-9]{1,2}"/><label for="">ptos/semestre y materia de aux. invitado</label>
+                            <br>
+                            <label for="rendimientoAcademicoPorcentaje">c.</label><input type="text" name="experienciaGenA3" id="experienciaGenA3" value="1" pattern="[0-9]{1,2}"/><label for="">ptos/semestre y materia de aux. de practicas</label>
+                            <br>
+                        
+                        <label scope="row">
+                        
+                        <label scope="row">
+                        
+                            
+                        </th>
+                            <th scope="row">
+                            <input required class="input-sm" name="experienciaGeneral1" id="experienciaGeneral1" value="15" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                            </th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-control input-md" for="docExpB" name="docExpB" id="docExpB" value="b) Auxiliar en otras ramas o carreras:"/>
+                            <label for="rendimientoAcademicoPorcentaje">a.</label><input type="text" name="experienciaGenB1" id="experienciaGenB1" value="1" pattern="[0-9]{1,2}"/><label for="">pto/semestre x materia de aux. invitado o titular</label>
+                            <br>
+                            <label for="rendimientoAcademicoPorcentaje">b.</label><input type="text" name="experienciaGenB2" id="experienciaGenB2" value="1" pattern="[0-9]{1,2}"/><label for="">pto/semestre x materia de aux. de practicas</label>
+                            <br>
+                        <th scope="row">
+                            <input required class="input-sm" name="experienciaGeneral2" id="experienciaGeneral2" value="5" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-control input-md" for="docExpC" name="docExpC" id="docExpC" value="c) Disertación cursillos y/o participación en Proyectos:"/>
+                            <label for="rendimientoAcademicoPorcentaje">a.</label><input type="text" name="experienciaGenC1" id="experienciaGenC1" value="3" pattern="[0-9]{1,2}"/><label for="">ptos por dirección de cursillo</label>
+                            <br>
+                            <label for="rendimientoAcademicoPorcentaje">b.</label><input type="text" name="experienciaGenC2" id="experienciaGenC2" value="2" pattern="[0-9]{1,2}"/><label for="">ptos por participación en proyectos</label>
+                            <br>
+                        <th scope="row">
+                            <input required class="input-sm" name="experienciaGeneral3" id="experienciaGeneral3" value="5" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th scope="row">Documentos de experiencia extrauniversitaria:</th>
+                        <td>
+                            <input required class="input-sm" name="documentosExtra" id="documentosExtra" value="10" pattern="[0-9]{1,2}"/>
+                            <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><input class="form-control input-md" for="docExpExtraA" name="docExpExtraA" id="docExpExtraA" value="a) Experiencia como operador, programador, analista de sistemas, cargo directivo en centro de cómputo"/>
+                            <label for="rendimientoAcademicoPorcentaje">a.</label><input type="text" name="documentosExtraA" id="documentosExtraA" value="1"/><label for="">punto cargo/semestre</label>
+                            <br>
+                        <input class="form-control input-md" for="docExpExtraB" name="docExpExtraB" id="docExpExtraB" value="b) Experiencia docente en colegios, institutos, etc:"/></label>
+                            <br>
+                            <label for="rendimientoAcademicoPorcentaje">a.</label><input type="text" name="documentosExtraB" id="documentosExtraB" value="1" pattern="[0-9]{1,2}"/><label for="">punto cargo/semestre y certificado</label>
+                            <br>
+                        </th>
+                        <th scope="row">
+                        <input required class="input-sm" name="documentosExtra1" id="documentosExtra1" value="5" pattern="[0-9]{1,2}"/>
+                        <label for="rendimientoAcademicoPorcentaje">%</label>
+                        <br>
+                        <br>
+                        <br>
+                        <input required class="input-sm" name="documentosExtra2" id="documentosExtra2" value="5" pattern="[0-9]{1,2}"/>
+                        <label for="rendimientoAcademicoPorcentaje">%</label>
+                        </th>
+                    </tr> 
+                </tbody>
+            </table>
+
+
+            <br>
+            <label for="calificacionMeritosNotaLb">Nota: </label>
+            <input class="form-control input-lg" name="notaCalificacionMeritos" id="notaCalificacionMeritos" placeholder="Nota de documentos" value=""/>
+            <br>
             <label for="delostribunales">De los tribunales: </label>
             <input required class="form-control input-lg" name="deLosTribunales" id="deLosTribunales" placeholder="Escriba acerca de los tribunales" value=""/>
             <br>
@@ -537,7 +657,7 @@
                 <input type="submit" onclick='alerta()' name="insertarr" value="Publicar" class="btn btn-info"/>
                 <!---                        --------------------------------- -------------------->
                 <!--<a type="button" onclick='sub()' name="visualizar" value="visualizar" data-toggle="modal" data-target="#miModal" class="btn btn-success">Visualizar</a>-->
-                <a type="button" name="visualizar" data-toggle="modal" data-target="#miModal" class="btn btn-success">Visualizar</a>
+                <!--<a type="button" name="visualizar" data-toggle="modal" data-target="#miModal" class="btn btn-success">Visualizar</a>-->
                 <!--<a class="btn btn-success ml-5" name="visualizarr" data-toggle="modal" data-target="#miModal" method='post'>Visualizar</a>-->
                 <!--<a href="../formularios/generarPDF.php" class="btn btn-success ml-5" data-toggle="modal" data-target="#miModal">Visualizar</a>-->
                 <a href="CRUD_publicaciones.php" class="btn btn-danger ml-5">Cancelar</a>
@@ -780,6 +900,38 @@
             $tipoConv="ninguna";
             $gestionYsemestre="$semestreConv $gestionConv";
 
+
+            ///////////////////////////////calificaciones///////////////////////
+
+            $calificacionRendimiento=$_POST['rendimientoAcademico'];
+            $calificacionRendimientoA=$_POST['rendimientoAcademico1'];
+            $calificacionRendimientoB=$_POST['rendimientoAcademico2'];
+            $calificacionRendimientoAMss=$_POST['rendimientoAcademicoA'];
+            $calificacionRendimientoBMss=$_POST['rendimientoAcademicoB'];
+
+
+            $calificacionExperiencia=$_POST['experienciaGeneral'];
+            $calificacionExperienciaA=$_POST['experienciaGeneral1'];
+            $calificacionExperienciaA1=$_POST['experienciaGenA1'];
+            $calificacionExperienciaA2=$_POST['experienciaGenA2'];
+            $calificacionExperienciaA3=$_POST['experienciaGenA3'];
+            $calificacionExperienciaB=$_POST['experienciaGeneral2'];
+            $calificacionExperienciaB1=$_POST['experienciaGenB1'];
+            $calificacionExperienciaB2=$_POST['experienciaGenB2'];
+            $calificacionExperienciaC=$_POST['experienciaGeneral3'];
+            $calificacionExperienciaC1=$_POST['experienciaGenC1'];
+            $calificacionExperienciaC2=$_POST['experienciaGenC2'];
+            $calificacionExperienciaMs1=$_POST['docExpA'];
+            $calificacionExperienciaMs2=$_POST['docExpB'];
+            $calificacionExperienciaMs3=$_POST['docExpC'];
+
+            
+            $calificacionExtra=$_POST['documentosExtra'];
+            $calificacionExtraA=$_POST['documentosExtra1'];
+            $calificacionExtraAA=$_POST['documentosExtraA'];
+            $calificacionExtraB=$_POST['documentosExtra2'];
+            $calificacionExtraBB=$_POST['documentosExtraB'];
+
             //$itemsR1 = ($_POST['cantidadL']);
             //$itemsR2 = ($_POST['cantidadL']);
             //$itemsR3 = ($_POST['cantidadL']);
@@ -831,6 +983,74 @@
 
             $items0 = ($_POST['documentos']);
             $items1 = ($_POST['requisito']);
+
+            //calificaicones//
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            VALUES ('$idConvMaxFinal','RENDIMIENTO ACADEMICO','$calificacionRendimiento')");
+                $idMeritoGen= pg_query("SELECT MAX(id_merito) from meritos_generales");
+                $idMeritoGenMax= pg_fetch_row($idMeritoGen);                
+                $idMeritoGenMaxFinal=$idMeritoGenMax[0];
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal', '$calificacionRendimientoAMss','$calificacionRendimientoA')");
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal', '$calificacionRendimientoBMss','$calificacionRendimientoB')");
+
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            VALUES ('$idConvMaxFinal','Documentos de experiencia universitaria','$calificacionExperiencia')");
+                $idMeritoGen2= pg_query("SELECT MAX(id_merito) from meritos_generales");
+                $idMeritoGenMax2= pg_fetch_row($idMeritoGen2);                
+                $idMeritoGenMaxFinal2=$idMeritoGenMax2[0];
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs1','$calificacionExperienciaA')");//A
+                    $idMeritoGena= pg_query("SELECT MAX(id_regla) from reglas_meritos");
+                    $idMeritoGenMaxa= pg_fetch_row($idMeritoGena);                
+                    $idMeritoGenMaxaFinala=$idMeritoGenMaxa[0];
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. titular','$calificacionExperienciaA1')");
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. invitado','$calificacionExperienciaA2')");
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinala', 'ptos/semestre y materia de aux. de practicas','$calificacionExperienciaA3')");
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs2','$calificacionExperienciaB')");//B
+                    $idMeritoGenb= pg_query("SELECT MAX(id_regla) from reglas_meritos");
+                    $idMeritoGenMaxb= pg_fetch_row($idMeritoGenb);                
+                    $idMeritoGenMaxaFinalb=$idMeritoGenMaxb[0];
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalb', 'pto/semestre x materia de aux. invitado o titular','$calificacionExperienciaB1')");
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalb', 'pto/semestre x materia de aux. de practicas','$calificacionExperienciaB2')");
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal2', '$calificacionExperienciaMs3','$calificacionExperienciaC')");//C
+                    $idMeritoGenc= pg_query("SELECT MAX(id_regla) from reglas_meritos");
+                    $idMeritoGenMaxc= pg_fetch_row($idMeritoGenc);                
+                    $idMeritoGenMaxaFinalc=$idMeritoGenMaxc[0];
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalc', 'ptos por dirección de cursillo','$calificacionExperienciaC1')");
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalc', 'ptos por participación en proyectos','$calificacionExperienciaC2')");
+
+            pg_query($conexion,"INSERT INTO meritos_generales (id_convocatoria, titulo_merito, porcentaje_merito) 
+            VALUES ('$idConvMaxFinal','Documentos de experiencia extrauniversitaria','$calificacionExtra')");
+                $idMeritoGen3= pg_query("SELECT MAX(id_merito) from meritos_generales");
+                $idMeritoGenMax3= pg_fetch_row($idMeritoGen3);                
+                $idMeritoGenMaxFinal3=$idMeritoGenMax3[0];
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal3', 'Auxiliar docente en materias del área troncal','$calificacionExtraA')");
+                    $idMeritoGencA= pg_query("SELECT MAX(id_regla) from reglas_meritos");
+                    $idMeritoGenMaxcA= pg_fetch_row($idMeritoGencA);                
+                    $idMeritoGenMaxaFinalcA=$idMeritoGenMaxcA[0];
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalcA', 'punto cargo/semestre','$calificacionExtraAA')");
+                pg_query($conexion,"INSERT INTO reglas_meritos (id_merito, titulo_regla, porcentaje_regla) 
+                VALUES ('$idMeritoGenMaxFinal3', 'Auxiliar en otras ramas o carreras','$calificacionExtraB')");
+                    $idMeritoGencB= pg_query("SELECT MAX(id_regla) from reglas_meritos");
+                    $idMeritoGenMaxcB= pg_fetch_row($idMeritoGencB);                
+                    $idMeritoGenMaxaFinalcB=$idMeritoGenMaxcB[0];
+                    pg_query($conexion,"INSERT INTO normas_meritos (id_regla, descripcion_norma, puntos_norma) 
+                    VALUES ('$idMeritoGenMaxaFinalcB', 'punto cargo/semestre','$calificacionExtraBB')");
+
+
         ///////////// SEPARAR VALORES DE ARRAYS, EN ESTE CASO SON 4 ARRAYS UNO POR CADA INPUT (ID, NOMBRE, CARRERA Y GRUPO////////////////////)
             while(true) {
                 //id convocatoria///

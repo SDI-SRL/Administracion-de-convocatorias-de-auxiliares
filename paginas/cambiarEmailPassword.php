@@ -54,6 +54,18 @@
                         INICIO
                         </a>
                     </li>
+
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="CRUD_publicaciones.php">
+                            CONVOCATORIAS
+                        </a>
+                    </li>
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                            CERRAR SESION
+                        </a>
+                    </li>
+
                     </ul>           
                     <span class="navbar-text">
                         <script> fecha(); </script>
@@ -62,8 +74,8 @@
             </div>
         </nav> 
     <div>
-    <header class="bg-primary w-100 p-4">
-                <h3 class="font-italic"><i class="fas fa-users"></i>  
+    <header class="navbar navbar-expand-lg navbar-custom padding-navbar w-100 p-4">
+                <h3 class="font-italic text-light"><i class="fas fa-users"></i>    
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -100,9 +112,9 @@
                     ?>
                 
                 </h3>
-                <a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
+                <!--<a href="CRUD_publicaciones.php" class="float-right text-light">Convocatorias</a>
                 <br>
-                <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+                <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>-->
     </header>
 
     <form action="../formularios/form_actualizarDatos.php" method="post" class="border border-dark container w-50 p-3 my-5 alert alert-success text-dark md w-75 sm w-100 " role="alert">

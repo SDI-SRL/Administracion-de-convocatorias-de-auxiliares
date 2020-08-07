@@ -17,17 +17,61 @@
 <!DOCTYPE html>
     <html lang="en">
         <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="icon" href="../img/imagenes/icon.gif" type="image/gif">
+            <script src="../librerias/js/popper-1.14.7.min.js"></script>    
+            <link rel="stylesheet" href="../librerias/css/bootstrap.min.css">    
+            <link rel="stylesheet" href="../librerias/css/styles.css">
+            <link rel="stylesheet" href="../librerias/css/slick.css">
+            <link rel="stylesheet" href="../librerias/css/slick-theme.css">
+            <link rel="stylesheet" href="../librerias/css/cabeceraCss.css">
+            <link rel="alternate" type="application/rss+xml" title="Avisos de Inform&aacute;tica - Sistemas (UMSS)" href="../rss/index.rss">
+            <script src="../librerias/js/jquery-3.3.1.min.js"></script>
+            <script src="../librerias/js/bootstrap.min.js"></script>
+            <script src="../librerias/archivos/script.js"></script>
+            <script src="../librerias/js/slider.js"></script>
+            <script src="../librerias/js/slick.js"></script>
+            <script src="../librerias/archivos/jquery.snow.js"></script>
             <title>Document</title>
+            <link href="css/estilos.css" rel="stylesheet">
             <link rel="stylesheet" href="../style/bootstrap.css">
-            <link rel="stylesheet" href="../style/myStyle.css">
+            <!-- <link rel="stylesheet" href="../style/myStyle.css"> -->
             <script src="https://kit.fontawesome.com/d848ccec99.js" crossorigin="anonymous"></script>
         </head>
 
-        <body class="cuerpo">
-            <header class="bg-info w-100 p-4">
-                <h3 class="font-italic"><i class="fas fa-users"></i>  
+        <body>
+            <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
+                    <div class="container">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>     
+                    </button>
+                    <div class="collapse navbar-collapse" id="navegacion">
+                        <ul id="sub-header2" class="navbar-nav mr-auto">
+                        <li id="menu2" class="nav-item">
+                            <a class="nav-link" href="../index.php">
+                            INICIO
+                            </a>
+                        </li>
+                        
+                        <li id="menu2" class="nav-item">
+                            <a class="nav-link" href="CRUD_publicaciones.php" class="float-right text-light">CONVOCATORIAS</a>
+                        </li>
+                        
+                        <li id="menu2" class="nav-item">
+                            <a class="nav-link" href="../formularios/form_cerrarSession.php" class="float-right text-light">CERRAR SESION</a>
+                        </li>
+                        
+                        </ul>           
+                        <span class="navbar-text">
+                            <script> fecha(); </script>
+                        </span>
+                        
+                    </div>
+                    </div>
+            </nav>
+            <header class="navbar navbar-expand-lg navbar-custom padding-navbar w-100 p-3">
+                <h3 class="font-italic text-light"><i class="fas fa-users"></i>  
                 <?php
                     if(isset($_SESSION['sexoUsuario'])){
                         $sexo=$_SESSION['sexoUsuario'];
@@ -64,12 +108,12 @@
                     ?>
                 
                 </h3>
-                <a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
+                <!--<a href="CRUD_publicaciones.php" class="float-right text-dark">Convocatorias</a>
                 <br>
-                <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>
+                <a href="../formularios/form_cerrarSession.php" class="float-right text-dark">cerrar session</a>-->
             </header>
 
-            <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-primary bg-secondary">
+            <div id="idConvicatoria" class="mx-auto w-75 p-4 my-5 border border-secondary alert alert-primary" role="alert">
             <h1>Editar Convocatoria</h1>
             <form action="../formularios/form_actualizarConvocatoria.php?id=<?php echo $id; ?>" method="post" enctype="multipart/form-data">
                 <input type="text" name="titulo" id="titulo" placeholder="Titulo" autocomplete="off" pattern="[a-zA-Z0-9 ]{2,100}" title="Solo puede ingresar numeros y letras" required value='<?php echo $resultado[0]['titulo'] ?>'>
@@ -78,7 +122,7 @@
                 <textarea id="descripcion" rows="10" cols="190" name="descripcion" style="resize:none; width:100%;"><?php echo $resultado[0]['descripcion_convocatoria']; ?></textarea>
                 <br>
                 <br>
-                <a href="<?php echo $resultado[0]['direcccion_pdf'];?>">Archivo anterior</a><span><----</span><input type="file" required name="archivo" id="archivo"  accept='.pdf'  > 
+                <a href="<?php echo $resultado[0]['direcccion_pdf'];?>" class="text-danger">Archivo anterior</a><span><----</span><input type="file" required name="archivo" id="archivo"  accept='.pdf'  > 
                 <br>
                 <br>
                 <select id="lista1" name="lista1" class="mr-2">

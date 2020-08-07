@@ -29,7 +29,7 @@
       <title>Document</title>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     </head>
-    <body class="alert alert-primary">
+    <body>
         <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
                 <div class="container">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,12 @@
                     <li id="menu2" class="nav-item">
                         <a class="nav-link" href="../index.php">
                         INICIO
+                        </a>
+                    </li>
+
+                    <li id="menu2" class="nav-item">
+                        <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                            CERRAR SESION
                         </a>
                     </li>
                     
@@ -54,7 +60,7 @@
         </nav>
         <hr>
         <h2 class="text-center">Documentos presentados</h2>
-        <table class="table table-warning" border=1>
+        <table class="table table-bordered" border=1>
             <thead>
                 <tr>
                     <td>Descripcion</td>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
   <html>
     <head>
+      <meta charset="UTF-8">
       <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="icon" href="../img/imagenes/icon.gif" type="image/gif">
@@ -18,11 +19,10 @@
       <script src="../librerias/js/slick.js"></script>
       <script src="../librerias/archivos/jquery.snow.js"></script>
       <title>SISTEMA ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</title>
-      <!-- <link rel="stylesheet" href="../style/bootstrap.css">
-      <link rel="stylesheet" href="../style/myStyle.css">  -->
+    
     </head>
     <body>
-        <?php /* include("../plantillas/header.php"); */?>
+        <?php /* include("../plantillas/header.php");*/?>
 
         <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
                     <div class="container">
@@ -31,11 +31,16 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navegacion">
                             <ul id="sub-header2" class="navbar-nav mr-auto">
-                            <!-- <li id="menu2" class="nav-item">
+                            <li id="menu2" class="nav-item">
                                 <a class="nav-link" href="../index.php">
                                 INICIO
                                 </a>
-                            </li> -->
+                            </li>
+                            <li id="menu2" class="nav-item">
+                                <a class="nav-link" href="Postulante.php">
+                                Postulante
+                                </a>
+                            </li>
                             
                             </ul>           
                             <span class="navbar-text">
@@ -46,92 +51,38 @@
                     </div>
         </nav>
 
-        <div>
-
-
-        <div class="d-sm-none d-md-block d-none d-lg-block cabeceraCss">
-                        <div class="cabeceraCssAzul"></div>
-                        <div class="cabeceraCssAzulClaro"></div>
-                        <div class="cabeceraCssBlanca"></div>
-                        <div class="textoCabecera h3">SISTEMA DE ADMINISTRACION DE CONVOCATORIAS DE AUXILIARES</div>
-                        <img class="logoUmssCss" src="../img/imagenes/LogoUMSS.png" alt="UMSS"> 
-                        
-        </div> 
-        </div>
-
-        <div>
-    
-            <div id="navbar-color" class="container-fluid">
+        <div class="container p-2 border border-dark text-dark alert alert-primary mt-5 p-3" role="alert">
+            <form action="../formularios/form_CrearPostulante.php" method="POST">
                 <div class="row">
-                    <div class="col-md-12 p-0">
-                        <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
-                            <div class="collapse navbar-collapse" id="navegacion2"> 
-                            <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
-                                
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="index.php">
-                                    INICIO
-                                    </a>
-                                </li>
-                                
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/login.php">
-                                        SESI&Oacute;N ADMINISTRATIVO
-                                    </a>
-                                </li> 
-
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/postulante.php">
-                                        SESI&Oacute;N POSTULANTE 
-                                    </a>
-                                </li>
-
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/comisionEvaluadora.php">
-                                        SESI&Oacute;N COMISION EVALUADORA 
-                                    </a>
-                                </li>
-                                
-                                <li id="menus" class="nav-item">
-                                    <a class="nav-link" href="../paginas/buscarConvocatorias.php">
-                                        BUSCAR CONVOCATORIA
-                                    </a>
-                                </li>
-
-                            </ul>
-                            </div>
-                        </nav>
+                    <div class="form-group col-6">
+                        <label for="nombrePostulante">Nombre completo: </label>
+                        <input type="text" name="nombrePostulante" class="form-control" id="nombrePostulante" required pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" >
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="ciPostulante">Codigo de carnet: </label>
+                        <input type="text" name="ciPostulante" class="form-control" id="ciPostulante" required pattern="[0-9]{6,10}">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="correoPostulante">Correo Electronico</label>
+                        <input type="email" name="correoPostulante" class="form-control" id="correoPostulante" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="telefonoPostulante">Telefono: </label>
+                        <input type="password" name="telefonoPostulante" class="form-control" id="telefonoPostulante" pattern="[0-9]{7,8}" required>  
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="passPostulante">Password: </label>
+                        <input type="password" name="passPostulante" class="form-control" id="passPostulante" pattern="^(?=.{4,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" required>     
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="passRepeat">Repita su password: </label>
+                        <input type="password" name="passRepeat" class="form-control" id="passRepeat" pattern="^(?=.{4,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$" required>  
+                    </div>
+                    <div class="col-12 text-center">
+                        <input type="submit" class='btn btn-primary' value="Crear usuario">
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div>
-            <h3 class="p-2 text-center">
-                <a>Autenticacion Postulante</a>
-            </h3>
-                
-        </div>
-
-        <div class="container p-2 border border-dark text-dark alert alert-primary w-50 mt-5 p-3" role="alert">
-            <form action="../formularios/form_verificarPostulante.php" method="post" class="form-horizontal">
-                <!-- <h3 class="text-center"> Autenticacion Postulante</h3> -->
-                <div class="form-group">
-                    <label for="correoPostulante">Correo Electronico: </label>
-                    <input type="email" name="correoPostulante" id="correoPostulante" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="passPostulante">Contraseña: </label>
-                    <input type="password" name="passPostulante" id="passPostulante" class="form-control" required pattern="^(?=.{4,}$)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*$">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Recordar usuarios</label>
-                </div>
-                <div class='text-center'>
-                    <input type="submit" class='btn btn-success' value="Entrar">
-                </div>
             </form>
-            <a href="crearNuevaCuenta.php">Crear una cuenta de postulante</a>
         </div>
 
         <?php /* include("../plantillas/footer.php");*/?>
@@ -177,14 +128,4 @@
             ajustarFooter();
         </script>
     </body>
-    <?php
-            if(isset($_GET['problem'])){
-                $valor=$_GET['problem'];
-                echo "<script>";
-                if($valor=='x'){
-                echo    "alert('No existe el postulante');";
-                echo "</script>";
-                }
-            }
-    ?>
 </html>

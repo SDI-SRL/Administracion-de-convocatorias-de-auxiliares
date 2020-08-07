@@ -30,8 +30,8 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="../style/bootstrap.css">
-      <link rel="stylesheet" href="../style/myStyle.css">
+      <!--<link rel="stylesheet" href="../style/bootstrap.css">
+      <link rel="stylesheet" href="../style/myStyle.css">-->
       <style type="text/css">
         #nuevaConvocatoria:link
         {
@@ -42,7 +42,7 @@
     </head>
 
 <body>
-
+    <div>
     <nav class="navbar navbar-expand-lg navbar-custom padding-navbar">
                     <div class="container">
                         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navegacion,#navegacion2" aria-controls="navegacion" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,6 +56,17 @@
                                 </a>
                             </li>
                             
+                            <li id="menu2" class="nav-item">
+                                    <a class="nav-link" href="../paginas/cambiarEmailPassword.php">
+                                    CAMBIAR CONTRASEÑA
+                                    </a>
+                                </li>
+
+                                <li id="menu2" class="nav-item">
+                                    <a class="nav-link" href="../formularios/form_cerrarSession.php">
+                                    CERRAR SESION
+                                    </a>
+                                </li>    
                             
                             </ul>           
                             <span class="navbar-text">
@@ -66,8 +77,8 @@
                     </div>
     </nav>
 
-    <header class="bg-primary w-100 p-4">
-        <h3 class="font-italic"><i class="fas fa-users"></i>  
+    <header class="p-3 navbar navbar-expand-lg navbar-custom padding-navbar">
+    <h3 class="font-italic text-light"><i class="fas fa-users"></i>   
             <?php
                 if(isset($_SESSION['sexoUsuario'])){
                     $sexo=$_SESSION['sexoUsuario'];
@@ -112,9 +123,9 @@
 
             ?>
         </h3>        
-        <a href="../paginas/cambiarEmailPassword.php" class="float-right text-light">Cambiar Contraseña</a>
+        <!--<a href="../paginas/cambiarEmailPassword.php" class="float-right text-light">Cambiar Contraseña</a>
         <br>
-        <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+        <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>-->
     </header>
     <?php
                 if(isset($_GET['tit']) && isset($_GET['color'])){ ?>

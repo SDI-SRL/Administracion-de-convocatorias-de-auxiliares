@@ -44,7 +44,10 @@
                     INICIO
                     </a>
                   </li>
-                  
+
+                  <li id="menu2" class="nav-item">
+                    <a class="nav-link" href="../formularios/form_cerrarSession.php" class="float-right text-light">CERRAR SESION</a>
+                  </li>
                   
                 </ul>           
                 <span class="navbar-text">
@@ -55,11 +58,13 @@
             </div>
     </nav>
 
-    <header class='p-5 bg-primary'>
+    <header class='p-3 navbar navbar-expand-lg navbar-custom padding-navbar'>
         <h3 class='text-light'>Bienvenido <?php echo $nombreEvaluador; ?></h3>
-        <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a>
+        <!-- <a href="../formularios/form_cerrarSession.php" class="float-right text-light">cerrar session</a> -->
     </header>
-        <main class='p-3 border border-dark alert alert-primary' role="alert">
+        <hr>
+    <div class="container-fluid text-left">
+        <main class='p-3 border border-dark'>
         <?php require_once("../modelo/evaluadoresMeritos.php");
             $evaluador = new Evaluador();
             $lista = $evaluador->obtenerListaMaterias($idEvaluador);
@@ -80,7 +85,7 @@
                     foreach($postulantesInscritos as $postulante){
                         $archivosCompletados = $evaluador->postulanteHabilitadoDocumentos($postulante['id_postulante'],$materia['id_requerimiento']);
                         echo "<div class='container'>
-                        <table class='table table-warning'>
+                        <table class='table table-bordered'>
                             <thead>
                                 <tr>
                                     <th>Nombre</th>
@@ -111,5 +116,6 @@
         ?>
         
         </main>
+    </div>
 </body>
 </html>
