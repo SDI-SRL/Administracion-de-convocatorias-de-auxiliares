@@ -36,11 +36,11 @@
               </button>
               <div class="collapse navbar-collapse" id="navegacion">
                 <ul id="sub-header2" class="navbar-nav mr-auto">
-                  <li id="menu2" class="nav-item">
+                  <!--<li id="menu2" class="nav-item">
                     <a class="nav-link" href="index.php">
                     INICIO
                     </a>
-                  </li>
+                  </li>-->
                   
                   
                 </ul>           
@@ -68,34 +68,38 @@
                         <nav class="navbar navbar-expand-lg navbar-light navbar-guest padding-navbar">
                         <div class="collapse navbar-collapse" id="navegacion2"> 
                         <ul id="sub-header" class="nav navbar-nav nav-justified w-100">
-                          
+                          <li id="menus" class="nav-item">
+                            <a class="nav-link" href="index.php">
+                            INICIO
+                            </a>
+                          </li>
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/login.php">
-                                 Sesi&oacute;n Administrativo
+                                 SESI&Oacute;N ADMINISTRATIVO
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/postulante.php">
-                                Sesion Postulante 
+                              SESI&Oacute;N POSTULANTE 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                               <a class="nav-link" href="paginas/comisionEvaluadora.php">
-                                Sesion Comision Evaluadora 
+                              SESI&Oacute;N COMISION EVALUADORA 
                               </a>
                           </li>
 
                           <li id="menus" class="nav-item">
                                     <a class="nav-link" href="paginas/buscarConvocatorias.php">
-                                    Buscar Convocatoria 
+                                    BUSCAR CONVOCATORIA 
                                     </a>
                           </li>
                         </ul>
                         </div>
                         </nav>
-                    <div class="modal" id="busqueda-rapida">
+                    <!--<div class="modal" id="busqueda-rapida">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -125,7 +129,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <script>
                         $('ul.nav li.dropdown').hover(function() {
                           $(this).find('.dropdown-menu').stop(true, true).delay(20).fadeIn(500);
@@ -180,7 +184,7 @@
             <div class="container-fluid">
               <div>
                 <h4 class="p-2 text-center">
-                  <a href='rep_lista_avisos.html'>Convocatorias Publicadas</a>
+                <a>Publicaciones de Convocatorias</a>
                 </h4>
                 <!-- <div>
                   
@@ -194,7 +198,7 @@
                 <!-- <div class="inline-flex justify-content-center row mt-1"> -->
                 <section>
                     <div class="d-block w-75 mx-auto">
-                        <h2 class="text-center" >publicadas recientemente</h2>
+                        <!--<h2 class="text-center" >publicadas recientemente</h2>-->
                         <?php
                             date_default_timezone_set('America/La_Paz');
                             $fechaActual=date("Y-m-d H:i:s");
